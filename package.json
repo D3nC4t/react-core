@@ -1,0 +1,48 @@
+{
+  "name": "@d3nc4t/react-core",
+  "version": "0.1.0",
+  "description": "The core library of Code For Tomorrow for React",
+  "main": "index.js",
+  "module": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:D3nC4t/react-core.git"
+  },
+  "keywords": [
+    "code",
+    "for",
+    "tomorrow",
+    "react",
+    "core"
+  ],
+  "author": "Catarina Freitas",
+  "license": "UNLICENSED",
+  "types": "./index.d.ts",
+  "bugs": {
+    "url": "https://github.com/D3nC4t/react-core/issues"
+  },
+  "homepage": "https://github.com/D3nC4t/react-core/issues#readme",
+  "peerDependencies": {
+    "react": "^16.8.6 || ^18.2.0",
+    "react-dom": "^16.8.6 || ^18.2.0",
+    "storybook": "^7.5.3 || ^8.0.0"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "object-hash": "^3.0.0",
+    "react-transition-group": "^4.4.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.38",
+    "@types/react-dom": "^18.2.17",
+    "@types/react-is": "^18.2.4",
+    "typescript": "^4.9.5"
+  }
+}

@@ -35,7 +35,6 @@ import Box from './Box';
 import _objectWithoutProperties from '../utils/_objectWithoutProperties';
 import styled, { getClassName } from '../theme/styled';
 import { useDefaultProps, useVariantJCss } from '../theme';
-var StyledBox = styled(Box)({});
 var StyledSpan = styled('span')({
     display: 'inline-block',
 });
@@ -61,7 +60,7 @@ export var CircularLoading = forwardRef(function (_a, ref) {
         }
         set$lines($lines);
     }, [withProps.linesJCss, withProps.lines$el, withProps.nLines]);
-    return (_jsx(StyledBox, __assign({ className: getClass(), jCss: jCss, name: name }, _objectWithoutProperties(withProps, [
+    return (_jsx(Box, __assign({ className: getClass(), jCss: jCss, name: name }, _objectWithoutProperties(withProps, [
         'className',
         'jCss',
     ]), { ref: ref }, { children: _jsx(StyledSpan, __assign({ className: getClass('inner') }, { children: $lines })) })));

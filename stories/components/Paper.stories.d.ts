@@ -1,32 +1,10 @@
-/// <reference types="react" />
+import React from 'react';
 import type { StoryObj } from '@storybook/react';
 declare const meta: {
     title: string;
-    component: import("react").ForwardRefExoticComponent<import("../../components/Paper").PaperProps>;
+    component: React.ForwardRefExoticComponent<import("../../components/Paper").PaperProps>;
     tags: string[];
-    argTypes: {
-        $bgColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bRadius: {
-            control: {
-                type: string;
-            };
-        };
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<import("../../components/Paper").PaperProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

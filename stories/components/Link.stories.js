@@ -9,31 +9,18 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var _a;
 import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import Box from '../../components/Box';
 import Link from '../../components/Link';
 import { appTheme } from '../../theme';
+import { LinkControls } from '../controls';
 Box.displayName = 'Box';
 Link.displayName = 'Link';
 var meta = {
     title: 'Core/Components/Link',
     component: Link,
     tags: ['autodocs'],
-    argTypes: {
-        color: {
-            options: Object.keys(appTheme.color),
-            control: { type: 'select' },
-        },
-        colorVariant: {
-            options: Object.keys(appTheme.color.primary),
-            control: { type: 'select' },
-        },
-        variant: {
-            options: Object.keys((_a = appTheme.components.C4tLink.variants) !== null && _a !== void 0 ? _a : {}),
-            control: { type: 'select' },
-        },
-    },
+    argTypes: LinkControls,
 };
 export default meta;
 export var Default = {

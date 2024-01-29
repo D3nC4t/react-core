@@ -4,14 +4,7 @@ declare const meta: {
     title: string;
     component: import("react").ForwardRefExoticComponent<import("../../components/Typography").TypographyProps & import("react").RefAttributes<HTMLDivElement>>;
     tags: string[];
-    argTypes: {
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<import("../../components/Typography").TypographyProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

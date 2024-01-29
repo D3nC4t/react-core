@@ -11,39 +11,19 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useRef, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import Box from '../../components/Box';
 import Button from '../../components/Button';
 import Modal from '../../components/Modal';
+import LocaleProvider from '../../translations/component';
+import { ModalControls } from '../controls';
 Box.displayName = 'Box';
 Modal.displayName = 'Modal';
 var meta = {
     title: 'Core/Components/Modal',
     component: Modal,
     tags: ['autodocs'],
-    argTypes: {
-        $bgColor: {
-            control: { type: 'color' },
-        },
-        $bColor: {
-            control: { type: 'color' },
-        },
-        $bRadius: {
-            control: { type: 'text' },
-        },
-        portalVariant: {
-            options: [
-                'bottom', 'bottom-left', 'bottom-right',
-                'center', 'left', 'right',
-                'root',
-                'top', 'top-left', 'top-right',
-            ],
-            control: { type: 'select' },
-        },
-        variant: {
-            options: ['bordered', 'root', 'round-bordered', 'rounded'],
-            control: { type: 'select' },
-        },
-    },
+    argTypes: ModalControls,
 };
 export default meta;
 export var Default = {
@@ -52,15 +32,14 @@ export var Default = {
     },
 };
 var WrappedModal = function (props) {
-    var _a, _b;
     var ref = useRef(null);
-    var _c = useState(0), refresh = _c[0], setRefresh = _c[1];
-    return (_jsxs(Box, { children: [refresh > 0 && _jsxs(Button, __assign({ variant: 'contained', onClick: function () {
-                    var _a;
-                    (_a = ref.current) === null || _a === void 0 ? void 0 : _a.openPortal();
-                } }, { children: ["Open ", (_a = props.variant) === null || _a === void 0 ? void 0 : _a.toUpperCase()] })), _jsx(Modal, __assign({ ref: ref }, props, { updateRef: function () {
-                    setRefresh(function (prev) { return prev + 1; });
-                } }, { children: _jsx("span", { children: (_b = props.variant) === null || _b === void 0 ? void 0 : _b.toUpperCase() }) }))] }));
+    var _a = useState(0), refresh = _a[0], setRefresh = _a[1];
+    return (_jsx(LocaleProvider, __assign({ module: 'storybook' }, { children: _jsxs(Box, { children: [refresh > 0 && _jsxs(Button, __assign({ variant: 'contained', onClick: function () {
+                        var _a;
+                        (_a = ref.current) === null || _a === void 0 ? void 0 : _a.openPortal();
+                    } }, { children: [_jsx(FormattedMessage, { id: "open" }), " ", _jsx(FormattedMessage, { id: "variant", values: { name: props.variant } })] })), _jsx(Modal, __assign({ ref: ref }, props, { updateRef: function () {
+                        setRefresh(function (prev) { return prev + 1; });
+                    } }, { children: _jsx("span", { children: _jsx(FormattedMessage, { id: "variant", values: { name: props.variant } }) }) }))] }) })));
 };
 export var Root = {
     args: {

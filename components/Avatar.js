@@ -21,7 +21,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { forwardRef, useEffect, useImperativeHandle, useLayoutEffect, useRef, useState, } from 'react';
+import { forwardRef, useEffect, useLayoutEffect, useState, } from 'react';
 import Box from './Box';
 import _objectWithoutProperties from '../utils/_objectWithoutProperties';
 import styled, { getClassName } from '../theme/styled';
@@ -32,20 +32,9 @@ export var Avatar = forwardRef(function (_a, ref) {
     var _b, _c;
     var children = _a.children, _d = _a.name, name = _d === void 0 ? 'C4tAvatar' : _d, inputProps = __rest(_a, ["children", "name"]);
     var withProps = useDefaultProps(inputProps, name);
-    var outerRef = useRef(null);
-    var innerRef = useRef(null);
     var _e = useState(''), altText = _e[0], setAltText = _e[1];
     var _f = useState(false), hasError = _f[0], setHasError = _f[1];
     var jCss = useVariantJCss(withProps, name, withProps.variant);
-    useImperativeHandle(ref, function () {
-        if (outerRef.current && innerRef.current) {
-            outerRef.current.innerRef = innerRef.current;
-        }
-        return outerRef.current;
-    }, [
-        innerRef, innerRef.current,
-        outerRef, outerRef.current,
-    ]);
     useEffect(function () {
         var _a, _b;
         var words = (_b = (_a = withProps.alt) === null || _a === void 0 ? void 0 : _a.split(' ')) !== null && _b !== void 0 ? _b : [];
@@ -55,7 +44,7 @@ export var Avatar = forwardRef(function (_a, ref) {
     useLayoutEffect(function () {
         setHasError(false);
     }, [withProps.src]);
-    return (_jsxs(StyledBox, __assign({ className: getClassName(withProps, name, withProps.variant, 'box') }, withProps.boxProps, { variant: (_c = (_b = withProps.boxProps) === null || _b === void 0 ? void 0 : _b.variant) !== null && _c !== void 0 ? _c : 'auto-fit', ref: outerRef }, { children: [!children && withProps.src && withProps.src !== '' && !hasError && _jsx(StyledAvatarImg, __assign({ className: getClassName(withProps, name, withProps.variant, 'img'), jCss: jCss, name: name, onError: function () { return setHasError(true); } }, _objectWithoutProperties(withProps, [
+    return (_jsxs(StyledBox, __assign({ className: getClassName(withProps, name, withProps.variant, 'box') }, withProps.boxProps, { variant: (_c = (_b = withProps.boxProps) === null || _b === void 0 ? void 0 : _b.variant) !== null && _c !== void 0 ? _c : 'auto-fit', ref: ref }, { children: [!children && withProps.src && withProps.src !== '' && !hasError && _jsx(StyledAvatarImg, __assign({ className: getClassName(withProps, name, withProps.variant, 'img'), jCss: jCss, name: name, onError: function () { return setHasError(true); } }, _objectWithoutProperties(withProps, [
                 'boxProps',
                 'className',
                 'jCss',

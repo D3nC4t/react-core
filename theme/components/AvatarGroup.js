@@ -79,6 +79,12 @@ var AvatarGroup = {
                                 var _a, _b;
                                 return theme.get.color((_a = props.$bColor) !== null && _a !== void 0 ? _a : 'primary', (_b = props.$bColorVariant) !== null && _b !== void 0 ? _b : 'text');
                             },
+                            '& > *': {
+                                color: function (theme, props) {
+                                    var _a, _b;
+                                    return theme.get.color((_a = props.$bColor) !== null && _a !== void 0 ? _a : 'primary', (_b = props.$bColorVariant) !== null && _b !== void 0 ? _b : 'main') + ' !important';
+                                },
+                            },
                         },
                         _a;
                 })),

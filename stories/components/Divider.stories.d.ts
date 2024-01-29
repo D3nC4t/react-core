@@ -1,39 +1,11 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { DividerProps } from '../../components/Divider';
+import { DividerProps } from '../../components';
 declare const meta: {
     title: string;
     component: React.ForwardRefExoticComponent<DividerProps & React.RefAttributes<HTMLDivElement>>;
     tags: string[];
-    argTypes: {
-        color: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-        $bgColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bRadius: {
-            control: {
-                type: string;
-            };
-        };
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<DividerProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

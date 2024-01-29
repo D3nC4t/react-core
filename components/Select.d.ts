@@ -66,9 +66,9 @@ export interface SelectProps extends Omit<HTMLAttributes<HTMLElement>, 'onChange
      */
     paperVariant?: PaperProps['variant'];
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tSelect';
     /**
      * Use true to use a popover instead of an attached floating element
      */

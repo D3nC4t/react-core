@@ -15,9 +15,9 @@ export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
      */
     jCss?: JCssProps<Theme, ButtonGroupProps>;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tButtonGroup';
     /**
      * The direction that the buttons should be shown
      */

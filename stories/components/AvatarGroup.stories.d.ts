@@ -1,33 +1,11 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { AvatarGroupProps } from '../../components/AvatarGroup';
+import { AvatarGroupProps } from '../../components';
 declare const meta: {
     title: string;
     component: React.ForwardRefExoticComponent<AvatarGroupProps & React.RefAttributes<HTMLDivElement>>;
     tags: string[];
-    argTypes: {
-        $bgColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bRadius: {
-            control: {
-                type: string;
-            };
-        };
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<AvatarGroupProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

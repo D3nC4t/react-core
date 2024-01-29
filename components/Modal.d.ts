@@ -7,6 +7,10 @@ export interface ModalProps extends PortalProps {
      */
     jCss?: JCssProps<Theme, ModalProps>;
     /**
+     * The name for this element
+     */
+    name?: string | 'C4tModal';
+    /**
      * The name of the variant to apply on the Portal
      */
     portalVariant?: PortalProps['variant'];

@@ -1,15 +1,11 @@
 import Typography from '../../components/Typography';
+import { TypographyControls } from '../controls';
 Typography.displayName = 'Typography';
 var meta = {
     title: 'Core/Components/Typography',
     component: Typography,
     tags: ['autodocs'],
-    argTypes: {
-        variant: {
-            options: ['root', 'h1', 'h2', 'h3', 'h4', 'h5', 'bold', 'small', 'caption'],
-            control: { type: 'select' },
-        },
-    },
+    argTypes: TypographyControls,
 };
 export default meta;
 export var Root = {

@@ -3,7 +3,7 @@ export default function useDebouncedCallback(callback, deps, delay) {
     if (delay === void 0) { delay = 300; }
     var $callback = useCallback(callback, deps);
     var $timeout = useRef();
-    var _a = useState($callback), debouncedCallback = _a[0], setDebouncedCallback = _a[1];
+    var _a = useState(function () { return $callback; }), debouncedCallback = _a[0], setDebouncedCallback = _a[1];
     useEffect(function () {
         setDebouncedCallback(function () { return (function () {
             var args = [];

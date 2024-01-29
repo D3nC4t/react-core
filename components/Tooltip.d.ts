@@ -22,7 +22,7 @@ export interface TooltipProps extends BoxProps {
     /**
      * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tTooltip';
     /**
      * The element or text to be shown as tooltip
      */

@@ -10,10 +10,14 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { FormattedMessage } from 'react-intl';
 import Autocomplete from '../../components/Autocomplete';
 import Box from '../../components/Box';
+import LocaleProvider from '../../translations/component';
 import Typography from '../../components/Typography';
+import { useTranslations } from '../../translations';
 import { appTheme } from '../../theme';
+import { AutocompleteControls } from '../controls';
 Autocomplete.displayName = 'Autocomplete';
 Box.displayName = 'Box';
 Typography.displayName = 'Typography';
@@ -21,34 +25,18 @@ var meta = {
     title: 'Core/Components/Autocomplete',
     component: Autocomplete,
     tags: ['select'],
-    argTypes: {
-        paperVariant: {
-            options: ['bordered', 'root', 'round-bordered', 'round-shadowed', 'rounded', 'shadowed'],
-            control: { type: 'select' },
-        },
-        variant: {
-            options: [
-                'contained', 'round-contained',
-                'dashed',
-                'dotted',
-                'outlined', 'round-outlined',
-                'root',
-                'rounded',
-                'shadowed',
-            ],
-            control: { type: 'select' },
-        },
-    },
+    argTypes: AutocompleteControls,
 };
 export default meta;
+var TranslatedAutocomplete = function (props) {
+    var intl = useTranslations('storybook')[0];
+    return (_jsx(LocaleProvider, __assign({ module: 'storybook' }, { children: _jsxs(Autocomplete, __assign({ title: props.multiple
+                ? intl.formatMessage({ id: 'autocomplete.multiple' })
+                : intl.formatMessage({ id: 'autocomplete.single' }) }, props, { children: [_jsx("span", { children: _jsx(FormattedMessage, { id: 'autocomplete.test-option', values: { index: 1 } }) }, 'test1'), _jsx("span", { children: _jsx(FormattedMessage, { id: 'autocomplete.test-option', values: { index: 2 } }) }, 'test2'), _jsx("span", { children: _jsx(FormattedMessage, { id: 'autocomplete.test-option', values: { index: 3 } }) }, 'test3')] })) })));
+};
 export var Default = {
-    args: {
-        children: [
-            _jsx("span", { children: "test 1" }, 'test1'),
-            _jsx("span", { children: "test 2" }, 'test2'),
-            _jsx("span", { children: "test 3" }, 'test3'),
-        ],
-    },
+    args: {},
+    render: function (props) { return (_jsx(TranslatedAutocomplete, __assign({}, props))); },
 };
 var renderThemeColorsAndMutations = function (props) {
     var $groups = [];
@@ -59,12 +47,10 @@ var renderThemeColorsAndMutations = function (props) {
     ]);
     for (var _i = 0, _a = Object.keys(appTheme.color); _i < _a.length; _i++) {
         var color = _a[_i];
-        var firstLetter = color[0].toUpperCase();
-        var text = firstLetter + color.substring(1, color.length);
-        $groups.push(_jsxs(Box, __assign({ jCss: {
+        $groups.push(_jsx(Box, __assign({ jCss: {
                 padding: '1rem',
                 border: appTheme.get.border(appTheme.shape.border.size, appTheme.shape.border.unit, appTheme.shape.border.shape, 'grey', 'darker'),
-            }, variant: 'flex-column' }, { children: [text, _jsxs(Typography, __assign({ variant: 'p' }, { children: ["Single select", _jsx(Autocomplete, __assign({ color: color, value: 'test1' }, props))] })), _jsxs(Typography, __assign({ variant: 'p' }, { children: ["Multi select", _jsx(Autocomplete, __assign({ color: color, multiple: true, value: ['test1', 'test3'] }, props))] })), _jsxs(Typography, __assign({ variant: 'p' }, { children: ["Disabled", _jsx(Autocomplete, __assign({ color: color, disabled: true, value: 'test1' }, props))] })), _jsxs(Typography, __assign({ variant: 'p' }, { children: ["Invalid", _jsx(Autocomplete, __assign({ color: color, invalid: true, value: 'test1' }, props))] }))] })));
+            }, variant: 'flex-column' }, { children: _jsxs(LocaleProvider, __assign({ module: 'storybook' }, { children: [_jsx(FormattedMessage, { id: 'examples.color', values: { name: color } }), _jsxs(Typography, __assign({ variant: 'p' }, { children: [_jsx(FormattedMessage, { id: 'autocomplete.mutation.single' }), _jsx(TranslatedAutocomplete, __assign({ color: color, value: 'test1' }, props))] })), _jsxs(Typography, __assign({ variant: 'p' }, { children: [_jsx(FormattedMessage, { id: 'autocomplete.mutation.multiple' }), _jsx(TranslatedAutocomplete, __assign({ color: color, multiple: true, value: ['test1', 'test3'] }, props))] })), _jsxs(Typography, __assign({ variant: 'p' }, { children: [_jsx(FormattedMessage, { id: 'disabled' }), _jsx(TranslatedAutocomplete, __assign({ color: color, disabled: true, value: 'test1' }, props))] })), _jsxs(Typography, __assign({ variant: 'p' }, { children: [_jsx(FormattedMessage, { id: 'invalid' }), _jsx(TranslatedAutocomplete, __assign({ color: color, invalid: true, value: 'test1' }, props))] }))] })) })));
     }
     return (_jsx(Box, __assign({ variant: 'flex-row' }, { children: $groups })));
 };

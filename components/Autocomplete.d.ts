@@ -8,9 +8,9 @@ export interface AutocompleteProps extends SelectProps {
      */
     jCss?: JCssProps<Theme>;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tAutocomplete';
     /**
      * An alternative theme name of the select component
      */

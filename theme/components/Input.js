@@ -68,7 +68,7 @@ var Input = {
                 styles: function (_a) {
                     var _b, _c, _d;
                     var theme = _a.theme, props = __rest(_a, ["theme"]);
-                    return (__assign({ backgroundColor: 'inherit', border: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, 'transparent'), borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, (_b = props.color) !== null && _b !== void 0 ? _b : 'primary', 'main'), fontFamily: theme.typography.fontFamily, minWidth: 0, padding: "".concat(theme.spacing.xxs).concat(theme.shape.unit, " ").concat(theme.spacing.xs).concat(theme.shape.unit), '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
+                    return (__assign({ backgroundColor: 'inherit', border: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, 'transparent'), borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, (_b = props.color) !== null && _b !== void 0 ? _b : 'primary', 'main'), fontFamily: theme.typography.fontFamily, flexGrow: 1, minWidth: 0, padding: "".concat(theme.spacing.xxs).concat(theme.shape.unit, " ").concat(theme.spacing.xs).concat(theme.shape.unit), '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
                             WebkitAppearance: 'none',
                             margin: 0,
                         }, '&[type="number"]': {

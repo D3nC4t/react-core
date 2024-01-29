@@ -1,18 +1,11 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { InputProps } from '../../components/Input';
+import { InputProps } from '../../components';
 declare const meta: {
     title: string;
-    component: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<import("../../components/Input").InputRef>>;
+    component: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<import("../../components").InputRef>>;
     tags: string[];
-    argTypes: {
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<InputProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

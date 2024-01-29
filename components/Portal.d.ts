@@ -24,6 +24,10 @@ export interface PortalProps extends Omit<BoxProps, 'variant'> {
      */
     jCss?: JCssProps<Theme, PortalProps>;
     /**
+     * The name for this element
+     */
+    name?: string | 'C4tPortal';
+    /**
      * Triggered when closing the portal
      */
     onClose?: () => void;

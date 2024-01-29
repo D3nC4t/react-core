@@ -26,16 +26,17 @@ var Select = {
         variants: {
             'root': {
                 styles: function (_a) {
-                    var _b, _c, _d, _e;
-                    var _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+                    var _b, _c, _d, _e, _f;
+                    var _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
                     var theme = _a.theme, props = __rest(_a, ["theme"]);
-                    var baseClass = "".concat(props.name, "-").concat((_f = props.variant) !== null && _f !== void 0 ? _f : 'root');
+                    var baseClass = "".concat(props.name, "-").concat((_g = props.variant) !== null && _g !== void 0 ? _g : 'root');
                     return _b = {
                             padding: 0,
-                            width: theme.get.rem((_g = props.width) !== null && _g !== void 0 ? _g : 128, 'px')
+                            width: theme.get.rem((_h = props.width) !== null && _h !== void 0 ? _h : 128, 'px')
                         },
                         _b["& .".concat(baseClass, "__input")] = (_c = {
                                 alignItems: 'center',
+                                cursor: 'pointer',
                                 display: 'flex',
                                 flexDirection: 'row',
                                 justifyContent: 'space-between',
@@ -43,20 +44,25 @@ var Select = {
                                 height: theme.get.rem(theme.spacing.sm + theme.spacing.xs, 'px'),
                                 padding: "".concat(theme.spacing.xxs).concat(theme.shape.unit, " 0")
                                     + " ".concat(theme.spacing.xxs).concat(theme.shape.unit, " ").concat(theme.spacing.xs).concat(theme.shape.unit),
-                                width: theme.get.rem(((_h = props.width) !== null && _h !== void 0 ? _h : 128) - (theme.spacing.xs + theme.spacing.xxs), 'px'),
+                                width: theme.get.rem(((_j = props.width) !== null && _j !== void 0 ? _j : 128) - (theme.spacing.xs + theme.spacing.xxs), 'px'),
                                 border: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, 'transparent'),
-                                borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, (_j = props.color) !== null && _j !== void 0 ? _j : 'primary', (_k = props.colorVariant) !== null && _k !== void 0 ? _k : 'main'),
-                                '&.invalid': {
-                                    borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, 'error', props.color === 'error' ? 'light' : 'main'),
-                                },
-                                '&.disabled': (_d = {
-                                        color: theme.get.color('grey', 'light'),
-                                        borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, 'grey', 'lighter')
+                                borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, (_k = props.color) !== null && _k !== void 0 ? _k : 'primary', (_l = props.colorVariant) !== null && _l !== void 0 ? _l : 'main'),
+                                '&.invalid': (_d = {
+                                        borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, 'error', props.color === 'error' ? 'light' : 'main')
                                     },
                                     _d["& .".concat(baseClass, "__icon > svg")] = {
+                                        color: theme.get.color('error', 'main'),
+                                    },
+                                    _d),
+                                '&.disabled': (_e = {
+                                        color: theme.get.color('grey', 'light'),
+                                        cursor: 'default',
+                                        borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, 'grey', 'lighter')
+                                    },
+                                    _e["& .".concat(baseClass, "__icon > svg")] = {
                                         color: theme.get.color('grey', 'lighter'),
                                     },
-                                    _d)
+                                    _e)
                             },
                             _c["& .".concat(baseClass, "__selection")] = {
                                 maxWidth: "calc(100% - ".concat(theme.get.rem(22, 'px'), ")"),
@@ -71,7 +77,7 @@ var Select = {
                                     textWrap: 'nowrap',
                                 },
                                 '& svg': {
-                                    color: theme.get.color((_l = props.color) !== null && _l !== void 0 ? _l : 'primary', 'main'),
+                                    color: theme.get.color((_m = props.color) !== null && _m !== void 0 ? _m : 'primary', 'main'),
                                 },
                             },
                             _c["& .".concat(baseClass, "__icon")] = {
@@ -83,75 +89,79 @@ var Select = {
                                 width: 'auto',
                             },
                             _c),
-                        _b["& .".concat(baseClass, "__options")] = (_e = {
+                        _b["& .".concat(baseClass, "__options")] = (_f = {
                                 display: 'flex',
                                 flexDirection: 'column',
                                 padding: theme.spacing.xxs,
                                 gap: theme.spacing.xxs
                             },
-                            _e["& .".concat(baseClass, "__option")] = {
+                            _f["& .".concat(baseClass, "__option")] = {
                                 display: 'block',
                                 padding: theme.get.rem(theme.spacing.xs, theme.shape.unit),
-                                minWidth: theme.get.rem(((_m = props.width) !== null && _m !== void 0 ? _m : 128) - (theme.spacing.s + theme.spacing.xxs * 2), 'px'),
+                                minWidth: theme.get.rem(((_o = props.width) !== null && _o !== void 0 ? _o : 128) - (theme.spacing.s + theme.spacing.xxs * 2), 'px'),
                                 textWrap: 'nowrap',
                                 '& > svg': {
-                                    color: theme.get.color((_o = props.color) !== null && _o !== void 0 ? _o : 'primary', 'main'),
+                                    color: theme.get.color((_p = props.color) !== null && _p !== void 0 ? _p : 'primary', 'main'),
                                 },
                                 '&.selected': {
                                     backgroundColor: theme.get
-                                        .color((_p = props.color) !== null && _p !== void 0 ? _p : 'primary', (_q = props.colorVariant) !== null && _q !== void 0 ? _q : 'main'),
+                                        .color((_q = props.color) !== null && _q !== void 0 ? _q : 'primary', (_r = props.colorVariant) !== null && _r !== void 0 ? _r : 'main'),
                                     '& > svg': {
-                                        color: theme.get.color((_r = props.color) !== null && _r !== void 0 ? _r : 'primary', 'text'),
+                                        color: theme.get.color((_s = props.color) !== null && _s !== void 0 ? _s : 'primary', 'text'),
                                     },
                                 }
                             },
-                            _e),
+                            _f),
                         _b;
                 },
             },
             'contained': {
                 styles: function (_a) {
-                    var _b, _c, _d;
-                    var _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+                    var _b, _c, _d, _e;
+                    var _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
                     var theme = _a.theme, props = __rest(_a, ["theme"]);
                     var baseClass = "".concat(props.name, "-contained");
                     return _b = {},
                         _b["& .".concat(baseClass, "__input")] = {
-                            backgroundColor: theme.get.color((_e = props.color) !== null && _e !== void 0 ? _e : 'primary', 'main'),
-                            borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, (_f = props.color) !== null && _f !== void 0 ? _f : 'primary', 'main'),
-                            color: theme.get.color((_g = props.color) !== null && _g !== void 0 ? _g : 'primary', 'text'),
-                            '&.invalid': {
-                                backgroundColor: theme.get.color('error', props.color === 'error' ? 'light' : 'main'),
-                                borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, 'error', props.color === 'error' ? 'light' : 'main'),
-                            },
-                            '&.disabled': (_c = {
+                            backgroundColor: theme.get.color((_f = props.color) !== null && _f !== void 0 ? _f : 'primary', 'main'),
+                            borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, (_g = props.color) !== null && _g !== void 0 ? _g : 'primary', 'main'),
+                            color: theme.get.color((_h = props.color) !== null && _h !== void 0 ? _h : 'primary', 'text'),
+                            '&.invalid': (_c = {
+                                    backgroundColor: theme.get.color('error', props.color === 'error' ? 'light' : 'main'),
+                                    borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, 'error', props.color === 'error' ? 'light' : 'main')
+                                },
+                                _c["& .".concat(baseClass, "__icon > svg")] = {
+                                    color: theme.get.color('error', 'text'),
+                                },
+                                _c),
+                            '&.disabled': (_d = {
                                     color: theme.get.color('grey', 'text'),
                                     backgroundColor: theme.get.color('grey', 'lighter'),
                                     borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, 'grey', 'lighter')
                                 },
-                                _c["& .".concat(baseClass, "__icon > svg")] = {
+                                _d["& .".concat(baseClass, "__icon > svg")] = {
                                     color: theme.get.color('grey', 'text'),
                                 },
-                                _c),
+                                _d),
                             '& svg': {
-                                color: theme.get.color((_h = props.color) !== null && _h !== void 0 ? _h : 'primary', 'text'),
+                                color: theme.get.color((_j = props.color) !== null && _j !== void 0 ? _j : 'primary', 'text'),
                             },
                         },
-                        _b["& .".concat(baseClass, "__options")] = (_d = {
-                                backgroundColor: theme.get.color((_j = props.color) !== null && _j !== void 0 ? _j : 'primary', 'lighter')
+                        _b["& .".concat(baseClass, "__options")] = (_e = {
+                                backgroundColor: theme.get.color((_k = props.color) !== null && _k !== void 0 ? _k : 'primary', 'lighter')
                             },
-                            _d["& .".concat(baseClass, "__option")] = {
-                                backgroundColor: theme.get.color((_k = props.color) !== null && _k !== void 0 ? _k : 'primary', 'light'),
-                                color: theme.get.color((_l = props.color) !== null && _l !== void 0 ? _l : 'primary', 'text'),
+                            _e["& .".concat(baseClass, "__option")] = {
+                                backgroundColor: theme.get.color((_l = props.color) !== null && _l !== void 0 ? _l : 'primary', 'light'),
+                                color: theme.get.color((_m = props.color) !== null && _m !== void 0 ? _m : 'primary', 'text'),
                             },
-                            _d['&.selected'] = {
+                            _e['&.selected'] = {
                                 backgroundColor: theme.get
-                                    .color((_m = props.color) !== null && _m !== void 0 ? _m : 'primary', (_o = props.colorVariant) !== null && _o !== void 0 ? _o : 'main'),
+                                    .color((_o = props.color) !== null && _o !== void 0 ? _o : 'primary', (_p = props.colorVariant) !== null && _p !== void 0 ? _p : 'main'),
                                 '& > svg': {
-                                    color: theme.get.color((_p = props.color) !== null && _p !== void 0 ? _p : 'primary', 'text'),
+                                    color: theme.get.color((_q = props.color) !== null && _q !== void 0 ? _q : 'primary', 'text'),
                                 },
                             },
-                            _d),
+                            _e),
                         _b;
                 },
             },
@@ -246,50 +256,54 @@ var Select = {
             },
             'round-contained': {
                 styles: function (_a) {
-                    var _b, _c, _d;
-                    var _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+                    var _b, _c, _d, _e;
+                    var _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
                     var theme = _a.theme, props = __rest(_a, ["theme"]);
                     var baseClass = "".concat(props.name, "-round-contained");
                     return _b = {},
                         _b["& .".concat(baseClass, "__input")] = {
-                            backgroundColor: theme.get.color((_e = props.color) !== null && _e !== void 0 ? _e : 'primary', 'main'),
-                            borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, (_f = props.color) !== null && _f !== void 0 ? _f : 'primary', 'main'),
+                            backgroundColor: theme.get.color((_f = props.color) !== null && _f !== void 0 ? _f : 'primary', 'main'),
+                            borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, (_g = props.color) !== null && _g !== void 0 ? _g : 'primary', 'main'),
                             borderRadius: "".concat(theme.shape.border.radius).concat(theme.shape.border.unit),
-                            color: theme.get.color((_g = props.color) !== null && _g !== void 0 ? _g : 'primary', 'text'),
-                            '&.invalid': {
-                                backgroundColor: theme.get.color('error', props.color === 'error' ? 'light' : 'main'),
-                                borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, 'error', props.color === 'error' ? 'light' : 'main'),
-                            },
-                            '&.disabled': (_c = {
+                            color: theme.get.color((_h = props.color) !== null && _h !== void 0 ? _h : 'primary', 'text'),
+                            '&.invalid': (_c = {
+                                    backgroundColor: theme.get.color('error', props.color === 'error' ? 'light' : 'main'),
+                                    borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, 'error', props.color === 'error' ? 'light' : 'main')
+                                },
+                                _c["& .".concat(baseClass, "__icon > svg")] = {
+                                    color: theme.get.color('error', 'text'),
+                                },
+                                _c),
+                            '&.disabled': (_d = {
                                     color: theme.get.color('grey', 'text'),
                                     backgroundColor: theme.get.color('grey', 'lighter'),
                                     borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, 'grey', 'lighter')
                                 },
-                                _c["& .".concat(baseClass, "__icon > svg")] = {
+                                _d["& .".concat(baseClass, "__icon > svg")] = {
                                     color: theme.get.color('grey', 'text'),
                                 },
-                                _c),
+                                _d),
                             '& svg': {
-                                color: theme.get.color((_h = props.color) !== null && _h !== void 0 ? _h : 'primary', 'text'),
+                                color: theme.get.color((_j = props.color) !== null && _j !== void 0 ? _j : 'primary', 'text'),
                             },
                         },
-                        _b["& .".concat(baseClass, "__options")] = (_d = {
-                                backgroundColor: theme.get.color((_j = props.color) !== null && _j !== void 0 ? _j : 'primary', 'lighter'),
+                        _b["& .".concat(baseClass, "__options")] = (_e = {
+                                backgroundColor: theme.get.color((_k = props.color) !== null && _k !== void 0 ? _k : 'primary', 'lighter'),
                                 borderRadius: "".concat(theme.shape.border.radius).concat(theme.shape.border.unit)
                             },
-                            _d["& .".concat(baseClass, "__option")] = {
-                                backgroundColor: theme.get.color((_k = props.color) !== null && _k !== void 0 ? _k : 'primary', 'light'),
+                            _e["& .".concat(baseClass, "__option")] = {
+                                backgroundColor: theme.get.color((_l = props.color) !== null && _l !== void 0 ? _l : 'primary', 'light'),
                                 borderRadius: "".concat(theme.shape.border.radius).concat(theme.shape.border.unit),
-                                color: theme.get.color((_l = props.color) !== null && _l !== void 0 ? _l : 'primary', 'text'),
+                                color: theme.get.color((_m = props.color) !== null && _m !== void 0 ? _m : 'primary', 'text'),
                             },
-                            _d['&.selected'] = {
+                            _e['&.selected'] = {
                                 backgroundColor: theme.get
-                                    .color((_m = props.color) !== null && _m !== void 0 ? _m : 'primary', (_o = props.colorVariant) !== null && _o !== void 0 ? _o : 'main'),
+                                    .color((_o = props.color) !== null && _o !== void 0 ? _o : 'primary', (_p = props.colorVariant) !== null && _p !== void 0 ? _p : 'main'),
                                 '& > svg': {
-                                    color: theme.get.color((_p = props.color) !== null && _p !== void 0 ? _p : 'primary', 'text'),
+                                    color: theme.get.color((_q = props.color) !== null && _q !== void 0 ? _q : 'primary', 'text'),
                                 },
                             },
-                            _d),
+                            _e),
                         _b;
                 },
             },

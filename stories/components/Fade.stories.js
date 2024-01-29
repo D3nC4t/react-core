@@ -10,19 +10,22 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
+import { FormattedMessage } from 'react-intl';
 import Fade from '../../components/Fade';
 import Typography from '../../components/Typography';
+import LocaleProvider from '../../translations/component';
+import { FadeControls } from '../controls';
 Fade.displayName = 'Fade';
 Typography.displayName = 'Typography';
 var meta = {
     title: 'Core/Components/Fade',
     component: Fade,
     tags: ['fade'],
-    argTypes: {},
+    argTypes: FadeControls,
 };
 export default meta;
 export var Root = {
     args: {
-        children: _jsx(Typography, __assign({ variant: 'p' }, { children: "Test" })),
+        children: _jsx(Typography, __assign({ variant: 'p' }, { children: _jsx(LocaleProvider, __assign({ module: 'storybook' }, { children: _jsx(FormattedMessage, { id: 'some-text' }) })) })),
     },
 };

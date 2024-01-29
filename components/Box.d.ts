@@ -46,9 +46,9 @@ export interface BoxProps extends HTMLAttributes<HTMLDivElement> {
      */
     jCss?: JCssProps<Theme, BoxProps>;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tBox';
     /**
      * The tag element to use
      */
@@ -56,7 +56,7 @@ export interface BoxProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * The name of the variant to apply on the html element
      */
-    variant?: 'auto-fit' | 'auto-fit-no-padding' | 'bordered' | 'centered' | 'flex-column' | 'flex-row' | 'invisible' | 'no-padding' | 'root' | string;
+    variant?: 'auto-fit' | 'auto-fit-no-padding' | 'bordered' | 'centered' | 'flex-column' | 'flex-column-no-padding' | 'flex-grow' | 'flex-grow-no-padding' | 'flex-row' | 'flex-row-no-padding' | 'invisible' | 'no-padding' | 'root' | string;
 }
 export declare const Box: ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLDivElement>>;
 export default Box;

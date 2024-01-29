@@ -1,38 +1,11 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { CheckboxProps } from '../../components/Checkbox';
+import { CheckboxProps } from '../../components';
 declare const meta: {
     title: string;
-    component: React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<import("../..").RadioRef>>;
+    component: React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<import("../../components").RadioRef>>;
     tags: string[];
-    argTypes: {
-        color: {
-            control: {
-                type: string;
-            };
-        };
-        $bgColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bRadius: {
-            control: {
-                type: string;
-            };
-        };
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<CheckboxProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

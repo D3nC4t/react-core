@@ -22,9 +22,9 @@ export interface TypographyProps extends HTMLAttributes<HTMLDivElement> {
      */
     jCss?: JCssProps<Theme, TypographyProps>;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tTypography';
     /**
      * The tag element to use
      */

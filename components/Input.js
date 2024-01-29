@@ -21,7 +21,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { forwardRef, isValidElement, useImperativeHandle, useRef, useState, useEffect, } from 'react';
+import { forwardRef, isValidElement, useEffect, useImperativeHandle, useRef, useState, } from 'react';
 import Box from './Box';
 import _objectWithoutProperties from '../utils/_objectWithoutProperties';
 import styled, { getClassName } from '../theme/styled';
@@ -77,7 +77,7 @@ export var Input = forwardRef(function (_a, ref) {
     return (_jsxs(Box, __assign({ className: getClassName((_c = withProps.boxProps) !== null && _c !== void 0 ? _c : {}, name, 'box')
             + (focused ? " focused" : '')
             + (withProps.disabled ? " disabled" : '')
-            + (withProps.invalid ? " invalid" : ''), color: withProps.color, variant: (_e = (_d = withProps.boxProps) === null || _d === void 0 ? void 0 : _d.variant) !== null && _e !== void 0 ? _e : 'flex-row', ref: outerRef }, _objectWithoutProperties((_f = withProps.boxProps) !== null && _f !== void 0 ? _f : {}, [
+            + (withProps.invalid ? " invalid" : ''), color: withProps.color, variant: (_e = (_d = withProps.boxProps) === null || _d === void 0 ? void 0 : _d.variant) !== null && _e !== void 0 ? _e : 'flex-row', ref: outerRef }, _objectWithoutProperties(__assign(__assign({}, ((_f = withProps.boxProps) !== null && _f !== void 0 ? _f : {})), (withProps.width && { width: withProps.width })), [
         'className',
         'variant',
     ]), { children: [withProps.startAdornment && isValidElement(withProps.startAdornment) && (_jsx(Box, __assign({ className: "".concat(baseClassName, "__start-adornment"), ref: startAdornmentRef, tag: 'i', variant: 'no-padding' }, { children: withProps.startAdornment }))), _jsx(StyledInput, __assign({ className: getClassName(withProps, name, withProps.variant), jCss: jCss, name: name, onChange: function (event) {

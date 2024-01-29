@@ -12,6 +12,10 @@ export interface DrawerProps extends Omit<ModalProps, 'variant' | 'portalVariant
      */
     modalVariant?: ModalProps['variant'];
     /**
+     * The name for this element
+     */
+    name?: string | 'C4tDrawer';
+    /**
      * The name of the variant to apply on the drawer
      */
     variant?: ModalProps['portalVariant'];

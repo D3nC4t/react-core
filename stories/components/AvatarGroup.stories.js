@@ -10,11 +10,14 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { FormattedMessage } from 'react-intl';
 import Avatar from '../../components/Avatar';
 import AvatarGroup from '../../components/AvatarGroup';
 import Box from '../../components/Box';
+import LocaleProvider from '../../translations/component';
 import Typography from '../../components/Typography';
 import { appTheme } from '../../theme';
+import { AvatarGroupControls } from '../controls';
 Avatar.displayName = 'Avatar';
 Box.displayName = 'Box';
 AvatarGroup.displayName = 'AvatarGroup';
@@ -23,27 +26,7 @@ var meta = {
     title: 'Core/Components/AvatarGroup',
     component: AvatarGroup,
     tags: ['avatar', 'group'],
-    argTypes: {
-        $bgColor: {
-            control: { type: 'color' },
-        },
-        $bColor: {
-            control: { type: 'color' },
-        },
-        $bRadius: {
-            control: { type: 'text' },
-        },
-        variant: {
-            options: [
-                'contained', 'dashed', 'dotted', 'outlined', 'root', 'shadowed',
-                'round-contained', 'round-dashed', 'round-dotted',
-                'round-outlined', 'round-root', 'round-shadowed',
-                'square-contained', 'square-dashed', 'square-dotted',
-                'square-outlined', 'square-root', 'square-shadowed',
-            ],
-            control: { type: 'select' },
-        }
-    },
+    argTypes: AvatarGroupControls,
 };
 export default meta;
 export var Default = {
@@ -77,13 +60,11 @@ var renderThemeColorsAndMutations = function (props) {
     var $groups = [];
     for (var _i = 0, _a = Object.keys(appTheme.color); _i < _a.length; _i++) {
         var color = _a[_i];
-        var firstLetter = color[0].toUpperCase();
-        var text = firstLetter + color.substring(1, color.length);
-        $groups.push(_jsxs(Box, __assign({ jCss: {
+        $groups.push(_jsx(Box, __assign({ jCss: {
                 padding: '1rem',
                 border: appTheme.get.border(appTheme.shape.border.size, appTheme.shape.border.unit, appTheme.shape.border.shape, 'grey', 'darker'),
                 alignItems: 'start',
-            }, variant: 'flex-column' }, { children: [_jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsxs(AvatarGroup, __assign({}, props, { "$bColor": color, "$bgColor": color }, { children: [_jsx(Avatar, { alt: 'Avatar 1', src: 'aaa' }, 'Avatar 1'), _jsx(Avatar, { alt: 'Avatar 2', src: 'aaa' }, 'Avatar 2'), _jsx(Avatar, { alt: 'Avatar 3', src: 'aaa' }, 'Avatar 3'), _jsx(Avatar, { alt: 'Avatar 4', src: 'aaa' }, 'Avatar 4'), _jsx(Avatar, { alt: 'Avatar 5', src: 'aaa' }, 'Avatar 5')] })), text] })), _jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsxs(AvatarGroup, __assign({}, props, { max: 3, "$bColor": color, "$bgColor": color }, { children: [_jsx(Avatar, { alt: 'Avatar 1', src: 'aaa' }, 'Avatar 1'), _jsx(Avatar, { alt: 'Avatar 2', src: 'aaa' }, 'Avatar 2'), _jsx(Avatar, { alt: 'Avatar 3', src: 'aaa' }, 'Avatar 3'), _jsx(Avatar, { alt: 'Avatar 4', src: 'aaa' }, 'Avatar 4'), _jsx(Avatar, { alt: 'Avatar 5', src: 'aaa' }, 'Avatar 5')] })), "Max 3 ", text] }))] }), color));
+            }, variant: 'flex-column' }, { children: _jsxs(LocaleProvider, __assign({ module: 'storybook' }, { children: [_jsx(Typography, __assign({ variant: 'h4', tag: 'div' }, { children: _jsx(FormattedMessage, { id: 'examples.color', values: { name: color } }) })), _jsxs(AvatarGroup, __assign({}, props, { "$bColor": color, "$bgColor": color }, { children: [_jsx(Avatar, { alt: 'Avatar 1', src: 'aaa' }, 'Avatar 1'), _jsx(Avatar, { alt: 'Avatar 2', src: 'aaa' }, 'Avatar 2'), _jsx(Avatar, { alt: 'Avatar 3', src: 'aaa' }, 'Avatar 3'), _jsx(Avatar, { alt: 'Avatar 4', src: 'aaa' }, 'Avatar 4'), _jsx(Avatar, { alt: 'Avatar 5', src: 'aaa' }, 'Avatar 5')] })), _jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsxs(AvatarGroup, __assign({}, props, { max: 3, "$bColor": color, "$bgColor": color }, { children: [_jsx(Avatar, { alt: 'Avatar 1', src: 'aaa' }, 'Avatar 1'), _jsx(Avatar, { alt: 'Avatar 2', src: 'aaa' }, 'Avatar 2'), _jsx(Avatar, { alt: 'Avatar 3', src: 'aaa' }, 'Avatar 3'), _jsx(Avatar, { alt: 'Avatar 4', src: 'aaa' }, 'Avatar 4'), _jsx(Avatar, { alt: 'Avatar 5', src: 'aaa' }, 'Avatar 5')] })), _jsx(FormattedMessage, { id: 'max', values: { number: 3 } })] }))] })) }), color));
     }
     return (_jsx(Box, __assign({ variant: 'flex-row' }, { children: $groups })));
 };

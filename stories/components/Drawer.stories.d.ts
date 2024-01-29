@@ -1,40 +1,12 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { DrawerProps } from '../../components/Drawer';
-import { PortalRef } from '../../components/Portal';
+import { PortalRef } from '../../components';
 declare const meta: {
     title: string;
     component: React.ForwardRefExoticComponent<DrawerProps & React.RefAttributes<PortalRef>>;
     tags: string[];
-    argTypes: {
-        $bgColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bRadius: {
-            control: {
-                type: string;
-            };
-        };
-        modalVariant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<DrawerProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

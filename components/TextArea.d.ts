@@ -23,9 +23,9 @@ export interface TextAreaProps extends HTMLAttributes<HTMLTextAreaElement> {
      */
     jCss?: JCssProps<Theme>;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tTextArea';
     /**
      * The orientation of the textarea resize feature
      */

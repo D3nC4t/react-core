@@ -25,7 +25,7 @@ export interface CircularLoadingProps extends Omit<BoxProps, 'children' | 'varia
     /**
      * The name for the Box element
      */
-    name?: string;
+    name?: string | 'C4tCircularLoading';
     /**
      * The number of lines to display
      */

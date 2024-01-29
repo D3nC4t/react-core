@@ -13,27 +13,14 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import Box from '../../components/Box';
 import ProgressBar from '../../components/ProgressBar';
 import { appTheme } from '../../theme';
+import { ProgressBarControls } from '../controls';
 Box.displayName = 'Box';
 ProgressBar.displayName = 'ProgressBar';
 var meta = {
     title: 'Core/Components/ProgressBar',
     component: ProgressBar,
     tags: ['progress'],
-    argTypes: {
-        $bgColor: {
-            control: { type: 'color' },
-        },
-        $bColor: {
-            control: { type: 'color' },
-        },
-        $bRadius: {
-            control: { type: 'text' },
-        },
-        variant: {
-            options: ['root', 'contained', 'dashed', 'dotted', 'outlined'],
-            control: { type: 'select' },
-        },
-    },
+    argTypes: ProgressBarControls,
 };
 export default meta;
 export var Default = {

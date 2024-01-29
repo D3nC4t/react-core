@@ -5,20 +5,7 @@ declare const meta: {
     title: string;
     component: React.ForwardRefExoticComponent<SelectProps & React.RefAttributes<import("../../components/Select").SelectRef>>;
     tags: string[];
-    argTypes: {
-        paperVariant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<SelectProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -8,6 +8,10 @@ export interface PopoverProps extends PortalProps {
      */
     jCss?: JCssProps<Theme, PopoverProps>;
     /**
+     * The name for this element
+     */
+    name?: string | 'C4tPopover';
+    /**
      * The event triggered when the portal is opening
      * @param element
      * @param isAppearing

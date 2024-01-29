@@ -10,12 +10,15 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { FormattedMessage } from 'react-intl';
 import { faCircleArrowDown } from '@fortawesome/free-solid-svg-icons';
 import BaseIcon from '../../components/Icon';
 import Box from '../../components/Box';
 import Button from '../../components/Button';
 import ButtonGroup from '../../components/ButtonGroup';
+import LocaleProvider from '../../translations/component';
 import { appTheme } from '../../theme';
+import { ButtonGroupControls } from '../controls';
 BaseIcon.displayName = 'Icon';
 Box.displayName = 'Box';
 Button.displayName = 'Button';
@@ -24,23 +27,19 @@ var meta = {
     title: 'Core/Components/ButtonGroup',
     component: ButtonGroup,
     tags: ['autodocs', 'button'],
-    argTypes: {
-        variant: {
-            options: ['contained', 'dashed', 'dotted', 'icon', 'outlined', 'root', 'shadowed', 'text'],
-            control: { type: 'select' },
-        },
-    },
+    argTypes: ButtonGroupControls,
 };
 export default meta;
+var renderButtonGroup = function (props) { return (_jsx(LocaleProvider, __assign({ module: 'storybook' }, { children: _jsxs(ButtonGroup, __assign({}, props, { children: [_jsx(Button, { children: _jsx(FormattedMessage, { id: 'button-group.option', values: { number: 1 } }) }), _jsx(Button, { children: _jsx(FormattedMessage, { id: 'button-group.option', values: { number: 2 } }) }), _jsx(Button, __assign({ disabled: true }, { children: _jsx(FormattedMessage, { id: 'button-group.option', values: { number: 3 } }) }))] })) }))); };
 export var Default = {
     args: {},
-    render: function (props) { return (_jsxs(ButtonGroup, __assign({}, props, { children: [_jsx(Button, { children: "OPT 1" }), _jsx(Button, { children: "OPT 2" }), _jsx(Button, __assign({ disabled: true }, { children: "OPT 3" }))] }))); },
+    render: renderButtonGroup,
 };
 var renderThemeColors = function (props) {
     var $groups = [];
     for (var _i = 0, _a = Object.keys(appTheme.color); _i < _a.length; _i++) {
         var color = _a[_i];
-        $groups.push(_jsxs(ButtonGroup, __assign({ color: color }, props, { children: [_jsx(Button, { children: "OPT 1" }), _jsx(Button, { children: "OPT 2" }), _jsx(Button, __assign({ disabled: true }, { children: "OPT 3" }))] })));
+        $groups.push(renderButtonGroup(__assign({ color: color }, props)));
     }
     return (_jsx(Box, __assign({ variant: 'flex-row' }, { children: $groups })));
 };

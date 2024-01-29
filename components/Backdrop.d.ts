@@ -28,9 +28,9 @@ export interface BackdropProps {
      */
     jCss?: JCssProps<Theme, BackdropProps>;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tBackdrop';
     /**
      * The name of the variant to apply on the html element
      */

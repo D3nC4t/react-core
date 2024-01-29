@@ -29,9 +29,9 @@ export interface ChipProps<Tag extends keyof React.JSX.IntrinsicElements = 'div'
      */
     label: string;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tChip';
     /**
      * The action to be triggered when the remove icon is clicked
      */

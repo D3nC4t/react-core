@@ -5,35 +5,7 @@ declare const meta: {
     title: string;
     component: React.ForwardRefExoticComponent<AlertProps & React.RefAttributes<HTMLDivElement>>;
     tags: string[];
-    argTypes: {
-        color: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-        $bgColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bRadius: {
-            control: {
-                type: string;
-            };
-        };
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<AlertProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

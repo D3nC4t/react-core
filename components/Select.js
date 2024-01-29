@@ -29,7 +29,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { cloneElement, forwardRef, useEffect, useImperativeHandle, useRef, useState, } from 'react';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import Box from './Box';
@@ -53,14 +53,14 @@ var StyledSelectInput = styled('section')({
 });
 var StyledIcon = styled('i')({ position: 'relative' });
 export var Select = forwardRef(function (_a, ref) {
-    var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
-    var children = _a.children, _r = _a.name, name = _r === void 0 ? 'C4tSelect' : _r, _s = _a.value, value = _s === void 0 ? [] : _s, _t = _a.usePopover, usePopover = _t === void 0 ? false : _t, inputProps = __rest(_a, ["children", "name", "value", "usePopover"]);
+    var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+    var children = _a.children, _s = _a.name, name = _s === void 0 ? 'C4tSelect' : _s, _t = _a.value, value = _t === void 0 ? [] : _t, _u = _a.usePopover, usePopover = _u === void 0 ? false : _u, inputProps = __rest(_a, ["children", "name", "value", "usePopover"]);
     var theme = useTheme();
-    var _u = useState([]), selected = _u[0], setSelected = _u[1];
-    var _v = useState(false), rejectValue = _v[0], setRejectValue = _v[1];
-    var _w = useState(undefined), selected$el = _w[0], setSelected$el = _w[1];
-    var _x = useState(false), setupRef = _x[0], setSetupRef = _x[1];
-    var _y = useState(false), showOptions = _y[0], setShowOptions = _y[1];
+    var _v = useState([]), selected = _v[0], setSelected = _v[1];
+    var _w = useState(false), rejectValue = _w[0], setRejectValue = _w[1];
+    var _x = useState(undefined), selected$el = _x[0], setSelected$el = _x[1];
+    var _y = useState(false), setupRef = _y[0], setSetupRef = _y[1];
+    var _z = useState(false), showOptions = _z[0], setShowOptions = _z[1];
     var withProps = useDefaultProps(inputProps, name);
     var innerRef = useRef(null);
     var optionsRef = useRef(null);
@@ -108,7 +108,7 @@ export var Select = forwardRef(function (_a, ref) {
                     ? " ".concat(baseClassName, "__option")
                         + ($el.key && selected.includes($el.key) ? ' selected' : '')
                     : " ".concat(baseClassName, "__").concat($el.key)), key: $el.key, onClick: function (event) {
-                var _a, _b, _c, _d;
+                var _a, _b, _c, _d, _e, _f;
                 setRejectValue(true);
                 (_b = (_a = $el.props) === null || _a === void 0 ? void 0 : _a.onClick) === null || _b === void 0 ? void 0 : _b.call(_a, event);
                 if (!$el.key || ((_c = withProps.excludeKeys) === null || _c === void 0 ? void 0 : _c.includes($el.key))) {
@@ -144,6 +144,9 @@ export var Select = forwardRef(function (_a, ref) {
                     inputRef.current.value = newSelection.join(',');
                 }
                 (_d = withProps.onChange) === null || _d === void 0 ? void 0 : _d.call(withProps, withProps.multiple ? newSelection : newSelection[0]);
+                if (!withProps.multiple) {
+                    usePopover ? (_f = (_e = popoverRef.current) === null || _e === void 0 ? void 0 : _e.closePortal) === null || _f === void 0 ? void 0 : _f.call(_e) : setShowOptions(false);
+                }
             } }));
     });
     return (_jsxs(StyledBox, __assign({ className: getClassName((_c = withProps.boxProps) !== null && _c !== void 0 ? _c : {}, name, withProps.variant), jCss: __assign(__assign({}, jCss), ((_e = (_d = withProps.boxProps) === null || _d === void 0 ? void 0 : _d.jCss) !== null && _e !== void 0 ? _e : {})), ref: outerRef }, _objectWithoutProperties((_f = withProps.boxProps) !== null && _f !== void 0 ? _f : {}, [
@@ -175,9 +178,9 @@ export var Select = forwardRef(function (_a, ref) {
                 'paperVariant',
                 'value',
                 'width',
-            ]), { children: [_jsxs(Typography, __assign({ className: "".concat(baseClassName, "__selection ").concat(selected.length > 1 && 'with-more'), variant: 'p' }, { children: [selected$el !== null && selected$el !== void 0 ? selected$el : (withProps.multiple ? 'Select Options' : 'Select a Option'), selected.length > 1 && ", +".concat(selected.length - 1)] })), _jsx("input", { name: (_g = withProps.inputName) !== null && _g !== void 0 ? _g : name, ref: inputRef, style: { display: 'none' }, type: 'text' }), _jsx(StyledIcon, __assign({ className: " ".concat(baseClassName, "__icon") }, { children: _jsx(Icon, { color: (_h = withProps.color) !== null && _h !== void 0 ? _h : 'primary', icon: showOptions ? ((_j = withProps.closeIcon) !== null && _j !== void 0 ? _j : faAngleUp) : ((_k = withProps.openIcon) !== null && _k !== void 0 ? _k : faAngleDown) }) }))] })), usePopover
-                ? (_jsx(Popover, __assign({ "$anchorEl": outerRef.current, className: optionsClassName, jCss: __assign(__assign({}, ((_l = jCss === null || jCss === void 0 ? void 0 : jCss["& .".concat(optionsClassName)]) !== null && _l !== void 0 ? _l : {})), withProps.optionsJCss), onClose: function () { return setShowOptions(false); }, onOpen: function () { return setShowOptions(true); }, ref: popoverRef, variant: (_m = withProps.paperVariant) !== null && _m !== void 0 ? _m : 'shadowed' }, { children: $options })))
-                : showOptions && (_jsx(StyledSelectOptions, __assign({ className: optionsClassName, jCss: __assign(__assign({}, withProps.optionsJCss), { top: (_p = (_o = outerRef.current) === null || _o === void 0 ? void 0 : _o.clientHeight) !== null && _p !== void 0 ? _p : 0, left: 0 }), ref: optionsRef, variant: (_q = withProps.paperVariant) !== null && _q !== void 0 ? _q : 'shadowed' }, { children: $options })))] })));
+            ]), { children: [_jsxs(Typography, __assign({ className: "".concat(baseClassName, "__selection ").concat(selected.length > 1 && 'with-more'), variant: 'p' }, { children: [selected$el !== null && selected$el !== void 0 ? selected$el : (_jsx("span", __assign({ className: 'not-selected' }, { children: (_g = withProps.title) !== null && _g !== void 0 ? _g : (withProps.multiple ? 'Select Options' : 'Select a Option') }))), selected.length > 1 && ", +".concat(selected.length - 1)] })), _jsx("input", { name: (_h = withProps.inputName) !== null && _h !== void 0 ? _h : name, ref: inputRef, style: { display: 'none' }, type: 'text' }), _jsx(StyledIcon, __assign({ className: " ".concat(baseClassName, "__icon") }, { children: _jsx(Icon, { color: (_j = withProps.color) !== null && _j !== void 0 ? _j : 'primary', icon: showOptions ? ((_k = withProps.closeIcon) !== null && _k !== void 0 ? _k : faAngleUp) : ((_l = withProps.openIcon) !== null && _l !== void 0 ? _l : faAngleDown) }) }))] })), usePopover
+                ? (_jsx(Popover, __assign({ "$anchorEl": outerRef.current, className: optionsClassName, jCss: __assign(__assign({}, ((_m = jCss === null || jCss === void 0 ? void 0 : jCss["& .".concat(optionsClassName)]) !== null && _m !== void 0 ? _m : {})), withProps.optionsJCss), onClose: function () { return setShowOptions(false); }, onOpen: function () { return setShowOptions(true); }, ref: popoverRef, variant: (_o = withProps.paperVariant) !== null && _o !== void 0 ? _o : 'shadowed' }, { children: $options })))
+                : showOptions && (_jsx(StyledSelectOptions, __assign({ className: optionsClassName, jCss: __assign(__assign({}, withProps.optionsJCss), { top: (_q = (_p = outerRef.current) === null || _p === void 0 ? void 0 : _p.clientHeight) !== null && _q !== void 0 ? _q : 0, left: 0 }), ref: optionsRef, variant: (_r = withProps.paperVariant) !== null && _r !== void 0 ? _r : 'shadowed' }, { children: $options })))] })));
 });
 Select.displayName = 'C4tSelect';
 export default Select;

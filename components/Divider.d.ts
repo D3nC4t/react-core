@@ -1,11 +1,11 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { BoxProps } from './Box';
 import { ChildElement, ColorVariants, JCssProps, Theme } from '../types';
-export interface DividerProps extends BoxProps {
+export interface DividerProps extends Omit<BoxProps, 'children'> {
     /**
      * The value to be shown as content of the div
      */
-    children: ChildElement;
+    children?: ChildElement;
     /**
      * The name of the color to apply on the html element, it can be also a static color(rgb, hex, etc)
      */
@@ -21,7 +21,7 @@ export interface DividerProps extends BoxProps {
     /**
      * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tDivider';
     /**
      * The text alignment
      */

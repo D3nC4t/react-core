@@ -28,12 +28,13 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import Icon from '../../components/Icon';
 import Box from '../../components/Box';
 import Typography from '../../components/Typography';
+import { IconControls } from '../controls';
 Icon.displayName = 'Icon';
 var meta = {
     title: 'Core/Components/Icon',
     component: Icon,
     tags: ['icons'],
-    argTypes: {},
+    argTypes: IconControls,
 };
 export default meta;
 var AllIcons = function (_a) {

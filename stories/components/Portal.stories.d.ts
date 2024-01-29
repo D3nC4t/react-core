@@ -1,18 +1,11 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { PortalProps } from '../../components/Portal';
+import { PortalProps } from '../../components';
 declare const meta: {
     title: string;
-    component: React.ForwardRefExoticComponent<PortalProps & React.RefAttributes<import("../../components/Portal").PortalRef>>;
+    component: React.ForwardRefExoticComponent<PortalProps & React.RefAttributes<import("../../components").PortalRef>>;
     tags: string[];
-    argTypes: {
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<PortalProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -12,17 +12,13 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import CircularLoading from '../../components/CircularLoading';
 import Box from '../../components/Box';
+import { CircularLoadingControls } from '../controls';
 CircularLoading.displayName = 'CircularLoading';
 var meta = {
     title: 'Core/Components/CircularLoading',
     component: CircularLoading,
     tags: ['autodocs'],
-    argTypes: {
-        variant: {
-            options: ['rainbow', 'root', 'svg'],
-            control: { type: 'select' },
-        }
-    },
+    argTypes: CircularLoadingControls,
 };
 export default meta;
 export var Default = {

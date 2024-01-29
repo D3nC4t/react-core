@@ -19,9 +19,9 @@ export interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
      */
     jCss?: JCssProps<Theme>;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tAvatar';
     /**
      * The source url for the image to be shown
      */
@@ -31,8 +31,5 @@ export interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
      */
     variant?: 'contained' | 'dashed' | 'dotted' | 'outlined' | 'root' | 'shadowed' | 'round-contained' | 'round-dashed' | 'round-dotted' | 'round-outlined' | 'round-root' | 'round-shadowed' | 'square-contained' | 'square-dashed' | 'square-dotted' | 'square-outlined' | 'square-root' | 'square-shadowed' | string;
 }
-export interface AvatarRef extends HTMLDivElement {
-    innerRef: HTMLImageElement | null;
-}
-export declare const Avatar: ForwardRefExoticComponent<AvatarProps & RefAttributes<AvatarRef>>;
+export declare const Avatar: ForwardRefExoticComponent<AvatarProps & RefAttributes<HTMLDivElement>>;
 export default Avatar;

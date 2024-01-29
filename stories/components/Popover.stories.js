@@ -9,41 +9,31 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
+import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
 import { useRef, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import Box from '../../components/Box';
 import Button from '../../components/Button';
+import LocaleProvider from '../../translations/component';
 import Popover from '../../components/Popover';
+import { PopoverControls } from '../controls';
+Box.displayName = 'Box';
+Button.displayName = 'Button';
 Popover.displayName = 'Popover';
 var meta = {
     title: 'Core/Components/Popover',
     component: Popover,
     tags: ['autodocs'],
-    argTypes: {
-        $bgColor: {
-            control: { type: 'color' },
-        },
-        $bColor: {
-            control: { type: 'color' },
-        },
-        $bRadius: {
-            control: { type: 'text' },
-        },
-        variant: {
-            options: ['bordered', 'root', 'round-bordered', 'round-shadowed', 'rounded', 'shadowed'],
-            control: { type: 'select' },
-        },
-    },
+    argTypes: PopoverControls,
 };
 export default meta;
 var AnchoredPopover = function (props) {
-    var _a, _b;
     var $popover = useRef(null);
-    var _c = useState(), $button = _c[0], set$button = _c[1];
-    return (_jsxs(Box, { children: [_jsxs(Button, __assign({ onClick: function () {
-                    var _a;
-                    (_a = $popover.current) === null || _a === void 0 ? void 0 : _a.openPortal();
-                }, ref: function ($el) { return set$button($el); }, variant: 'contained' }, { children: ["Open ", (_a = props.variant) === null || _a === void 0 ? void 0 : _a.toUpperCase(), " Popover"] })), _jsxs(Popover, __assign({ ref: $popover, "$anchorEl": $button }, props, { children: ["Test ", (_b = props.variant) === null || _b === void 0 ? void 0 : _b.toUpperCase(), " Popover"] }))] }));
+    var _a = useState(), $button = _a[0], set$button = _a[1];
+    return (_jsx(Box, { children: _jsxs(LocaleProvider, __assign({ module: 'storybook' }, { children: [_jsxs(Button, __assign({ onClick: function () {
+                        var _a;
+                        (_a = $popover.current) === null || _a === void 0 ? void 0 : _a.openPortal();
+                    }, ref: function ($el) { return set$button($el); }, variant: 'contained' }, { children: [_jsx(FormattedMessage, { id: 'open' }), props.variant && (_jsx(_Fragment, { children: _jsx(FormattedMessage, { id: 'variant', values: { name: props.variant } }) })), "\u00A0Popover"] })), _jsx(Popover, __assign({ ref: $popover, "$anchorEl": $button }, props, { children: _jsx(FormattedMessage, { id: 'some-text' }) }))] })) }));
 };
 export var Default = {
     args: {},

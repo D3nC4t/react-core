@@ -21,15 +21,18 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, Fragment as _Fragment } from "react/jsx-runtime";
-import { forwardRef, useEffect, useState } from 'react';
+import { forwardRef, useEffect, useLayoutEffect, useState, } from 'react';
 import _objectWithoutProperties from '../utils/_objectWithoutProperties';
 import styled, { getClassName } from '../theme/styled';
 import useDefaultProps from '../theme/hooks/useDefaultProps';
 export var Box = forwardRef(function (_a, ref) {
     var children = _a.children, _b = _a.name, name = _b === void 0 ? 'C4tBox' : _b, tag = _a.tag, inputProps = __rest(_a, ["children", "name", "tag"]);
     var withProps = useDefaultProps(inputProps, name);
-    var htmlTag = useState(tag !== null && tag !== void 0 ? tag : 'div')[0];
-    var _c = useState(), $el = _c[0], set$el = _c[1];
+    var _c = useState('div'), htmlTag = _c[0], setHtmlTag = _c[1];
+    var _d = useState(), $el = _d[0], set$el = _d[1];
+    useLayoutEffect(function () {
+        setHtmlTag(tag !== null && tag !== void 0 ? tag : 'div');
+    }, [tag]);
     useEffect(function () {
         var StyledBox = styled(htmlTag, {
             dontForwardProp: ['tag'],

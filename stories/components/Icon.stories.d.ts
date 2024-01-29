@@ -5,7 +5,7 @@ declare const meta: {
     title: string;
     component: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>;
     tags: string[];
-    argTypes: {};
+    argTypes: Partial<import("@storybook/types").ArgTypes<IconProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

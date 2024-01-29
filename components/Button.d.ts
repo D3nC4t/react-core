@@ -29,9 +29,9 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
      */
     jCss?: JCssProps<Theme, ButtonProps>;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tButton';
     /**
      * The size for the button
      */

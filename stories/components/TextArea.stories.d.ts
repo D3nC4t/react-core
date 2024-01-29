@@ -1,18 +1,11 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { TextAreaProps } from '../../components/TextArea';
+import { TextAreaProps } from '../../components';
 declare const meta: {
     title: string;
     component: React.ForwardRefExoticComponent<TextAreaProps & React.RefAttributes<HTMLTextAreaElement>>;
     tags: string[];
-    argTypes: {
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<TextAreaProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

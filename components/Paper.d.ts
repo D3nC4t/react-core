@@ -11,6 +11,10 @@ export interface PaperProps extends Omit<BoxProps, 'variant'> {
      */
     jCss?: JCssProps<Theme, PaperProps>;
     /**
+     * The name for this element
+     */
+    name?: string | 'C4tPaper';
+    /**
      * The name of the variant to apply on the html element
      */
     variant?: 'bordered' | 'root' | 'round-bordered' | 'rounded' | 'round-shadowed' | 'shadowed' | string;

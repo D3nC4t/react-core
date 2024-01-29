@@ -9,11 +9,14 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import Box from '../../components/Box';
 import Button from '../../components/Button';
+import LocaleProvider from '../../translations/component';
 import Portal from '../../components/Portal';
+import { PortalControls } from '../controls';
 Box.displayName = 'Box';
 Button.displayName = 'Button';
 Portal.displayName = 'Portal';
@@ -21,32 +24,21 @@ var meta = {
     title: 'Core/Components/Portal',
     component: Portal,
     tags: ['autodocs'],
-    argTypes: {
-        variant: {
-            options: [
-                'bottom', 'bottom-left', 'bottom-right',
-                'center', 'left', 'right',
-                'root',
-                'top', 'top-left', 'top-right',
-            ],
-            control: { type: 'select' },
-        },
-    },
+    argTypes: PortalControls,
 };
 export default meta;
 export var Default = {
     args: {
-        children: _jsx("span", { children: "Test" }),
+        children: (_jsx(LocaleProvider, __assign({ module: 'storybook' }, { children: _jsx(FormattedMessage, { id: 'some-text' }) }))),
     },
 };
 var WrappedPortal = function (props) {
-    var _a, _b;
-    var _c = useState(false), open = _c[0], setOpen = _c[1];
-    return (_jsxs(Box, { children: [_jsxs(Button, __assign({ variant: 'contained', onClick: function () {
-                    setOpen(true);
-                } }, { children: ["Open ", (_a = props.variant) === null || _a === void 0 ? void 0 : _a.toUpperCase()] })), _jsx(Portal, __assign({ open: open, onClose: function () {
-                    setOpen(false);
-                } }, props, { children: _jsx("span", { children: (_b = props.variant) === null || _b === void 0 ? void 0 : _b.toUpperCase() }) }))] }));
+    var _a = useState(false), open = _a[0], setOpen = _a[1];
+    return (_jsx(Box, { children: _jsxs(LocaleProvider, __assign({ module: 'storybook' }, { children: [_jsxs(Button, __assign({ variant: 'contained', onClick: function () {
+                        setOpen(true);
+                    } }, { children: [_jsx(FormattedMessage, { id: 'open' }), props.variant && (_jsx(_Fragment, { children: _jsx(FormattedMessage, { id: 'variant', values: { name: props.variant } }) }))] })), _jsx(Portal, __assign({ open: open, onClose: function () {
+                        setOpen(false);
+                    } }, props, { children: _jsx(FormattedMessage, { id: 'some-text' }) }))] })) }));
 };
 export var Bottom = {
     args: {

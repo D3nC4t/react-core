@@ -22,15 +22,18 @@ export interface SliderProps extends Omit<BoxProps, 'children' | 'jCss' | 'onCha
      * The minimum value for the slider
      */
     min?: number;
+    /**
+     * The number of marks to be shown on the slider
+     */
     marks?: boolean;
     /**
      * The maximum value for the slider
      */
     max?: number;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tSlider';
     /**
      * The function to be called when the value changes, note that the scroll is being debounced
      */

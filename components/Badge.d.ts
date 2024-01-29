@@ -15,9 +15,9 @@ export interface BadgeProps extends BoxProps {
     */
     jCss?: JCssProps<Theme>;
     /**
-    * The name for the div element
+    * The name for this element
     */
-    name?: string;
+    name?: string | 'C4tBadge';
     /**
      * The position of the badge, by default it is top-right
      */

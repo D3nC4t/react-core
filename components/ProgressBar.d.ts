@@ -27,9 +27,9 @@ export interface ProgressBarProps extends Omit<BoxProps, 'children' | 'variant'>
      */
     min?: number;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tProgressBar';
     /**
      * The distance between steps in the progress bar
      */

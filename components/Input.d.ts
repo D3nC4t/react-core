@@ -5,7 +5,7 @@ export interface InputProps extends HTMLAttributes<HTMLInputElement> {
     /**
      * The props for the box component
      */
-    boxProps?: BoxProps;
+    boxProps?: Omit<BoxProps, 'children'>;
     /**
      * The JSX to be placed after the input
      */
@@ -31,9 +31,9 @@ export interface InputProps extends HTMLAttributes<HTMLInputElement> {
      */
     jCss?: JCssProps<Theme>;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tInput';
     /**
      * The pattern to apply on the input
      */

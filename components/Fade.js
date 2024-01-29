@@ -42,7 +42,7 @@ var transitionStyles = {
     unmounted: { opacity: 0 },
 };
 export var Fade = forwardRef(function (_a, ref) {
-    var _b = _a.boxProps, boxProps = _b === void 0 ? {} : _b, children = _a.children, _c = _a.duration, duration = _c === void 0 ? 3000 : _c, _d = _a.in, _in = _d === void 0 ? false : _d, _e = _a.jCss, jCss = _e === void 0 ? {} : _e, name = _a.name, variant = _a.variant, props = __rest(_a, ["boxProps", "children", "duration", "in", "jCss", "name", "variant"]);
+    var _b = _a.boxProps, boxProps = _b === void 0 ? {} : _b, children = _a.children, _c = _a.duration, duration = _c === void 0 ? 3000 : _c, _d = _a.in, _in = _d === void 0 ? false : _d, _e = _a.jCss, jCss = _e === void 0 ? {} : _e, _f = _a.name, name = _f === void 0 ? 'C4tFade' : _f, variant = _a.variant, props = __rest(_a, ["boxProps", "children", "duration", "in", "jCss", "name", "variant"]);
     return (_jsx(Transition, __assign({ in: _in, timeout: duration }, props, { children: function (status) { return _jsx(StyledBox, __assign({ duration: duration, jCss: __assign(__assign({}, transitionStyles[status]), jCss), name: name, ref: ref, variant: variant }, boxProps, { children: children })); } })));
 });
 Fade.displayName = 'C4tFade';

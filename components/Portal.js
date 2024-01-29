@@ -68,22 +68,22 @@ export var Portal = forwardRef(function (_a, ref) {
     useEffect(function () {
         var _a, _b;
         var timeout = undefined;
-        if (isOpen) {
+        if (fadeOpen) {
+            setIsClosed(false);
+            timeout = setTimeout(function () {
+                setIsOpen(true);
+                setFadeOpen(false);
+            }, 300);
+        }
+        else if (isOpen) {
             (_a = withProps.onOpen) === null || _a === void 0 ? void 0 : _a.call(withProps);
             setIsClosed(false);
         }
-        else if (!fadeOpen && !isClosed) {
+        else if (!isClosed && !isOpen) {
             (_b = withProps.onClose) === null || _b === void 0 ? void 0 : _b.call(withProps);
             timeout = setTimeout(function () {
                 setIsClosed(true);
             }, fadeDuration);
-        }
-        else if (fadeOpen) {
-            setIsClosed(false);
-            setTimeout(function () {
-                setIsOpen(true);
-                setFadeOpen(false);
-            }, 300);
         }
         return function () {
             timeout && clearTimeout(timeout);

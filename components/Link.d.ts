@@ -1,7 +1,7 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { TypographyProps } from './Typography';
 import { ChildElement, JCssProps, Theme } from '../types';
-export interface LinkProps extends TypographyProps {
+export interface LinkProps extends Omit<TypographyProps, 'tag'> {
     /**
      * The value to be shown as content of the div
      */
@@ -17,7 +17,11 @@ export interface LinkProps extends TypographyProps {
     /**
      * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tLink';
+    /**
+     * The target for the link, by default is _self
+     */
+    target?: '_blank' | '_self' | '_parent' | '_top' | string;
     /**
      * The name of the variant to apply on the Typography/link element
      */

@@ -5,14 +5,7 @@ declare const meta: {
     title: string;
     component: React.ForwardRefExoticComponent<CircularLoadingProps & React.RefAttributes<HTMLDivElement>>;
     tags: string[];
-    argTypes: {
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<CircularLoadingProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

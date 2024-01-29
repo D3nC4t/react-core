@@ -17,7 +17,9 @@ import Box from '../../components/Box';
 import Chip from '../../components/Chip';
 import Icon from '../../components/Icon';
 import Typography from '../../components/Typography';
+import { useTranslations } from '../../translations';
 import { appTheme } from '../../theme';
+import { ChipControls } from '../controls';
 Avatar.displayName = 'Avatar';
 Box.displayName = 'Box';
 Chip.displayName = 'Chip';
@@ -27,14 +29,14 @@ var meta = {
     title: 'Core/Components/Chip',
     component: Chip,
     tags: ['autodocs'],
-    argTypes: {},
+    argTypes: ChipControls,
 };
 export default meta;
 var renderComponentMutations = function (props) {
     var $components = [
-        _createElement(Chip, __assign({}, props, { key: 'div', label: 'Div Chip' })),
-        _createElement(Chip, __assign({}, props, { component: 'button', key: 'button', label: 'Button Chip' })),
-        _createElement(Chip, __assign({}, props, { component: 'a', key: 'link', label: 'Link Chip' })),
+        _createElement(Chip, __assign({}, props, { key: 'div', label: 'div Chip' })),
+        _createElement(Chip, __assign({}, props, { component: 'button', key: 'button', label: 'button Chip' })),
+        _createElement(Chip, __assign({}, props, { component: 'a', key: 'link', href: '#', label: 'link Chip' })),
     ];
     return (_jsx(Box, __assign({ variant: 'flex-row' }, { children: $components })));
 };
@@ -45,15 +47,16 @@ export var Default = {
     },
     render: renderComponentMutations,
 };
-var renderAdornmentMutations = function (props) {
+var AdornmentMutations = function (props) {
+    var _a = useTranslations('storybook'), intl = _a[0], hasLoadedIntl = _a[1];
     var $components = [
-        _createElement(Chip, __assign({}, props, { key: 'div', label: 'Removable Chip', onRemove: function () { return console.log('On Remove'); } })),
-        _createElement(Chip, __assign({}, props, { component: 'button', key: 'removable-button', label: 'Removable button Icon Chip', onRemove: function () { return console.log('On Remove'); }, prepend: _jsx(Icon, { icon: faHome }) })),
-        _createElement(Chip, __assign({}, props, { component: 'button', key: 'button', label: 'Button Icon Chip', prepend: _jsx(Icon, { icon: faHome }) })),
-        _createElement(Chip, __assign({}, props, { component: 'a', key: 'removable-link', label: 'Removable link Avatar Chip', onRemove: function () { return console.log('On Remove'); }, prepend: _jsx(Avatar, { alt: 'test 1', src: '111', variant: 'contained' }) })),
-        _createElement(Chip, __assign({}, props, { component: 'a', key: 'link', label: 'Link Avatar Chip', prepend: _jsx(Avatar, { alt: 'test 1', src: '111', variant: 'contained' }) })),
+        _createElement(Chip, __assign({}, props, { key: 'div', label: intl.formatMessage({ id: 'chip.removable' }), onRemove: function () { return console.log('On Remove'); } })),
+        _createElement(Chip, __assign({}, props, { component: 'button', key: 'removable-button', label: intl.formatMessage({ id: 'chip.removable.with-icon' }), onRemove: function () { return console.log('On Remove'); }, prepend: _jsx(Icon, { icon: faHome }) })),
+        _createElement(Chip, __assign({}, props, { component: 'button', key: 'button', label: intl.formatMessage({ id: 'chip.button-icon' }), prepend: _jsx(Icon, { icon: faHome }) })),
+        _createElement(Chip, __assign({}, props, { component: 'a', key: 'removable-link', label: intl.formatMessage({ id: 'chip.removable.link-avatar' }), href: '#', onRemove: function () { return console.log('On Remove'); }, prepend: _jsx(Avatar, { alt: 'test 1', src: '111', variant: 'contained' }) })),
+        _createElement(Chip, __assign({}, props, { component: 'a', key: 'link', label: intl.formatMessage({ id: 'chip.link-avatar' }), href: '#', prepend: _jsx(Avatar, { alt: 'test 1', src: '111', variant: 'contained' }) })),
     ];
-    return (_jsx(Box, __assign({ variant: 'flex-row' }, { children: $components })));
+    return (_jsx(Box, __assign({ variant: 'flex-row' }, { children: hasLoadedIntl && $components })));
 };
 var renderThemeColorsAndMutations = function (props) {
     var $groups = [];
@@ -66,7 +69,7 @@ var renderThemeColorsAndMutations = function (props) {
                 padding: '1rem',
                 border: appTheme.get.border(appTheme.shape.border.size, appTheme.shape.border.unit, appTheme.shape.border.shape, 'grey', 'darker'),
                 alignItems: 'start',
-            }, variant: 'flex-column' }, { children: [_jsx(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: text })), renderComponentMutations(props), renderAdornmentMutations(props)] }), color));
+            }, variant: 'flex-column' }, { children: [_jsx(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: text })), renderComponentMutations(props), _jsx(AdornmentMutations, __assign({}, props))] }), color));
     }
     return (_jsx(Box, __assign({ variant: 'flex-row' }, { children: $groups })));
 };

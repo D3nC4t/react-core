@@ -5,7 +5,7 @@ declare const meta: {
     title: string;
     component: React.ForwardRefExoticComponent<FadeProps<undefined> & React.RefAttributes<HTMLDivElement>>;
     tags: string[];
-    argTypes: {};
+    argTypes: Partial<import("@storybook/types").ArgTypes<FadeProps<undefined>>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

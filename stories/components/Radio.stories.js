@@ -10,10 +10,13 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { FormattedMessage } from 'react-intl';
 import Box from '../../components/Box';
+import LocaleProvider from '../../translations/component';
 import Radio from '../../components/Radio';
 import Typography from '../../components/Typography';
 import { appTheme } from '../../theme';
+import { RadioControls } from '../controls';
 Box.displayName = 'Box';
 Radio.displayName = 'Radio';
 Typography.displayName = 'Typography';
@@ -21,28 +24,7 @@ var meta = {
     title: 'Core/Components/Radio',
     component: Radio,
     tags: ['autodocs'],
-    argTypes: {
-        color: {
-            control: { type: 'color' },
-        },
-        $bgColor: {
-            control: { type: 'color' },
-        },
-        $bColor: {
-            control: { type: 'color' },
-        },
-        $bRadius: {
-            control: { type: 'text' },
-        },
-        variant: {
-            options: [
-                'root',
-                'contained', 'contained-checkmark', 'contained-cross',
-                'outlined', 'outlined-checkmark', 'outlined-cross',
-            ],
-            control: { type: 'select' },
-        },
-    },
+    argTypes: RadioControls,
 };
 export default meta;
 export var Default = {
@@ -52,13 +34,11 @@ var renderThemeColorsAndMutations = function (props) {
     var $groups = [];
     for (var _i = 0, _a = Object.keys(appTheme.color); _i < _a.length; _i++) {
         var color = _a[_i];
-        var firstLetter = color[0].toUpperCase();
-        var text = firstLetter + color.substring(1, color.length);
-        $groups.push(_jsxs(Box, __assign({ jCss: {
+        $groups.push(_jsx(Box, __assign({ jCss: {
                 padding: '1rem',
                 border: appTheme.get.border(appTheme.shape.border.size, appTheme.shape.border.unit, appTheme.shape.border.shape, 'grey', 'darker'),
                 alignItems: 'start',
-            }, variant: 'flex-column' }, { children: [_jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsx(Radio, __assign({ color: color }, props)), text] })), _jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsx(Radio, __assign({ color: color, disabled: true }, props)), "Disabled"] })), _jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsx(Radio, __assign({ color: color, invalid: true }, props)), "Invalid"] }))] }), color));
+            }, variant: 'flex-column' }, { children: _jsxs(LocaleProvider, __assign({ module: 'storybook' }, { children: [_jsx(Typography, __assign({ variant: 'h4' }, { children: _jsx(FormattedMessage, { id: 'color', values: { name: color } }) })), _jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsx(Radio, __assign({ color: color }, props)), _jsx(FormattedMessage, { id: 'variant', values: { name: props.variant } })] })), _jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsx(Radio, __assign({ color: color, disabled: true }, props)), _jsx(FormattedMessage, { id: 'disabled' })] })), _jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsx(Radio, __assign({ color: color, invalid: true }, props)), _jsx(FormattedMessage, { id: 'invalid' })] }))] })) }), color));
     }
     return (_jsx(Box, __assign({ variant: 'flex-row' }, { children: $groups })));
 };

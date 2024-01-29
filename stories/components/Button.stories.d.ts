@@ -1,18 +1,11 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { ButtonProps } from '../../components/Button';
+import { ButtonProps } from '../../components';
 declare const meta: {
     title: string;
     component: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>;
     tags: string[];
-    argTypes: {
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<ButtonProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -136,5 +136,5 @@ export interface TypographyVariant {
     defaultStyles: JCssProps<Theme>;
     defaultTag: TypographyHTMLTags;
 }
-export type BoxHTMLTags = 'div' | 'ul' | 'li' | 'table' | 'header' | 'i' | 'section' | 'tr' | 'td' | 'thead' | 'tbody';
+export type BoxHTMLTags = 'div' | 'ul' | 'li' | 'table' | 'header' | 'i' | 'section' | 'tr' | 'td' | 'th' | 'thead' | 'tbody';
 export type TypographyHTMLTags = 'a' | 'em' | 'b' | 'del' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'i' | 'ins' | 'mark' | 'p' | 'small' | 'span' | 'sub' | 'sup';

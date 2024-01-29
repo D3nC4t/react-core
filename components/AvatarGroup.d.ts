@@ -25,6 +25,10 @@ export interface AvatarGroupProps extends Omit<BoxProps, 'children' | 'jCss'> {
      */
     max?: number;
     /**
+     * The name for the html element
+     */
+    name?: string | 'C4tAvatarGroup';
+    /**
      * To render a different value for the surplus avatars
      */
     renderSurplus?: (remaining: number) => ReactElement<typeof Avatar> | null;

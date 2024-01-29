@@ -1,38 +1,11 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { RadioProps } from '../../components/Radio';
+import { RadioProps } from '../../components';
 declare const meta: {
     title: string;
-    component: React.ForwardRefExoticComponent<RadioProps & React.RefAttributes<import("../../components/Radio").RadioRef>>;
+    component: React.ForwardRefExoticComponent<RadioProps & React.RefAttributes<import("../../components").RadioRef>>;
     tags: string[];
-    argTypes: {
-        color: {
-            control: {
-                type: string;
-            };
-        };
-        $bgColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bRadius: {
-            control: {
-                type: string;
-            };
-        };
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<RadioProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

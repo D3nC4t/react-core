@@ -1,33 +1,11 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { ProgressBarProps } from '../../components/ProgressBar';
+import { ProgressBarProps } from '../../components';
 declare const meta: {
     title: string;
     component: React.ForwardRefExoticComponent<ProgressBarProps & React.RefAttributes<HTMLDivElement>>;
     tags: string[];
-    argTypes: {
-        $bgColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bColor: {
-            control: {
-                type: string;
-            };
-        };
-        $bRadius: {
-            control: {
-                type: string;
-            };
-        };
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<ProgressBarProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

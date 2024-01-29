@@ -43,6 +43,18 @@ var Box = function (theme) { return ({
                     flexDirection: 'column',
                 },
             },
+            'flex-column-no-padding': {
+                props: {
+                    $gap: theme.spacing.sm,
+                },
+                styles: {
+                    alignItems: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 0,
+                    padding: 0,
+                },
+            },
             'flex-row': {
                 props: {
                     $gap: theme.spacing.sm,
@@ -52,6 +64,38 @@ var Box = function (theme) { return ({
                     flexDirection: 'row',
                     alignItems: 'center',
                     flexWrap: 'wrap',
+                },
+            },
+            'flex-row-no-padding': {
+                props: {
+                    $gap: theme.spacing.sm,
+                },
+                styles: {
+                    alignItems: 'center',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    gap: 0,
+                    padding: 0,
+                },
+            },
+            'flex-grow': {
+                props: {
+                    $gap: theme.spacing.sm,
+                },
+                styles: {
+                    display: 'flex',
+                    flexGrow: 1,
+                },
+            },
+            'flex-grow-no-padding': {
+                props: {
+                    $gap: theme.spacing.sm,
+                },
+                styles: {
+                    display: 'flex',
+                    flexGrow: 1,
+                    padding: 0,
                 },
             },
             'bordered': {

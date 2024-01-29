@@ -10,37 +10,19 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { FormattedMessage } from 'react-intl';
 import Box from '../../components/Box';
 import Checkbox from '../../components/Checkbox';
 import Typography from '../../components/Typography';
+import LocaleProvider from '../../translations/component';
 import { appTheme } from '../../theme';
+import { CheckboxControls } from '../controls';
 Checkbox.displayName = 'Checkbox';
 var meta = {
     title: 'Core/Components/Checkbox',
     component: Checkbox,
-    tags: ['autodocs'],
-    argTypes: {
-        color: {
-            control: { type: 'color' },
-        },
-        $bgColor: {
-            control: { type: 'color' },
-        },
-        $bColor: {
-            control: { type: 'color' },
-        },
-        $bRadius: {
-            control: { type: 'text' },
-        },
-        variant: {
-            options: [
-                'root',
-                'contained-plus', 'contained-checkmark', 'contained-cross', 'contained-minus',
-                'outlined-plus', 'outlined-checkmark', 'outlined-minus',
-            ],
-            control: { type: 'select' },
-        },
-    },
+    tags: ['checkbox', 'inputs'],
+    argTypes: CheckboxControls,
 };
 export default meta;
 export var Default = {
@@ -52,11 +34,11 @@ var renderThemeColorsAndMutations = function (props) {
         var color = _a[_i];
         var firstLetter = color[0].toUpperCase();
         var text = firstLetter + color.substring(1, color.length);
-        $groups.push(_jsxs(Box, __assign({ jCss: {
+        $groups.push(_jsx(Box, __assign({ jCss: {
                 padding: '1rem',
                 border: appTheme.get.border(appTheme.shape.border.size, appTheme.shape.border.unit, appTheme.shape.border.shape, 'grey', 'darker'),
                 alignItems: 'start',
-            }, variant: 'flex-column' }, { children: [_jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsx(Checkbox, __assign({ color: color }, props)), text] })), _jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsx(Checkbox, __assign({ color: color, disabled: true }, props)), "Disabled"] })), _jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsx(Checkbox, __assign({ color: color, invalid: true }, props)), "Invalid"] }))] }), color));
+            }, variant: 'flex-column' }, { children: _jsxs(LocaleProvider, __assign({ module: 'storybook' }, { children: [_jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsx(Checkbox, __assign({ color: color }, props)), text] })), _jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsx(Checkbox, __assign({ color: color, disabled: true }, props)), _jsx(FormattedMessage, { id: 'disabled' })] })), _jsxs(Typography, __assign({ variant: 'h6', tag: 'div' }, { children: [_jsx(Checkbox, __assign({ color: color, invalid: true }, props)), _jsx(FormattedMessage, { id: 'invalid' })] }))] })) }), color));
     }
     return (_jsx(Box, __assign({ variant: 'flex-row' }, { children: $groups })));
 };

@@ -1,24 +1,11 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { AutocompleteProps } from '../../components/Autocomplete';
+import { AutocompleteProps } from '../../components';
 declare const meta: {
     title: string;
     component: React.ForwardRefExoticComponent<AutocompleteProps & React.RefAttributes<HTMLDivElement>>;
     tags: string[];
-    argTypes: {
-        paperVariant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-        variant: {
-            options: string[];
-            control: {
-                type: string;
-            };
-        };
-    };
+    argTypes: Partial<import("@storybook/types").ArgTypes<AutocompleteProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

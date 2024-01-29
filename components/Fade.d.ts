@@ -24,9 +24,9 @@ export interface FadeProps<RefElement extends undefined | HTMLElement = undefine
      */
     jCss?: JCssProps<Theme, FadeProps>;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tFade';
     /**
      * Callback fired before the "entering" status is applied. An extra
      * parameter `isAppearing` is supplied to indicate if the enter stage is

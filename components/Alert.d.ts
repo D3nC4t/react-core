@@ -38,9 +38,9 @@ export interface AlertProps extends Omit<BoxProps, 'variant'> {
      */
     jCss?: JCssProps<Theme>;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tAlert';
     /**
      * The callback function to be called when the alert is closed
      */

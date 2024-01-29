@@ -32,9 +32,9 @@ export interface RadioProps extends Omit<BoxProps, 'color' | 'children' | 'onCha
      */
     jCss?: JCssProps<Theme>;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tRadio';
     /**
      * The callback to be called when the radio button is clicked
      */

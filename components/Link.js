@@ -30,13 +30,8 @@ export var Link = forwardRef(function (_a, ref) {
     var children = _a.children, _b = _a.name, name = _b === void 0 ? 'C4tLink' : _b, inputProps = __rest(_a, ["children", "name"]);
     var withProps = useDefaultProps(inputProps, name);
     var jCss = useVariantJCss(withProps, name, withProps.variant);
-    return (_jsx(Typography, __assign({ className: getClassName(withProps, name, withProps.variant), jCss: jCss, onClick: function () {
-            if (withProps.href) {
-                window.location.href = withProps.href;
-                return;
-            }
-            // todo: react navigation
-        }, ref: ref, tag: 'a', variant: withProps.typographyVariant }, _objectWithoutProperties(withProps, [
+    // todo: react navigation
+    return (_jsx(Typography, __assign({ jCss: jCss, className: getClassName(withProps, name, withProps.variant), ref: ref, tag: 'a', variant: withProps.typographyVariant }, _objectWithoutProperties(withProps, [
         'className',
         'jCss',
         'onClick',

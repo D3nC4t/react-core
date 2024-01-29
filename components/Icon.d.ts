@@ -16,9 +16,9 @@ export interface IconProps extends FontAwesomeIconProps {
      */
     icon: IconProp | IconDefinition;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tIcon';
     /**
      * Icon size
      */

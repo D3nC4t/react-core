@@ -11,9 +11,9 @@ export interface SwitchProps extends Omit<BoxProps, 'children'> {
      */
     jCss?: JCssProps<Theme>;
     /**
-     * The name for the div element
+     * The name for this element
      */
-    name?: string;
+    name?: string | 'C4tSwitch';
     /**
      * The value to be shown, if true, the thumb will have the checked class
      */

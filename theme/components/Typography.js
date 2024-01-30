@@ -1,14 +1,16 @@
 var Typography = {
-    C4tTypography: {
-        defaultProps: {
-            variant: 'p',
-            jCss: {
-                alignItems: 'center',
-                display: 'flex',
-                gap: function (theme) { return theme.spacing.s; },
-            },
+  C4tTypography: {
+    defaultProps: {
+      variant: 'p',
+      jCss: {
+        alignItems: 'center',
+        display: 'flex',
+        gap: function(theme) {
+          return theme.spacing.s;
         },
-        variants: {},
+      },
     },
+    variants: {},
+  },
 };
 export default Typography;

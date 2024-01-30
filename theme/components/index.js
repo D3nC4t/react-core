@@ -1,4 +1,6 @@
-import { merge } from 'lodash';
+import {
+  merge
+} from 'lodash';
 import Alert from './Alert';
 import Autocomplete from './Autocomplete';
 import Avatar from './Avatar';
@@ -36,5 +38,10 @@ import TableRow from './TableRow';
 import TextArea from './TextArea';
 import Tooltip from './Tooltip';
 import Typography from './Typography';
-var themeComponents = function (theme) { return merge({}, Alert, Autocomplete, Avatar(theme), AvatarGroup, Backdrop(theme), Badge, Box(theme), Breadcrumbs, Button(theme), ButtonGroup(theme), Checkbox, Chip, CircularLoading, CircularProgress, Divider, Drawer, Icon, Input, Link, LocaleSelector, Modal(theme), Paper(theme), Popover(theme), Portal, ProgressBar, Radio, Select, Slider, Switch, Table, TableBody, TableCell, TableHead, TableRow, TextArea, Tooltip, Typography); };
+var themeComponents = function(theme) {
+  return merge({}, Alert, Autocomplete, Avatar(theme), AvatarGroup, Backdrop(theme), Badge, Box(theme), Breadcrumbs,
+    Button(theme), ButtonGroup(theme), Checkbox, Chip, CircularLoading, CircularProgress, Divider, Drawer, Icon,
+    Input, Link, LocaleSelector, Modal(theme), Paper(theme), Popover(theme), Portal, ProgressBar, Radio, Select,
+    Slider, Switch, Table, TableBody, TableCell, TableHead, TableRow, TextArea, Tooltip, Typography);
+};
 export default themeComponents;

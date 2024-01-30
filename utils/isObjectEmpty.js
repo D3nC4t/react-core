@@ -1,3 +1,3 @@
 export default function isObjectEmpty(object) {
-    return Object.keys(object).length === 0;
+  return Object.keys(object).length === 0;
 }

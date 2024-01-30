@@ -1,11 +1,11 @@
 var TableRow = {
-    C4tTableRow: {
-        defaultProps: {},
-        variants: {
-            'root': {
-                styles: {},
-            },
-        },
+  C4tTableRow: {
+    defaultProps: {},
+    variants: {
+      'root': {
+        styles: {},
+      },
     },
+  },
 };
 export default TableRow;

@@ -1,11 +1,11 @@
 var Link = {
-    C4tLink: {
-        defaultProps: {},
-        variants: {
-            'root': {
-                styles: {},
-            },
-        },
+  C4tLink: {
+    defaultProps: {},
+    variants: {
+      'root': {
+        styles: {},
+      },
     },
+  },
 };
 export default Link;

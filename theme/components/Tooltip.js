@@ -8,6 +8,9 @@ var Tooltip = {
         borderRadius: function(theme) {
           return "".concat(theme.get.rem(theme.shape.border.radius, theme.shape.border.unit));
         },
+        color: function(theme, props) {
+          return theme.get.color(props.color || 'primary', 'text');
+        },
         padding: function(theme) {
           return "".concat(theme.get.rem(theme.spacing.xs, theme.shape.unit)) +
             " ".concat(theme.get.rem(theme.spacing.s, theme.shape.unit));
@@ -24,11 +27,6 @@ var Tooltip = {
       },
       'contained': {
         props: {
-          tooltipJCss: {
-            color: function(theme, props) {
-              return theme.get.color(props.color || 'primary', 'text');
-            },
-          },
           variant: 'contained',
         },
         styles: {},
@@ -42,6 +40,9 @@ var Tooltip = {
             border: function(theme, props) {
               return theme.get.border(theme.shape.border.size, theme.shape.border.unit, 'dashed', props.color ||
                 'primary', 'main');
+            },
+            color: function(theme, props) {
+              return theme.get.color(props.color === 'white' ? 'black' : 'white', 'text');
             },
           },
           variant: 'dashed',
@@ -58,6 +59,9 @@ var Tooltip = {
               return theme.get.border(theme.shape.border.size, theme.shape.border.unit, 'dotted', props.color ||
                 'primary', 'main');
             },
+            color: function(theme, props) {
+              return theme.get.color(props.color === 'white' ? 'black' : 'white', 'text');
+            },
           },
           variant: 'dotted',
         },
@@ -72,6 +76,9 @@ var Tooltip = {
             border: function(theme, props) {
               return theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape,
                 props.color || 'primary', 'main');
+            },
+            color: function(theme, props) {
+              return theme.get.color(props.color === 'white' ? 'black' : 'white', 'text');
             },
           },
           variant: 'outlined',

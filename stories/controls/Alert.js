@@ -23,12 +23,18 @@ var __spreadArray = (this && this.__spreadArray) || function(to, from, pack) {
 var _a;
 import _objectWithoutProperties from '../../utils/_objectWithoutProperties';
 import {
+  ColorControls,
+  ColorVariantControls,
+  getThemeColorOptions,
+  getThemeColorVariantOptions
+} from './color';
+import {
   appTheme
 } from '../../theme';
 import {
   BoxExtendedControls
 } from './Box';
-var AlertControls = __assign({
+var AlertControls = __assign(__assign(__assign({
   children: {
     description: 'The value to be shown as content of the div, it can be a string or a ReactElement',
     control: {
@@ -42,9 +48,16 @@ var AlertControls = __assign({
       type: 'null'
     },
   },
-  color: {
-    description: 'The color for the alert',
-    options: Object.keys(appTheme.color),
+  closeIconColor: {
+    description: 'The color for the close icon element',
+    control: {
+      type: 'color',
+      presetColors: getThemeColorOptions(),
+    },
+  },
+  closeIconColorVariant: {
+    description: 'The name of the color variant to apply on close icon elements',
+    options: getThemeColorVariantOptions(),
     control: {
       type: 'select'
     },
@@ -61,9 +74,16 @@ var AlertControls = __assign({
       type: 'null'
     },
   },
-  iconVariant: {
+  iconColor: {
+    description: 'The color for the icon element',
+    control: {
+      type: 'color',
+      presetColors: getThemeColorOptions(),
+    },
+  },
+  iconColorVariant: {
     description: 'The name of the color variant to apply on icon elements',
-    options: Object.keys(appTheme.color.primary),
+    options: getThemeColorVariantOptions(),
     control: {
       type: 'select'
     },
@@ -90,6 +110,6 @@ var AlertControls = __assign({
       type: 'select'
     },
   }
-}, _objectWithoutProperties(BoxExtendedControls !== null && BoxExtendedControls !== void 0 ? BoxExtendedControls :
-  {}, ['variant']));
+}, ColorControls), ColorVariantControls), _objectWithoutProperties(BoxExtendedControls !== null &&
+  BoxExtendedControls !== void 0 ? BoxExtendedControls : {}, ['variant']));
 export default AlertControls;

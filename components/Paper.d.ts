@@ -1,6 +1,7 @@
 import { ForwardRefExoticComponent } from 'react';
 import { BoxProps } from './Box';
 import { JCssProps, Shadow, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface PaperProps extends Omit<BoxProps, 'variant'> {
     /**
      * The shadow to apply on the html element
@@ -13,7 +14,7 @@ export interface PaperProps extends Omit<BoxProps, 'variant'> {
     /**
      * The name for this element
      */
-    name?: string | 'C4tPaper';
+    name?: typeof DISPLAY_NAME;
     /**
      * The name of the variant to apply on the html element
      */

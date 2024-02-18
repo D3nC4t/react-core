@@ -1,6 +1,7 @@
 import React, { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { BoxProps } from './Box';
 import { JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface CircularLoadingProps extends Omit<BoxProps, 'children' | 'variant'> {
     /**
      * The variant for the box component
@@ -25,7 +26,7 @@ export interface CircularLoadingProps extends Omit<BoxProps, 'children' | 'varia
     /**
      * The name for the Box element
      */
-    name?: string | 'C4tCircularLoading';
+    name?: typeof DISPLAY_NAME;
     /**
      * The number of lines to display
      */

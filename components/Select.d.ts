@@ -4,6 +4,7 @@ import { BoxProps } from './Box';
 import { JCssProps, Theme } from '../types';
 import { PopoverRef } from './Popover';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+declare const DISPLAY_NAME: string;
 export interface SelectProps extends Omit<HTMLAttributes<HTMLElement>, 'onChange' | 'color'> {
     /**
      * The props for the box component
@@ -38,6 +39,10 @@ export interface SelectProps extends Omit<HTMLAttributes<HTMLElement>, 'onChange
      */
     inputName?: string;
     /**
+     * The name of the module to use for the translations
+     */
+    intlModule?: string;
+    /**
      * Use true to mark the select as invalid
      */
     invalid?: boolean;
@@ -68,7 +73,7 @@ export interface SelectProps extends Omit<HTMLAttributes<HTMLElement>, 'onChange
     /**
      * The name for this element
      */
-    name?: string | 'C4tSelect';
+    name?: typeof DISPLAY_NAME;
     /**
      * Use true to use a popover instead of an attached floating element
      */

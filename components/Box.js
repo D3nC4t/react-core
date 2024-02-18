@@ -37,10 +37,11 @@ import styled, {
   getClassName
 } from '../theme/styled';
 import useDefaultProps from '../theme/hooks/useDefaultProps';
+var DISPLAY_NAME = 'C4tBox';
 export var Box = forwardRef(function(_a, ref) {
   var children = _a.children,
     _b = _a.name,
-    name = _b === void 0 ? 'C4tBox' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     tag = _a.tag,
     inputProps = __rest(_a, ["children", "name", "tag"]);
   var withProps = useDefaultProps(inputProps, name);
@@ -84,5 +85,5 @@ export var Box = forwardRef(function(_a, ref) {
     children: children
   })) : _jsx(_Fragment, {}));
 });
-Box.displayName = 'C4tBox';
+Box.displayName = DISPLAY_NAME;
 export default Box;

@@ -43,13 +43,14 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tProgressBar';
 var StyledDiv = styled('div')({
   content: '""',
 });
 export var ProgressBar = forwardRef(function(_a, ref) {
   var _b;
   var _c = _a.name,
-    name = _c === void 0 ? 'C4tProgressBar' : _c,
+    name = _c === void 0 ? DISPLAY_NAME : _c,
     inputProps = __rest(_a, ["name"]);
   var _d = useState(),
     progressWidth = _d[0],
@@ -132,5 +133,5 @@ export var ProgressBar = forwardRef(function(_a, ref) {
     })))]
   })));
 });
-ProgressBar.displayName = 'C4tProgressBar';
+ProgressBar.displayName = DISPLAY_NAME;
 export default ProgressBar;

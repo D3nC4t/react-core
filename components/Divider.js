@@ -41,11 +41,12 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tDivider';
 var StyledDivider = styled(Box)({});
 export var Divider = forwardRef(function(_a, ref) {
   var children = _a.children,
     _b = _a.name,
-    name = _b === void 0 ? 'C4tDivider' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["children", "name"]);
   var withProps = useDefaultProps(inputProps, name);
   var innerRef = useRef(null);
@@ -73,5 +74,5 @@ export var Divider = forwardRef(function(_a, ref) {
     })]
   })));
 });
-Divider.displayName = 'C4tDivider';
+Divider.displayName = DISPLAY_NAME;
 export default Divider;

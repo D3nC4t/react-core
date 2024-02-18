@@ -30,9 +30,9 @@ import {
   useEffect,
 } from 'react';
 import Box from './Box';
-import TableBody from './TableBody';
-import TableHead from './TableHead';
-import TableRow from './TableRow';
+import Body from './Table/Body';
+import Head from './Table/Head';
+import Row from './Table/Row';
 import _objectWithoutProperties from '../utils/_objectWithoutProperties';
 import {
   getClassName
@@ -44,38 +44,55 @@ import {
 import {
   validateChildComponentByTypes
 } from '../utils';
+export {
+  default as Body
+}
+from './Table/Body';
+export {
+  default as Cell
+}
+from './Table/Cell';
+export {
+  default as Head
+}
+from './Table/Head';
+export {
+  default as Row
+}
+from './Table/Row';
+var DISPLAY_NAME = 'C4tTable';
 export var Table = forwardRef(function(_a, ref) {
   var _b;
   var children = _a.children,
     _c = _a.name,
-    name = _c === void 0 ? 'C4tTable' : _c,
+    name = _c === void 0 ? DISPLAY_NAME : _c,
     inputProps = __rest(_a, ["children", "name"]);
   var withProps = useDefaultProps(inputProps, name);
   var jCss = useVariantJCss(withProps, name, withProps.variant);
   useEffect(function() {
     if (!Array.isArray(children)) {
       if (!validateChildComponentByTypes('Table', children, {
-          TableBody: TableBody,
-          TableHead: TableHead,
-          TableRow: TableRow,
+          TableBody: Body,
+          TableHead: Head,
+          TableRow: Row,
         }, true) && process.env.NODE_ENV !== 'production') {
-        throw new Error('C4t: Table must have only TableRow, TableHead or TableBody as children');
+        throw new Error('C4t: Table must have only Row, Head or Body as children');
       }
       return;
     }
     if (children.length === 0) {
       if (process.env.NODE_ENV !== 'production') {
-        console.error('C4t: Table must have at least one TableRow as child');
+        console.error('C4t: Table must have at least one Row as child');
       }
     }
     for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
       var node = children_1[_i];
       if (!validateChildComponentByTypes('Table', node, {
-          TableBody: TableBody,
-          TableHead: TableHead,
-          TableRow: TableRow,
+          TableBody: Body,
+          TableHead: Head,
+          TableRow: Row,
         }, true) && process.env.NODE_ENV !== 'production') {
-        throw new Error('C4t: Table must have only TableRow, TableHead or TableBody as children');
+        throw new Error('C4t: Table must have only Row, Head or Body as children');
       }
     }
   }, [children]);
@@ -97,5 +114,5 @@ export var Table = forwardRef(function(_a, ref) {
     children: children
   })));
 });
-Table.displayName = 'C4tTable';
+Table.displayName = DISPLAY_NAME;
 export default Table;

@@ -42,10 +42,11 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tCircularProgress';
 export var CircularProgress = forwardRef(function(_a, ref) {
   var _b, _c;
   var _d = _a.name,
-    name = _d === void 0 ? 'C4tCircularProgress' : _d,
+    name = _d === void 0 ? DISPLAY_NAME : _d,
     inputProps = __rest(_a, ["name"]);
   var withProps = useDefaultProps(inputProps, name);
   var innerRef = useRef(null);
@@ -97,5 +98,5 @@ export var CircularProgress = forwardRef(function(_a, ref) {
     })))
   }), percentage));
 });
-CircularProgress.displayName = 'C4tCircularProgress';
+CircularProgress.displayName = DISPLAY_NAME;
 export default CircularProgress;

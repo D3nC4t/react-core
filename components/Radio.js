@@ -44,6 +44,7 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tRadio';
 var StyledBox = styled(Box, {
   forwardProps: [
     '$bgColor',
@@ -59,13 +60,13 @@ var StyledBox = styled(Box, {
 })({});
 var StyledInput = styled('input')({});
 export var Radio = forwardRef(function(_a, ref) {
-  var _b, _c, _d, _e, _f;
-  var _g = _a.name,
-    name = _g === void 0 ? 'C4tRadio' : _g,
+  var _b, _c, _d, _e, _f, _g;
+  var _h = _a.name,
+    name = _h === void 0 ? DISPLAY_NAME : _h,
     inputProps = __rest(_a, ["name"]);
-  var _h = useState(false),
-    checked = _h[0],
-    setChecked = _h[1];
+  var _j = useState(false),
+    checked = _j[0],
+    setChecked = _j[1];
   var withProps = useDefaultProps(inputProps, name);
   var innerRef = useRef(null);
   var outerRef = useRef(null);
@@ -112,6 +113,7 @@ export var Radio = forwardRef(function(_a, ref) {
       className: getClassName({}, name, withProps.variant, 'input__icon') +
         (withProps.disabled ? ' disabled' : ''),
       color: (_c = withProps.color) !== null && _c !== void 0 ? _c : 'primary',
+      colorVariant: (_d = withProps.colorVariant) !== null && _d !== void 0 ? _d : 'main',
       icon: checked ? withProps.checkedIcon : withProps.uncheckedIcon,
       onClick: changeStatus,
       ref: innerRef
@@ -122,17 +124,17 @@ export var Radio = forwardRef(function(_a, ref) {
       onClick: changeStatus,
       readOnly: true,
       ref: innerRef,
-      type: (_d = withProps.type) !== null && _d !== void 0 ? _d : 'radio'
+      type: (_e = withProps.type) !== null && _e !== void 0 ? _e : 'radio'
     })), _jsx("input", {
       checked: checked,
-      name: (_e = withProps.inputName) !== null && _e !== void 0 ? _e : name,
+      name: (_f = withProps.inputName) !== null && _f !== void 0 ? _f : name,
       readOnly: true,
       style: {
         display: 'none'
       },
-      type: (_f = withProps.type) !== null && _f !== void 0 ? _f : 'radio'
+      type: (_g = withProps.type) !== null && _g !== void 0 ? _g : 'radio'
     })]
   })));
 });
-Radio.displayName = 'C4tRadio';
+Radio.displayName = DISPLAY_NAME;
 export default Radio;

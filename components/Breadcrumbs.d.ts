@@ -3,6 +3,7 @@ import Link from './Link';
 import { BoxProps } from './Box';
 import { ColorVariants, JCssProps, Theme } from '../types';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+declare const DISPLAY_NAME: string;
 export interface BreadcrumbsProps extends BoxProps {
     /**
      * The index of the active element
@@ -31,7 +32,7 @@ export interface BreadcrumbsProps extends BoxProps {
     /**
      * The name for this element
      */
-    name?: string | 'C4tBreadcrumbs';
+    name?: typeof DISPLAY_NAME;
     /**
      * The name of the variant to apply on the Breadcrumbs element
      */

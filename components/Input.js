@@ -40,33 +40,40 @@ import styled, {
   getClassName
 } from '../theme/styled';
 import {
+  useDebouncedCallback
+} from '../hooks';
+import {
   useDefaultProps,
   useTheme,
   useVariantJCss
 } from '../theme';
 import {
-  useDebouncedCallback
-} from '../hooks';
+  useTranslations
+} from '../translations';
+var DISPLAY_NAME = 'C4tInput';
 var StyledInput = styled('input')({});
 export var Input = forwardRef(function(_a, ref) {
-  var _b, _c, _d, _e, _f, _g;
-  var _h = _a.name,
-    name = _h === void 0 ? 'C4tInput' : _h,
+  var _b, _c, _d, _e, _f, _g, _h;
+  var _j = _a.name,
+    name = _j === void 0 ? DISPLAY_NAME : _j,
     inputProps = __rest(_a, ["name"]);
   var theme = useTheme();
-  var _j = useState(false),
-    focused = _j[0],
-    setFocused = _j[1];
-  var _k = useState(0),
-    paddingEnd = _k[0],
-    setPaddingEnd = _k[1];
-  var _l = useState(0),
-    paddingStart = _l[0],
-    setPaddingStart = _l[1];
+  var _k = useTranslations('core'),
+    intl = _k[0],
+    hasLoadedIntl = _k[1];
+  var _l = useState(false),
+    focused = _l[0],
+    setFocused = _l[1];
+  var _m = useState(0),
+    paddingEnd = _m[0],
+    setPaddingEnd = _m[1];
+  var _o = useState(0),
+    paddingStart = _o[0],
+    setPaddingStart = _o[1];
   var withProps = useDefaultProps(inputProps, name);
-  var _m = useState(''),
-    value = _m[0],
-    setValue = _m[1];
+  var _p = useState(''),
+    value = _p[0],
+    setValue = _p[1];
   var innerRef = useRef(null);
   var outerRef = useRef(null);
   var endAdornmentRef = useRef(null);
@@ -104,17 +111,33 @@ export var Input = forwardRef(function(_a, ref) {
       setPaddingEnd(endAdornmentRef.current.offsetWidth + theme.spacing.xxs);
     }
   });
+  var placeholder = (_c = withProps.placeholder) !== null && _c !== void 0 ? _c : '';
+  switch (withProps.type) {
+    case 'text':
+      placeholder = hasLoadedIntl ? intl.formatMessage({
+        id: 'input.text.placeholder'
+      }) : '';
+      break;
+    case 'email':
+      placeholder = hasLoadedIntl ? intl.formatMessage({
+        id: 'input.email.placeholder'
+      }) : '';
+      break;
+    case 'number':
+      placeholder = '0123456789';
+      break;
+  }
   return (_jsxs(Box, __assign({
-    className: getClassName((_c = withProps.boxProps) !== null && _c !== void 0 ? _c : {}, name, 'box') +
+    className: getClassName((_d = withProps.boxProps) !== null && _d !== void 0 ? _d : {}, name, 'box') +
       (focused ? " focused" : '') +
       (withProps.disabled ? " disabled" : '') +
       (withProps.invalid ? " invalid" : ''),
     color: withProps.color,
-    variant: (_e = (_d = withProps.boxProps) === null || _d === void 0 ? void 0 : _d.variant) !== null &&
-      _e !== void 0 ? _e : 'flex-row',
+    variant: (_f = (_e = withProps.boxProps) === null || _e === void 0 ? void 0 : _e.variant) !== null &&
+      _f !== void 0 ? _f : 'flex-row',
     ref: outerRef
-  }, _objectWithoutProperties(__assign(__assign({}, ((_f = withProps.boxProps) !== null && _f !== void 0 ?
-    _f : {})), (withProps.width && {
+  }, _objectWithoutProperties(__assign(__assign({}, ((_g = withProps.boxProps) !== null && _g !== void 0 ?
+    _g : {})), (withProps.width && {
     width: withProps.width
   })), [
     'className',
@@ -145,6 +168,7 @@ export var Input = forwardRef(function(_a, ref) {
         setFocused(false);
         (_a = withProps.onBlur) === null || _a === void 0 ? void 0 : _a.call(withProps, event);
       },
+      placeholder: placeholder,
       ref: innerRef,
       style: __assign(__assign({}, (paddingStart > 0 && {
         paddingLeft: theme.get.rem(paddingStart, 'px')
@@ -164,7 +188,7 @@ export var Input = forwardRef(function(_a, ref) {
       'value',
       'width',
     ]))), _jsx("input", {
-      name: (_g = withProps.inputName) !== null && _g !== void 0 ? _g : name,
+      name: (_h = withProps.inputName) !== null && _h !== void 0 ? _h : name,
       type: 'hidden',
       value: value,
       readOnly: true,
@@ -181,5 +205,5 @@ export var Input = forwardRef(function(_a, ref) {
     })))]
   })));
 });
-Input.displayName = 'C4tInput';
+Input.displayName = DISPLAY_NAME;
 export default Input;

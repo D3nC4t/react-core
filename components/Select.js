@@ -45,11 +45,15 @@ import {
   useState,
 } from 'react';
 import {
+  FormattedMessage
+} from 'react-intl';
+import {
   faAngleDown,
   faAngleUp
 } from '@fortawesome/free-solid-svg-icons';
 import Box from './Box';
 import Icon from './Icon';
+import LocaleProvider from '../translations/component';
 import Paper from './Paper';
 import Popover from './Popover';
 import Typography from './Typography';
@@ -62,6 +66,7 @@ import {
   useTheme,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tSelect';
 var StyledBox = styled(Box)({
   position: 'relative'
 });
@@ -79,31 +84,31 @@ var StyledIcon = styled('i')({
   position: 'relative'
 });
 export var Select = forwardRef(function(_a, ref) {
-  var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+  var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t;
   var children = _a.children,
-    _s = _a.name,
-    name = _s === void 0 ? 'C4tSelect' : _s,
-    _t = _a.value,
-    value = _t === void 0 ? [] : _t,
-    _u = _a.usePopover,
-    usePopover = _u === void 0 ? false : _u,
+    _u = _a.name,
+    name = _u === void 0 ? DISPLAY_NAME : _u,
+    _v = _a.value,
+    value = _v === void 0 ? [] : _v,
+    _w = _a.usePopover,
+    usePopover = _w === void 0 ? false : _w,
     inputProps = __rest(_a, ["children", "name", "value", "usePopover"]);
   var theme = useTheme();
-  var _v = useState([]),
-    selected = _v[0],
-    setSelected = _v[1];
-  var _w = useState(false),
-    rejectValue = _w[0],
-    setRejectValue = _w[1];
-  var _x = useState(undefined),
-    selected$el = _x[0],
-    setSelected$el = _x[1];
+  var _x = useState([]),
+    selected = _x[0],
+    setSelected = _x[1];
   var _y = useState(false),
-    setupRef = _y[0],
-    setSetupRef = _y[1];
-  var _z = useState(false),
-    showOptions = _z[0],
-    setShowOptions = _z[1];
+    rejectValue = _y[0],
+    setRejectValue = _y[1];
+  var _z = useState(undefined),
+    selected$el = _z[0],
+    setSelected$el = _z[1];
+  var _0 = useState(false),
+    setupRef = _0[0],
+    setSetupRef = _0[1];
+  var _1 = useState(false),
+    showOptions = _1[0],
+    setShowOptions = _1[1];
   var withProps = useDefaultProps(inputProps, name);
   var innerRef = useRef(null);
   var optionsRef = useRef(null);
@@ -257,11 +262,22 @@ export var Select = forwardRef(function(_a, ref) {
             "span", __assign({
               className: 'not-selected'
             }, {
-              children: (_g = withProps.title) !== null && _g !== void 0 ? _g : (
-                withProps.multiple ? 'Select Options' : 'Select a Option')
+              children: _jsx(LocaleProvider, __assign({
+                module: (_g = withProps.intlModule) !== null && _g !== void 0 ?
+                  _g : 'core'
+              }, {
+                children: (_h = withProps.title) !== null && _h !== void 0 ?
+                  _h : (withProps.multiple ?
+                    _jsx(FormattedMessage, {
+                      id: 'select.many'
+                    }) :
+                    _jsx(FormattedMessage, {
+                      id: 'select.one'
+                    }))
+              }))
             }))), selected.length > 1 && ", +".concat(selected.length - 1)]
         })), _jsx("input", {
-          name: (_h = withProps.inputName) !== null && _h !== void 0 ? _h : name,
+          name: (_j = withProps.inputName) !== null && _j !== void 0 ? _j : name,
           ref: inputRef,
           style: {
             display: 'none'
@@ -271,18 +287,20 @@ export var Select = forwardRef(function(_a, ref) {
           className: " ".concat(baseClassName, "__icon")
         }, {
           children: _jsx(Icon, {
-            color: (_j = withProps.color) !== null && _j !== void 0 ? _j : 'primary',
-            icon: showOptions ? ((_k = withProps.closeIcon) !== null && _k !== void 0 ?
-              _k : faAngleUp) : ((_l = withProps.openIcon) !== null && _l !== void 0 ?
-              _l : faAngleDown)
+            color: (_k = withProps.color) !== null && _k !== void 0 ? _k : 'primary',
+            colorVariant: (_l = withProps.colorVariant) !== null && _l !== void 0 ? _l :
+              'main',
+            icon: showOptions ? ((_m = withProps.closeIcon) !== null && _m !== void 0 ?
+              _m : faAngleUp) : ((_o = withProps.openIcon) !== null && _o !== void 0 ?
+              _o : faAngleDown)
           })
         }))]
       })), usePopover ?
       (_jsx(Popover, __assign({
         "$anchorEl": outerRef.current,
         className: optionsClassName,
-        jCss: __assign(__assign({}, ((_m = jCss === null || jCss === void 0 ? void 0 : jCss["& ."
-            .concat(optionsClassName)]) !== null && _m !== void 0 ? _m : {})), withProps
+        jCss: __assign(__assign({}, ((_p = jCss === null || jCss === void 0 ? void 0 : jCss["& ."
+            .concat(optionsClassName)]) !== null && _p !== void 0 ? _p : {})), withProps
           .optionsJCss),
         onClose: function() {
           return setShowOptions(false);
@@ -291,24 +309,24 @@ export var Select = forwardRef(function(_a, ref) {
           return setShowOptions(true);
         },
         ref: popoverRef,
-        variant: (_o = withProps.paperVariant) !== null && _o !== void 0 ? _o : 'shadowed'
+        variant: (_q = withProps.paperVariant) !== null && _q !== void 0 ? _q : 'shadowed'
       }, {
         children: $options
       }))) :
       showOptions && (_jsx(StyledSelectOptions, __assign({
         className: optionsClassName,
         jCss: __assign(__assign({}, withProps.optionsJCss), {
-          top: (_q = (_p = outerRef.current) === null || _p === void 0 ? void 0 : _p
-            .clientHeight) !== null && _q !== void 0 ? _q : 0,
+          top: (_s = (_r = outerRef.current) === null || _r === void 0 ? void 0 : _r
+            .clientHeight) !== null && _s !== void 0 ? _s : 0,
           left: 0
         }),
         ref: optionsRef,
-        variant: (_r = withProps.paperVariant) !== null && _r !== void 0 ? _r : 'shadowed'
+        variant: (_t = withProps.paperVariant) !== null && _t !== void 0 ? _t : 'shadowed'
       }, {
         children: $options
       })))
     ]
   })));
 });
-Select.displayName = 'C4tSelect';
+Select.displayName = DISPLAY_NAME;
 export default Select;

@@ -55,12 +55,13 @@ import {
   useVariantJCss
 } from '../theme';
 import validateChildComponent from '../utils/validateChildComponent';
+var DISPLAY_NAME = 'C4tAvatarGroup';
 var StyledBox = styled(Box)({}); // Using styled to don't forward the '$' variables
 export var AvatarGroup = forwardRef(function(_a, ref) {
   var _b;
   var children = _a.children,
     _c = _a.name,
-    name = _c === void 0 ? 'C4tAvatarGroup' : _c,
+    name = _c === void 0 ? DISPLAY_NAME : _c,
     inputProps = __rest(_a, ["children", "name"]);
   var _d = useState([]),
     $avatars = _d[0],
@@ -167,5 +168,5 @@ export var AvatarGroup = forwardRef(function(_a, ref) {
     children: $avatars
   })));
 });
-AvatarGroup.displayName = 'C4tAvatarGroup';
+AvatarGroup.displayName = DISPLAY_NAME;
 export default AvatarGroup;

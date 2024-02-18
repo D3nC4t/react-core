@@ -1,11 +1,11 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { TableProps } from '../../components';
+import * as T from '../../components/Table';
 declare const meta: {
     title: string;
-    component: React.ForwardRefExoticComponent<TableProps & React.RefAttributes<HTMLDivElement>>;
+    component: React.ForwardRefExoticComponent<T.TableProps & React.RefAttributes<HTMLDivElement>>;
     tags: string[];
-    argTypes: Partial<import("@storybook/types").ArgTypes<TableProps>> | undefined;
+    argTypes: Partial<import("@storybook/types").ArgTypes<T.TableProps>> | undefined;
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

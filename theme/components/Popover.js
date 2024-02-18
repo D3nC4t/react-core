@@ -30,6 +30,7 @@ var Popover = function(theme) {
           $invisible: true,
           $fadeProps: {
             duration: 1200,
+            detachDuration: 600,
           }
         },
         $bgColor: 'white.main',

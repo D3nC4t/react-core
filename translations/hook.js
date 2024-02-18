@@ -125,7 +125,7 @@ import {
   useConfig
 } from '../config';
 import {
-  loadCoreI18nModuleData,
+  loadI18nModuleData,
   watchModuleTranslations
 } from './index';
 var useTranslations = function(module, forceLocale) {
@@ -154,7 +154,7 @@ var useTranslations = function(module, forceLocale) {
               _c = {
                 locale: useLocale
               };
-              return [4 /*yield*/ , loadCoreI18nModuleData(useLocale, module)];
+              return [4 /*yield*/ , loadI18nModuleData(useLocale, module)];
             case 1:
               _a.apply(void 0, [_b.apply(void 0, [(_c.messages = (_d = _e.sent()) !== null && _d !==
                 void 0 ? _d : {},

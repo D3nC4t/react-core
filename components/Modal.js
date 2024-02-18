@@ -39,10 +39,11 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tModal';
 export var Modal = forwardRef(function(_a, ref) {
   var children = _a.children,
     _b = _a.name,
-    name = _b === void 0 ? 'C4tModal' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["children", "name"]);
   var _c = useState(false),
     isOpen = _c[0],
@@ -84,5 +85,5 @@ export var Modal = forwardRef(function(_a, ref) {
     children: children
   })));
 });
-Modal.displayName = 'C4tModal';
+Modal.displayName = DISPLAY_NAME;
 export default Modal;

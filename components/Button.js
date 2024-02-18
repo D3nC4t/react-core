@@ -38,6 +38,7 @@ import styled, {
 import {
   useDefaultProps
 } from '../theme';
+var DISPLAY_NAME = 'C4tButton';
 var StyledButton = styled('button', {
   dontForwardProp: ['typographyProps'],
 })(function(_a) {
@@ -65,7 +66,7 @@ var StyledButton = styled('button', {
 export var Button = forwardRef(function(_a, ref) {
   var children = _a.children,
     _b = _a.name,
-    name = _b === void 0 ? 'C4tButton' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     props = __rest(_a, ["children", "name"]);
   var withProps = useDefaultProps(props, name);
   return (_jsxs(StyledButton, __assign({
@@ -91,5 +92,5 @@ export var Button = forwardRef(function(_a, ref) {
     }))]
   })));
 });
-Button.displayName = 'C4tButton';
+Button.displayName = DISPLAY_NAME;
 export default Button;

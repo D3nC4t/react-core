@@ -2,6 +2,7 @@ import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 import { IconProp, IconDefinition, SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { ColorVariants, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface IconProps extends FontAwesomeIconProps {
     /**
      * The color for the icon
@@ -18,7 +19,7 @@ export interface IconProps extends FontAwesomeIconProps {
     /**
      * The name for this element
      */
-    name?: string | 'C4tIcon';
+    name?: typeof DISPLAY_NAME;
     /**
      * Icon size
      */

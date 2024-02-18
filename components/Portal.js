@@ -49,11 +49,12 @@ import {
   useDefaultProps,
   useTheme
 } from '../theme';
+var DISPLAY_NAME = 'C4tPortal';
 export var Portal = forwardRef(function(_a, ref) {
   var _b, _c, _d, _e, _f, _g;
   var children = _a.children,
     _h = _a.name,
-    name = _h === void 0 ? 'C4tPortal' : _h,
+    name = _h === void 0 ? DISPLAY_NAME : _h,
     open = _a.open,
     inputProps = __rest(_a, ["children", "name", "open"]);
   var theme = useTheme();
@@ -174,5 +175,5 @@ export var Portal = forwardRef(function(_a, ref) {
       })), (_g = withProps.container) !== null && _g !== void 0 ? _g : document.body)
   })));
 });
-Portal.displayName = 'C4tPortal';
+Portal.displayName = DISPLAY_NAME;
 export default Portal;

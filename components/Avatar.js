@@ -41,13 +41,14 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tAvatar';
 var StyledBox = styled(Box)({}); // Using styled to don't forward the '$' variables
 var StyledAvatarImg = styled('img')({});
 export var Avatar = forwardRef(function(_a, ref) {
   var _b, _c;
   var children = _a.children,
     _d = _a.name,
-    name = _d === void 0 ? 'C4tAvatar' : _d,
+    name = _d === void 0 ? DISPLAY_NAME : _d,
     inputProps = __rest(_a, ["children", "name"]);
   var withProps = useDefaultProps(inputProps, name);
   var _e = useState(''),
@@ -96,5 +97,5 @@ export var Avatar = forwardRef(function(_a, ref) {
     }))]
   })));
 });
-Avatar.displayName = 'C4tAvatar';
+Avatar.displayName = DISPLAY_NAME;
 export default Avatar;

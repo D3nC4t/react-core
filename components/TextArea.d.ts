@@ -1,6 +1,7 @@
 import { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from 'react';
 import { BoxProps } from './Box';
 import { JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface TextAreaProps extends HTMLAttributes<HTMLTextAreaElement> {
     /**
      * The props for the box component
@@ -25,7 +26,7 @@ export interface TextAreaProps extends HTMLAttributes<HTMLTextAreaElement> {
     /**
      * The name for this element
      */
-    name?: string | 'C4tTextArea';
+    name?: typeof DISPLAY_NAME;
     /**
      * The orientation of the textarea resize feature
      */

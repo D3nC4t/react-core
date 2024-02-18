@@ -29,13 +29,13 @@ import {
 } from './Box';
 var TableRowControls = __assign({
   children: {
-    description: 'The children for the TableRow element, only accepts TableCell as children',
+    description: 'The children for the Row element, only accepts Cell as children',
     control: {
       type: 'null'
     },
   },
   variant: {
-    description: 'The variant for the TableRow element',
+    description: 'The variant for the Row element',
     options: __spreadArray([
       undefined
     ], Object.keys((_a = appTheme.components.C4tTableRow.variants) !== null && _a !== void 0 ? _a : {}), true),

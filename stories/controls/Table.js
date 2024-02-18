@@ -33,7 +33,7 @@ import {
 } from './color';
 var TableControls = __assign(__assign(__assign({
   children: {
-    description: 'The children for the Table element, only accepts TableHead, TableBody, and TableRow as children',
+    description: 'The children for the Table element, only accepts Head, Body, and Row as children',
     control: {
       type: 'null'
     },

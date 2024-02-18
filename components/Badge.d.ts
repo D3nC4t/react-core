@@ -1,6 +1,7 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { BoxProps } from './Box';
 import { ChildElement, JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface BadgeProps extends BoxProps {
     /**
      * The name of the color to apply on the badge, it can be also a static color(rgb, hex, etc)
@@ -17,11 +18,15 @@ export interface BadgeProps extends BoxProps {
     /**
     * The name for this element
     */
-    name?: string | 'C4tBadge';
+    name?: typeof DISPLAY_NAME;
     /**
      * The position of the badge, by default it is top-right
      */
     position?: 'bottom-right' | 'bottom-left' | 'top-left' | 'top-right';
+    /**
+     * Use true to show the badge as a dot, but on hover it will show the text
+     */
+    showAsDot?: boolean;
     /**
      * The text to be shown on the badge
      */

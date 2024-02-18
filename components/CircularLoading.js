@@ -50,12 +50,13 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tCircularLoading';
 var StyledSpan = styled('span')({
   display: 'inline-block',
 });
 export var CircularLoading = forwardRef(function(_a, ref) {
   var _b = _a.name,
-    name = _b === void 0 ? 'C4tCircularLoading' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["name"]);
   var _c = useState([]),
     $lines = _c[0],
@@ -106,5 +107,5 @@ export var CircularLoading = forwardRef(function(_a, ref) {
     }))
   })));
 });
-CircularLoading.displayName = 'C4tCircularLoading';
+CircularLoading.displayName = DISPLAY_NAME;
 export default CircularLoading;

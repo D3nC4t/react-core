@@ -2,6 +2,7 @@ import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { BoxProps } from './Box';
 import { ChildElement, JCssProps, Theme } from '../types';
 import { TypographyProps } from './Typography';
+declare const DISPLAY_NAME: string;
 export interface TooltipProps extends BoxProps {
     /**
      * The value to be shown as content of the div
@@ -22,7 +23,7 @@ export interface TooltipProps extends BoxProps {
     /**
      * The name for this element
      */
-    name?: string | 'C4tTooltip';
+    name?: typeof DISPLAY_NAME;
     /**
      * The element or text to be shown as tooltip
      */

@@ -45,9 +45,10 @@ import {
 import {
   I18n
 } from '../config';
+var DISPLAY_NAME = 'C4tLocaleSelector';
 export var LocaleSelector = forwardRef(function(_a, ref) {
   var _b = _a.name,
-    name = _b === void 0 ? 'C4tLocaleSelector' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["name"]);
   var enabledLocales = useConfig().enabledLocales;
   var _c = useState([]),
@@ -91,5 +92,5 @@ export var LocaleSelector = forwardRef(function(_a, ref) {
     })
   })));
 });
-LocaleSelector.displayName = 'C4tLocaleSelector';
+LocaleSelector.displayName = DISPLAY_NAME;
 export default LocaleSelector;

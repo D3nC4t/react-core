@@ -1,9 +1,9 @@
-import { I18nLocale, I18nModule, I18nModuleLoader, I18nModuleLocales, I18nModules, I18nModuleSubscriptionFn, UnsubscribeI18nModuleCallback } from '../types';
+import { I18nLocale, I18nModule, I18nModuleLoaderFn, I18nModuleLocales, I18nModules, I18nModuleSubscriptionFn, UnsubscribeI18nModuleCallback } from '../types';
 declare const modules: I18nModules;
 export { default as useTranslations } from './hook';
 export declare const DEFAULT_MODULE: string;
-export declare const setAppI18nModuleDataLoader: (loadModuleData: I18nModuleLoader) => void;
-export declare const loadCoreI18nModuleData: I18nModuleLoader;
+export declare const addI18nModuleLoader: (loadModuleData: I18nModuleLoaderFn, priority?: number) => void;
+export declare const loadI18nModuleData: I18nModuleLoaderFn;
 export declare function hasModule(module: string): boolean;
 export declare function getModule(module: string): Record<I18nLocale, I18nModule> | undefined;
 export declare function hasModuleLocale(module: string, locale: I18nLocale): boolean;

@@ -1,5 +1,6 @@
 import { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from 'react';
 import { ChildElement, ColorVariants, JCssProps, Theme, TypographyHTMLTags } from '../types';
+declare const DISPLAY_NAME: string;
 export interface TypographyProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * The value to be shown as content of the div
@@ -24,7 +25,7 @@ export interface TypographyProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * The name for this element
      */
-    name?: string | 'C4tTypography';
+    name?: typeof DISPLAY_NAME;
     /**
      * The tag element to use
      */

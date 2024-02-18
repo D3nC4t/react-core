@@ -54,14 +54,22 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+import {
+  useTranslations
+} from '../translations';
+var DISPLAY_NAME = 'C4tAutocomplete';
 export var Autocomplete = forwardRef(function(_a, ref) {
+  var _b;
   var children = _a.children,
-    _b = _a.name,
-    name = _b === void 0 ? 'C4tAutocomplete' : _b,
+    _c = _a.name,
+    name = _c === void 0 ? DISPLAY_NAME : _c,
     inputProps = __rest(_a, ["children", "name"]);
-  var _c = useState(''),
-    search = _c[0],
-    setSearch = _c[1];
+  var _d = useTranslations('core'),
+    intl = _d[0],
+    hasLoadedIntl = _d[1];
+  var _e = useState(''),
+    search = _e[0],
+    setSearch = _e[1];
   var withProps = useDefaultProps(__assign({
     selectName: 'C4tSelect'
   }, inputProps), name);
@@ -84,6 +92,10 @@ export var Autocomplete = forwardRef(function(_a, ref) {
         onChange: function(event) {
           return setSearch(event.target.value);
         },
+        placeholder: (_b = withProps.searchPlaceholder) !== null && _b !== void 0 ? _b : (hasLoadedIntl ? intl
+          .formatMessage({
+            id: 'search'
+          }) : ''),
         ref: searchRef
       }, 'search')
     ], children
@@ -106,5 +118,5 @@ export var Autocomplete = forwardRef(function(_a, ref) {
     children: $options
   })));
 });
-Autocomplete.displayName = 'C4tAutocomplete';
+Autocomplete.displayName = DISPLAY_NAME;
 export default Autocomplete;

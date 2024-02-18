@@ -39,10 +39,11 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tDrawer';
 export var Drawer = forwardRef(function(_a, ref) {
   var children = _a.children,
     _b = _a.name,
-    name = _b === void 0 ? 'C4tDrawer' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["children", "name"]);
   var withProps = useDefaultProps(inputProps, name);
   var jCss = useVariantJCss(withProps, name, withProps.variant);
@@ -61,5 +62,5 @@ export var Drawer = forwardRef(function(_a, ref) {
     children: children
   })));
 });
-Drawer.displayName = 'C4tDrawer';
+Drawer.displayName = DISPLAY_NAME;
 export default Drawer;

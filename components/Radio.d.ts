@@ -1,7 +1,8 @@
 import { ForwardRefExoticComponent, MouseEvent, RefAttributes } from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { BoxProps } from './Box';
-import { JCssProps, Theme, ThemeColor } from '../types';
+import { ColorVariants, JCssProps, Theme, ThemeColor } from '../types';
+declare const DISPLAY_NAME: string;
 export interface RadioProps extends Omit<BoxProps, 'color' | 'children' | 'onChange' | 'variant'> {
     /**
      * The variants to apply to the box element
@@ -11,6 +12,10 @@ export interface RadioProps extends Omit<BoxProps, 'color' | 'children' | 'onCha
      * The color to apply to the radio button
      */
     color?: ThemeColor | string;
+    /**
+     * The name of the color variant to apply on the html element
+     */
+    colorVariant?: keyof ColorVariants;
     /**
      * The icon to show when the radio is checked
      */
@@ -34,7 +39,7 @@ export interface RadioProps extends Omit<BoxProps, 'color' | 'children' | 'onCha
     /**
      * The name for this element
      */
-    name?: string | 'C4tRadio';
+    name?: typeof DISPLAY_NAME;
     /**
      * The callback to be called when the radio button is clicked
      */

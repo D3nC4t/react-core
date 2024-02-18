@@ -1,7 +1,8 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { BoxProps } from './Box';
 import { FadeProps } from './Fade';
-import { ChildElement, CSSPosition, JCssProps, Theme } from '../types';
+import { ChildElement, ColorVariants, CSSPosition, JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface BackdropProps {
     /**
      * The props for the box component
@@ -15,6 +16,10 @@ export interface BackdropProps {
      * The color for the backdrop
      */
     color?: keyof Theme['color'] | string;
+    /**
+     * The name of the color variant to apply on the backdrop shadow
+     */
+    colorVariant?: keyof ColorVariants;
     /**
      * The props to parse to the fade component
      */
@@ -30,7 +35,7 @@ export interface BackdropProps {
     /**
      * The name for this element
      */
-    name?: string | 'C4tBackdrop';
+    name?: typeof DISPLAY_NAME;
     /**
      * The name of the variant to apply on the html element
      */

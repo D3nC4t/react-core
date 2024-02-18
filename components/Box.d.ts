@@ -1,5 +1,6 @@
 import { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from 'react';
 import { ChildElement, JCssProps, Theme, BoxHTMLTags, ColorVariants, CSSUnit, CSSBorderShape, ThemeColor } from '../types';
+declare const DISPLAY_NAME: string;
 export interface BoxProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * The color to use as background of Box elements
@@ -48,7 +49,7 @@ export interface BoxProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * The name for this element
      */
-    name?: string | 'C4tBox';
+    name?: typeof DISPLAY_NAME;
     /**
      * The tag element to use
      */

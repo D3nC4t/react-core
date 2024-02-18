@@ -1,6 +1,7 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { BoxProps } from './Box';
 import { ColorVariants, JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface CircularProgressProps extends Omit<BoxProps, 'children' | 'variant'> {
     /**
      * The name of the color to apply on the html element, it can be also a static color(rgb, hex, etc)
@@ -29,7 +30,7 @@ export interface CircularProgressProps extends Omit<BoxProps, 'children' | 'vari
     /**
      * The name for this element
      */
-    name?: string | 'C4tCircularProgress';
+    name?: typeof DISPLAY_NAME;
     /**
      * The percentage to force on the progress
      */

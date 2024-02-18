@@ -27,7 +27,7 @@ import {
   Fragment as _Fragment,
   jsxs as _jsxs
 } from "react/jsx-runtime";
-import {
+import React, {
   forwardRef,
 } from 'react';
 import Box from './Box';
@@ -39,18 +39,32 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tBadge';
 var StyledBadge = styled('div')({});
 export var Badge = forwardRef(function(_a, ref) {
   var children = _a.children,
     _b = _a.name,
-    name = _b === void 0 ? 'C4tBadge' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["children", "name"]);
+  var _c = React.useState(false),
+    showText = _c[0],
+    setShowText = _c[1];
   var withProps = useDefaultProps(inputProps, name);
   var jCss = useVariantJCss(withProps, name, withProps.variant);
   return (_jsx(Box, __assign({
     className: getClassName(withProps, name, withProps.variant),
     jCss: jCss,
     ref: ref,
+    onMouseEnter: function(event) {
+      var _a;
+      setShowText(true);
+      (_a = withProps.onMouseEnter) === null || _a === void 0 ? void 0 : _a.call(withProps, event);
+    },
+    onMouseLeave: function(event) {
+      var _a;
+      setShowText(false);
+      (_a = withProps.onMouseLeave) === null || _a === void 0 ? void 0 : _a.call(withProps, event);
+    },
     variant: 'auto-fit-no-padding'
   }, _objectWithoutProperties(withProps, [
     'className',
@@ -61,12 +75,14 @@ export var Badge = forwardRef(function(_a, ref) {
       children: [_jsx(StyledBadge, __assign({
         className: getClassName(withProps, name, withProps.variant, 'badge') +
           (!withProps.text || withProps.text == '' ? ' empty' : '') +
-          (withProps.position ? " ".concat(withProps.position) : '')
+          (withProps.position ? " ".concat(withProps.position) : '') +
+          (withProps.showAsDot ? ' dot' : '') +
+          (showText ? ' show-text' : '')
       }, {
-        children: withProps.text
+        children: !withProps.showAsDot || showText ? withProps.text : ''
       })), children]
     })
   })));
 });
-Badge.displayName = 'C4tBadge';
+Badge.displayName = DISPLAY_NAME;
 export default Badge;

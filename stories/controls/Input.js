@@ -75,10 +75,23 @@ var InputControls = __assign(__assign(__assign({
       type: 'text'
     },
   },
+  placeholder: {
+    description: 'The placeholder for the Input element',
+    control: {
+      type: 'text'
+    },
+  },
   startAdornment: {
     description: 'The start adornment for the Input element, can be a ReactElement',
     control: {
       type: 'null'
+    },
+  },
+  type: {
+    description: 'The type for the Input element',
+    options: ['text', 'email', 'password', 'number'],
+    control: {
+      type: 'radio'
     },
   },
   value: {

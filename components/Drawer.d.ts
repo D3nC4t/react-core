@@ -2,6 +2,7 @@ import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { ModalProps } from './Modal';
 import { JCssProps, Theme } from '../types';
 import { PortalRef } from './Portal';
+declare const DISPLAY_NAME: string;
 export interface DrawerProps extends Omit<ModalProps, 'variant' | 'portalVariant'> {
     /**
      * The extra css in js
@@ -14,7 +15,7 @@ export interface DrawerProps extends Omit<ModalProps, 'variant' | 'portalVariant
     /**
      * The name for this element
      */
-    name?: string | 'C4tDrawer';
+    name?: typeof DISPLAY_NAME;
     /**
      * The name of the variant to apply on the drawer
      */

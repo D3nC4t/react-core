@@ -1,6 +1,7 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { BoxProps } from './Box';
 import { JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface SwitchProps extends Omit<BoxProps, 'children'> {
     /**
      * The name for the hidden input element
@@ -13,7 +14,7 @@ export interface SwitchProps extends Omit<BoxProps, 'children'> {
     /**
      * The name for this element
      */
-    name?: string | 'C4tSwitch';
+    name?: typeof DISPLAY_NAME;
     /**
      * The value to be shown, if true, the thumb will have the checked class
      */

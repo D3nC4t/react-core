@@ -2,6 +2,7 @@ import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { InputRef } from './Input';
 import { JCssProps, Theme } from '../types';
 import { SelectProps, SelectRef } from './Select';
+declare const DISPLAY_NAME: string;
 export interface AutocompleteProps extends SelectProps {
     /**
      * The extra css in js
@@ -10,7 +11,11 @@ export interface AutocompleteProps extends SelectProps {
     /**
      * The name for this element
      */
-    name?: string | 'C4tAutocomplete';
+    name?: typeof DISPLAY_NAME;
+    /**
+     * The placeholder for the search input
+     */
+    searchPlaceholder?: string;
     /**
      * An alternative theme name of the select component
      */

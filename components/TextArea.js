@@ -39,13 +39,14 @@ import styled, {
   getClassName
 } from '../theme/styled';
 import {
+  useDebouncedCallback
+} from '../hooks';
+import {
   useDefaultProps,
   useTheme,
   useVariantJCss
 } from '../theme';
-import {
-  useDebouncedCallback
-} from '../hooks';
+var DISPLAY_NAME = 'C4tTextArea';
 var StyledBox = styled(Box)({});
 var StyledTextArea = styled('textarea', {
   dontForwardProp: ['resize', 'width'],
@@ -55,7 +56,7 @@ export var TextArea = forwardRef(function(_a, ref) {
   var _g = _a.boxProps,
     boxProps = _g === void 0 ? {} : _g,
     _h = _a.name,
-    name = _h === void 0 ? 'C4tTextArea' : _h,
+    name = _h === void 0 ? DISPLAY_NAME : _h,
     inputProps = __rest(_a, ["boxProps", "name"]);
   var theme = useTheme();
   var _j = useState(false),
@@ -128,5 +129,5 @@ export var TextArea = forwardRef(function(_a, ref) {
     })]
   })));
 });
-TextArea.displayName = 'C4tTextArea';
+TextArea.displayName = DISPLAY_NAME;
 export default TextArea;

@@ -39,6 +39,12 @@ var BadgeControls = __assign(__assign(__assign({
       type: 'null'
     },
   },
+  showAsDot: {
+    description: 'If the Badge element should be shown as a dot and on hover show the text',
+    control: {
+      type: 'boolean'
+    },
+  },
   position: {
     description: 'The position for the Badge element',
     options: [

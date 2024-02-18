@@ -1,12 +1,12 @@
 import {
   getLocalItem,
-  getLocalItemTtl,
   setLocalItem,
   setLocalItemTtl
 } from '../utils/localSorage';
 export var CONFIG_KEY = 'c4t-react-ts-config';
 var subscriptions = {};
 var config = new Proxy(getLocalItem(CONFIG_KEY) || {
+  configTTL: 60 * 60 * 24 * 7,
   defaultLocale: 'en',
   enabledLocales: ['en', 'es', 'pt'],
   locale: 'en',
@@ -34,15 +34,28 @@ export var getConfig = function(prop) {
   return (_a = config[prop]) !== null && _a !== void 0 ? _a : undefined;
 };
 export var persistConfig = function() {
-  var ttl = getLocalItemTtl(CONFIG_KEY);
+  var ttl = config.configTTL;
   setLocalItem(CONFIG_KEY, config);
   if (ttl) {
     setLocalItemTtl(CONFIG_KEY, ttl);
   }
   return config;
 };
-export var setConfig = function(prop, value) {
-  config[prop] = value;
+export var setConfig = function(prop, value, forceValue) {
+  if (forceValue === void 0) {
+    forceValue = false;
+  }
+  forceValue ? (config[prop] = value) : defineConfig(prop, value);
+};
+export var defineConfig = function(prop, value, migration) {
+  if (migration === void 0) {
+    migration = undefined;
+  }
+  if (!config[prop]) {
+    config[prop] = value;
+  } else if (migration) {
+    config[prop] = migration(config[prop], value);
+  }
 };
 export var watchConfig = function(prop, callback) {
   var timestamp = Date.now();

@@ -1,27 +1,32 @@
-export var getLocalItem = function(key, defaultValue) {
+export var getLocalItem = function(key, defaultValue, _ttl) {
   var storedValue = window !== undefined ? localStorage.getItem(key) : null;
   var item = storedValue ? JSON.parse(storedValue) : {
     value: defaultValue
   };
+  var ttl = _ttl !== null && _ttl !== void 0 ? _ttl : getLocalItemTtl(key, item);
   if (item.expiresAt && item.expiresAt < Date.now()) {
     removeLocalItem(key);
     return defaultValue;
   }
   if (!storedValue && defaultValue) {
     setLocalItem(key, defaultValue);
-  } else if (item.ttl) {
-    setLocalItemTtl(key, item.ttl);
+  }
+  if (ttl) {
+    setLocalItemTtl(key, ttl);
   }
   return item.value;
 };
-export var getLocalItemTtl = function(key) {
-  var _a;
+export var getLocalItemTtl = function(key, _item) {
+  var _a, _b;
+  if (_item) {
+    return (_a = _item.ttl) !== null && _a !== void 0 ? _a : null;
+  }
   var storedValue = window !== undefined ? localStorage.getItem(key) : null;
   if (!storedValue) {
     return null;
   }
   var item = JSON.parse(storedValue);
-  return (_a = item.ttl) !== null && _a !== void 0 ? _a : null;
+  return (_b = item.ttl) !== null && _b !== void 0 ? _b : null;
 };
 export var removeLocalItem = function(key) {
   localStorage.removeItem(key);

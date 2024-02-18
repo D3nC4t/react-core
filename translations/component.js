@@ -22,7 +22,7 @@ import {
   IntlProvider
 } from 'react-intl';
 import {
-  loadCoreI18nModuleData,
+  loadI18nModuleData,
   watchModuleTranslations
 } from './index';
 import {
@@ -38,7 +38,7 @@ var LocaleProvider = function(_a) {
     setMessages = _b[1];
   var useLocale = forceLocale !== null && forceLocale !== void 0 ? forceLocale : locale;
   useEffect(function() {
-    loadCoreI18nModuleData(useLocale, module)
+    loadI18nModuleData(useLocale, module)
       .then(function(messages) {
         return setMessages(messages !== null && messages !== void 0 ? messages : {});
       });

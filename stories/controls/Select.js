@@ -68,6 +68,12 @@ var SelectControls = __assign(__assign(__assign({
       type: 'text'
     },
   },
+  intlModule: {
+    description: 'The module to use for translations',
+    control: {
+      type: 'text'
+    },
+  },
   invalid: {
     description: 'If the select should be marked as invalid',
     control: {

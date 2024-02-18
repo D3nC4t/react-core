@@ -29,13 +29,13 @@ import {
 } from './Box';
 var TableHeadControls = __assign({
   children: {
-    description: 'The children for the TableHead element, only accepts TableRow as children',
+    description: 'The children for the Head element, only accepts Row as children',
     control: {
       type: 'null'
     },
   },
   variant: {
-    description: 'The variant for the TableHead element',
+    description: 'The variant for the Head element',
     options: __spreadArray([
       undefined
     ], Object.keys((_a = appTheme.components.C4tTableHead.variants) !== null && _a !== void 0 ? _a : {}), true),

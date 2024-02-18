@@ -44,7 +44,7 @@ import {
   objectCode
 } from '../../utils';
 import {
-  loadCoreI18nModuleData
+  loadI18nModuleData
 } from '../../translations';
 import {
   useConfig
@@ -76,7 +76,7 @@ var TranslationsManager = function() {
     if (!module) {
       return;
     }
-    loadCoreI18nModuleData(compareWith, module, true)
+    loadI18nModuleData(compareWith, module, true)
       .then(function(data) {
         return setCompareMessages(data !== null && data !== void 0 ? data : {});
       });
@@ -85,7 +85,7 @@ var TranslationsManager = function() {
     if (!module) {
       return;
     }
-    loadCoreI18nModuleData(againstLocale, module)
+    loadI18nModuleData(againstLocale, module)
       .then(function(data) {
         return setAgainstMessages(data !== null && data !== void 0 ? data : {});
       });
@@ -209,6 +209,8 @@ var TranslationsManager = function() {
                   },
                   value: (_a = compareMessages[key]) !== null &&
                     _a !== void 0 ? _a : '',
+                  invalid: !compareMessages[key] ||
+                    compareMessages[key] === '',
                   width: 411
                 }), _jsx(Icon, {
                   icon: faTrash,

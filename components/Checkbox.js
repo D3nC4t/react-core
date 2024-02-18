@@ -37,9 +37,10 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tCheckbox';
 export var Checkbox = forwardRef(function(_a, ref) {
   var _b = _a.name,
-    name = _b === void 0 ? 'C4tCheckbox' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["name"]);
   var withProps = useDefaultProps(inputProps, name);
   var jCss = useVariantJCss(withProps, name, withProps.variant);
@@ -54,5 +55,5 @@ export var Checkbox = forwardRef(function(_a, ref) {
     'jCss',
   ]))));
 });
-Checkbox.displayName = 'C4tCheckbox';
+Checkbox.displayName = DISPLAY_NAME;
 export default Checkbox;

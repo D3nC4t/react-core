@@ -3,6 +3,7 @@ import Avatar from './Avatar';
 import { AvatarProps } from './Avatar';
 import { BoxProps } from './Box';
 import { JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface AvatarGroupProps extends Omit<BoxProps, 'children' | 'jCss'> {
     /**
      * The variant for the box component, by default is 'auto-fit-no-padding'
@@ -27,7 +28,7 @@ export interface AvatarGroupProps extends Omit<BoxProps, 'children' | 'jCss'> {
     /**
      * The name for the html element
      */
-    name?: string | 'C4tAvatarGroup';
+    name?: typeof DISPLAY_NAME;
     /**
      * To render a different value for the surplus avatars
      */

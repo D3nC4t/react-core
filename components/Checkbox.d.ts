@@ -1,10 +1,11 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { RadioProps, RadioRef } from './Radio';
+declare const DISPLAY_NAME: string;
 export interface CheckboxProps extends Omit<RadioProps, 'variant'> {
     /**
      * The name for this element
      */
-    name?: string | 'C4tCheckbox';
+    name?: typeof DISPLAY_NAME;
     /**
      * The name of the variant to apply on the html element
      */

@@ -19,7 +19,7 @@ export default meta;
 export var Default = {
   args: {
     onChange: function(selected) {
-      return setConfig('locale', selected);
+      return setConfig('locale', selected, true);
     },
     usePopover: true,
     value: getConfig('locale'),

@@ -48,13 +48,14 @@ import {
   useTheme,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tSlider';
 var StyledSpan = styled('span')({
   position: 'absolute',
 });
 export var Slider = forwardRef(function(_a, ref) {
   var _b, _c, _d, _e;
   var _f = _a.name,
-    name = _f === void 0 ? 'C4tSlider' : _f,
+    name = _f === void 0 ? DISPLAY_NAME : _f,
     value = _a.value,
     inputProps = __rest(_a, ["name", "value"]);
   var theme = useTheme();
@@ -236,5 +237,5 @@ export var Slider = forwardRef(function(_a, ref) {
     })]
   })));
 });
-Slider.displayName = 'C4tSlider';
+Slider.displayName = DISPLAY_NAME;
 export default Slider;

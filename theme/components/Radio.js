@@ -31,7 +31,7 @@ var Radio = {
       'root': {
         styles: function(_a) {
           var _b, _c;
-          var _d, _e;
+          var _d, _e, _f, _g;
           var theme = _a.theme,
             props = __rest(_a, ["theme"]);
           var baseClassName = "".concat(props.name, "-").concat(props.variant);
@@ -43,27 +43,32 @@ var Radio = {
               WebkitAppearance: 'none',
               MozAppearance: 'none',
               appearance: 'none',
+              cursor: 'pointer',
               width: theme.get.rem(theme.spacing.sm, theme.shape.unit),
               height: theme.get.rem(theme.spacing.sm, theme.shape.unit),
               borderRadius: '50%',
               border: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape, (
-                _d = props.color) !== null && _d !== void 0 ? _d : 'primary', 'main'),
+                  _d = props.color) !== null && _d !== void 0 ? _d : 'primary', (_e = props.colorVariant) !==
+                null && _e !== void 0 ? _e : 'main'),
               margin: 0,
               '&:checked': {
-                backgroundColor: theme.get.color((_e = props.color) !== null && _e !== void 0 ? _e : 'primary',
-                  'main'),
+                backgroundColor: theme.get.color((_f = props.color) !== null && _f !== void 0 ? _f : 'primary', (
+                  _g = props.colorVariant) !== null && _g !== void 0 ? _g : 'main'),
               },
               '&:disabled': {
                 border: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border.shape,
                   'grey', 'lighter'),
+                cursor: 'not-allowed',
                 '&:checked': {
                   backgroundColor: theme.get.color('grey', 'lighter'),
                 },
               },
             },
             _b["& .".concat(baseClassName, "--input__icon")] = {
+              cursor: 'pointer',
               '&.disabled': {
                 color: theme.get.color('grey', 'lighter'),
+                cursor: 'not-allowed',
               }
             },
             _b['&.invalid'] = (_c = {},

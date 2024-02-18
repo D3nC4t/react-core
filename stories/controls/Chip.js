@@ -20,7 +20,7 @@ var __spreadArray = (this && this.__spreadArray) || function(to, from, pack) {
     }
   return to.concat(ar || Array.prototype.slice.call(from));
 };
-var _a;
+var _a, _b;
 import {
   getThemeColorOptions,
   getThemeColorVariantOptions
@@ -28,13 +28,15 @@ import {
 import {
   appTheme
 } from '../../theme';
+import CircularLoadingControls from './CircularLoading';
 import {
-  ColorControls
+  ColorControls,
+  ColorVariantControls
 } from './color';
 import {
   DefaultC4tControls
 } from './default';
-var ChipControls = __assign(__assign({
+var ChipControls = __assign(__assign(__assign({
   component: {
     description: 'The component for the Chip element',
     options: [
@@ -54,6 +56,14 @@ var ChipControls = __assign(__assign({
     description: 'The label for the Chip element',
     control: {
       type: 'text'
+    },
+  },
+  loadingVariant: {
+    description: 'The loading variant for the Chip element',
+    options: (_a = CircularLoadingControls === null || CircularLoadingControls === void 0 ? void 0 :
+      CircularLoadingControls.variant) === null || _a === void 0 ? void 0 : _a.options,
+    control: {
+      type: 'select'
     },
   },
   onRemove: {
@@ -86,10 +96,10 @@ var ChipControls = __assign(__assign({
     description: 'The variant for the Chip element',
     options: __spreadArray([
       undefined
-    ], Object.keys((_a = appTheme.components.C4tChip.variants) !== null && _a !== void 0 ? _a : {}), true),
+    ], Object.keys((_b = appTheme.components.C4tChip.variants) !== null && _b !== void 0 ? _b : {}), true),
     control: {
       type: 'select'
     },
   }
-}, DefaultC4tControls), ColorControls);
+}, DefaultC4tControls), ColorControls), ColorVariantControls);
 export default ChipControls;

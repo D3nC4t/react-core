@@ -49,6 +49,7 @@ import {
   useVariantJCss
 } from '../theme';
 import validateChildComponent from '../utils/validateChildComponent';
+var DISPLAY_NAME = 'C4tAlert';
 var severityColors = {
   error: 'error',
   info: 'info',
@@ -65,10 +66,12 @@ export var Alert = forwardRef(function(_a, ref) {
   var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
   var children = _a.children,
     _r = _a.name,
-    name = _r === void 0 ? 'C4tAlert' : _r,
+    name = _r === void 0 ? DISPLAY_NAME : _r,
     inputProps = __rest(_a, ["children", "name"]);
   var withProps = useDefaultProps(inputProps, name);
   var jCss = useVariantJCss(withProps, name, withProps.variant);
+  var severityColor = severityColors[(_b = withProps.severity) !== null && _b !== void 0 ? _b : 'info'];
+  var defaultVariant = withProps.color === 'black' ? 'text' : 'main';
   useLayoutEffect(function() {
     withProps.icon && validateChildComponent('Alert', withProps.icon, 'Icon', Icon);
   }, [withProps.icon]);
@@ -76,20 +79,21 @@ export var Alert = forwardRef(function(_a, ref) {
     withProps.extraAction && validateChildComponent('Alert', withProps.extraAction, 'Button', Button);
   }, [withProps.extraAction]);
   return (_jsxs(Box, __assign({
-    color: (_b = withProps.color) !== null && _b !== void 0 ? _b : severityColors[(_c = withProps
-      .severity) !== null && _c !== void 0 ? _c : 'error'],
+    color: (_c = withProps.color) !== null && _c !== void 0 ? _c : severityColor,
     className: getClassName(withProps, name, withProps.variant),
     jCss: jCss,
     ref: ref,
     variant: (_d = withProps.boxVariant) !== null && _d !== void 0 ? _d : 'auto-fit'
   }, _objectWithoutProperties(withProps, [
     'boxVariant',
+    'closeIconColorVariant',
     'color',
+    'colorVariant',
     'className',
     'closeIcon',
     'extraAction',
     'icon',
-    'iconVariant',
+    'iconColorVariant',
     'jCss',
     'severity',
     'variant',
@@ -99,11 +103,12 @@ export var Alert = forwardRef(function(_a, ref) {
       variant: 'auto-fit-no-padding'
     }, {
       children: (_e = withProps.icon) !== null && _e !== void 0 ? _e : (_jsx(Icon, {
-        color: (_f = withProps.color) !== null && _f !== void 0 ? _f : severityColors[(_g =
-          withProps.severity) !== null && _g !== void 0 ? _g : 'error'],
-        colorVariant: (_h = withProps.iconVariant) !== null && _h !== void 0 ? _h : 'main',
+        color: (_g = (_f = withProps.iconColor) !== null && _f !== void 0 ? _f : withProps
+          .color) !== null && _g !== void 0 ? _g : severityColor,
+        colorVariant: (_h = withProps.iconColorVariant) !== null && _h !== void 0 ? _h :
+          defaultVariant,
         icon: severityIcons[(_j = withProps.severity) !== null && _j !== void 0 ? _j :
-          'error'],
+          'info'],
         size: 'lg'
       }))
     })), _jsx(Box, __assign({
@@ -116,22 +121,21 @@ export var Alert = forwardRef(function(_a, ref) {
       variant: 'auto-fit-no-padding'
     }, {
       children: [withProps.extraAction, withProps.onClose && (_jsx(Button, __assign({
-        color: (_k = withProps.color) !== null && _k !== void 0 ? _k : severityColors[(
-          _l = withProps.severity) !== null && _l !== void 0 ? _l : 'error'],
+        color: (_k = withProps.color) !== null && _k !== void 0 ? _k : severityColor,
         onClick: withProps.onClose,
         variant: 'icon'
       }, {
         children: _jsx(Icon, {
-          color: (_m = withProps.color) !== null && _m !== void 0 ? _m :
-            severityColors[(_o = withProps.severity) !== null && _o !== void 0 ? _o :
-              'error'],
-          colorVariant: (_p = withProps.iconVariant) !== null && _p !== void 0 ? _p :
-            'main',
+          color: (_m = (_l = withProps.closeIconColor) !== null && _l !== void 0 ?
+            _l : withProps.color) !== null && _m !== void 0 ? _m : severityColor,
+          colorVariant: (_o = withProps.closeIconColorVariant) !== null && _o !==
+            void 0 ? _o : ((_p = withProps.iconColorVariant) !== null && _p !==
+              void 0 ? _p : defaultVariant),
           icon: (_q = withProps.closeIcon) !== null && _q !== void 0 ? _q : faXmark
         })
       })))]
     }))]
   })));
 });
-Alert.displayName = 'C4tAlert';
+Alert.displayName = DISPLAY_NAME;
 export default Alert;

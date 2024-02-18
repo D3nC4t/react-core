@@ -19,10 +19,10 @@ import {
 } from 'react-intl';
 import Box from '../../components/Box';
 import LocaleProvider from '../../translations/component';
-import Table from '../../components/Table';
-import TableBody from '../../components/TableBody';
-import TableCell from '../../components/TableCell';
-import TableRow from '../../components/TableRow';
+import Table, * as T from '../../components/Table';
+import Body from '../../components/Table/Body';
+import Cell from '../../components/Table/Cell';
+import Row from '../../components/Table/Row';
 import {
   TableHead
 } from '../../components';
@@ -31,9 +31,9 @@ import {
 } from '../controls';
 Box.displayName = 'Box';
 Table.displayName = 'Table';
-TableBody.displayName = 'TableBody';
-TableCell.displayName = 'TableCell';
-TableRow.displayName = 'TableRow';
+Body.displayName = 'TableBody';
+Cell.displayName = 'TableCell';
+Row.displayName = 'TableRow';
 var meta = {
   title: 'Core/Components/Table',
   component: Table,
@@ -41,12 +41,13 @@ var meta = {
   argTypes: TableControls,
 };
 export default meta;
+/* -------- Using Table namespace ---------------- */
 export var Default = {
   args: {
     children: [
-      _jsxs(TableHead, {
-        children: [_jsxs(TableRow, {
-          children: [_jsx(TableCell, __assign({
+      _jsxs(T.Head, {
+        children: [_jsxs(T.Row, {
+          children: [_jsx(T.Cell, __assign({
             tag: 'th'
           }, {
             children: _jsx(LocaleProvider, __assign({
@@ -60,7 +61,7 @@ export var Default = {
                 }
               })
             }))
-          }), 'row1coll1'), _jsx(TableCell, __assign({
+          }), 'row1coll1'), _jsx(T.Cell, __assign({
             tag: 'th',
             colspan: 2
           }, {
@@ -76,8 +77,8 @@ export var Default = {
               })
             }))
           }), 'row1coll2')]
-        }, 'row1'), _jsxs(TableRow, {
-          children: [_jsx(TableCell, __assign({
+        }, 'row1'), _jsxs(T.Row, {
+          children: [_jsx(T.Cell, __assign({
             tag: 'th'
           }, {
             children: _jsx(LocaleProvider, __assign({
@@ -91,7 +92,7 @@ export var Default = {
                 }
               })
             }))
-          }), 'row2coll1'), _jsx(TableCell, __assign({
+          }), 'row2coll1'), _jsx(T.Cell, __assign({
             tag: 'th'
           }, {
             children: _jsx(LocaleProvider, __assign({
@@ -105,7 +106,7 @@ export var Default = {
                 }
               })
             }))
-          }), 'row2coll2'), _jsx(TableCell, __assign({
+          }), 'row2coll2'), _jsx(T.Cell, __assign({
             tag: 'th'
           }, {
             children: _jsx(LocaleProvider, __assign({
@@ -122,9 +123,9 @@ export var Default = {
           }), 'row2coll3')]
         }, 'row2')]
       }, 'head'),
-      _jsxs(TableBody, {
-        children: [_jsxs(TableRow, {
-          children: [_jsx(TableCell, {
+      _jsxs(T.Body, {
+        children: [_jsxs(T.Row, {
+          children: [_jsx(T.Cell, {
             children: _jsx(LocaleProvider, __assign({
               module: 'storybook'
             }, {
@@ -136,7 +137,7 @@ export var Default = {
                 }
               })
             }))
-          }, 'row1coll1'), _jsx(TableCell, {
+          }, 'row1coll1'), _jsx(T.Cell, {
             children: _jsx(LocaleProvider, __assign({
               module: 'storybook'
             }, {
@@ -148,7 +149,7 @@ export var Default = {
                 }
               })
             }))
-          }, 'row1coll2'), _jsx(TableCell, {
+          }, 'row1coll2'), _jsx(T.Cell, {
             children: _jsx(LocaleProvider, __assign({
               module: 'storybook'
             }, {
@@ -161,8 +162,8 @@ export var Default = {
               })
             }))
           }, 'row1coll3')]
-        }, 'row1'), _jsxs(TableRow, {
-          children: [_jsx(TableCell, {
+        }, 'row1'), _jsxs(T.Row, {
+          children: [_jsx(T.Cell, {
             children: _jsx(LocaleProvider, __assign({
               module: 'storybook'
             }, {
@@ -174,7 +175,7 @@ export var Default = {
                 }
               })
             }))
-          }, 'row2coll1'), _jsx(TableCell, {
+          }, 'row2coll1'), _jsx(T.Cell, {
             children: _jsx(LocaleProvider, __assign({
               module: 'storybook'
             }, {
@@ -186,7 +187,7 @@ export var Default = {
                 }
               })
             }))
-          }, 'row2coll2'), _jsx(TableCell, {
+          }, 'row2coll2'), _jsx(T.Cell, {
             children: _jsx(LocaleProvider, __assign({
               module: 'storybook'
             }, {
@@ -199,8 +200,8 @@ export var Default = {
               })
             }))
           }, 'row2coll3')]
-        }, 'row2'), _jsxs(TableRow, {
-          children: [_jsx(TableCell, {
+        }, 'row2'), _jsxs(T.Row, {
+          children: [_jsx(T.Cell, {
             children: _jsx(LocaleProvider, __assign({
               module: 'storybook'
             }, {
@@ -212,7 +213,7 @@ export var Default = {
                 }
               })
             }))
-          }, 'row3coll1'), _jsx(TableCell, {
+          }, 'row3coll1'), _jsx(T.Cell, {
             children: _jsx(LocaleProvider, __assign({
               module: 'storybook'
             }, {
@@ -224,7 +225,7 @@ export var Default = {
                 }
               })
             }))
-          }, 'row3coll2'), _jsx(TableCell, {
+          }, 'row3coll2'), _jsx(T.Cell, {
             children: _jsx(LocaleProvider, __assign({
               module: 'storybook'
             }, {
@@ -242,12 +243,14 @@ export var Default = {
     ],
   },
 };
+/* -------- End of Using Table namespace ---------------- */
+/* -------- Using individual components namespace ---------------- */
 export var Bordered = {
   args: {
     children: [
       _jsxs(TableHead, {
-        children: [_jsxs(TableRow, {
-          children: [_jsx(TableCell, __assign({
+        children: [_jsxs(Row, {
+          children: [_jsx(Cell, __assign({
             "$bColor": 'grey',
             tag: 'th'
           }, {
@@ -262,7 +265,7 @@ export var Bordered = {
                 }
               })
             }))
-          }), 'row1coll1'), _jsx(TableCell, __assign({
+          }), 'row1coll1'), _jsx(Cell, __assign({
             "$bColor": 'grey',
             tag: 'th',
             colspan: 2
@@ -279,8 +282,8 @@ export var Bordered = {
               })
             }))
           }), 'row1coll2')]
-        }, 'row1'), _jsxs(TableRow, {
-          children: [_jsx(TableCell, __assign({
+        }, 'row1'), _jsxs(Row, {
+          children: [_jsx(Cell, __assign({
             "$bColor": 'grey',
             tag: 'th'
           }, {
@@ -295,7 +298,7 @@ export var Bordered = {
                 }
               })
             }))
-          }), 'row2coll1'), _jsx(TableCell, __assign({
+          }), 'row2coll1'), _jsx(Cell, __assign({
             "$bColor": 'grey',
             tag: 'th'
           }, {
@@ -310,7 +313,7 @@ export var Bordered = {
                 }
               })
             }))
-          }), 'row2coll2'), _jsx(TableCell, __assign({
+          }), 'row2coll2'), _jsx(Cell, __assign({
             "$bColor": 'grey',
             tag: 'th'
           }, {
@@ -328,9 +331,9 @@ export var Bordered = {
           }), 'row2coll3')]
         }, 'row2')]
       }, 'head'),
-      _jsxs(TableBody, {
-        children: [_jsxs(TableRow, {
-          children: [_jsx(TableCell, __assign({
+      _jsxs(Body, {
+        children: [_jsxs(Row, {
+          children: [_jsx(Cell, __assign({
             "$bColor": 'grey'
           }, {
             children: _jsx(LocaleProvider, __assign({
@@ -344,7 +347,7 @@ export var Bordered = {
                 }
               })
             }))
-          }), 'row1coll1'), _jsx(TableCell, __assign({
+          }), 'row1coll1'), _jsx(Cell, __assign({
             "$bColor": 'grey'
           }, {
             children: _jsx(LocaleProvider, __assign({
@@ -358,7 +361,7 @@ export var Bordered = {
                 }
               })
             }))
-          }), 'row1coll2'), _jsx(TableCell, __assign({
+          }), 'row1coll2'), _jsx(Cell, __assign({
             "$bColor": 'info'
           }, {
             children: _jsx(LocaleProvider, __assign({
@@ -373,8 +376,8 @@ export var Bordered = {
               })
             }))
           }), 'row1coll3')]
-        }, 'row1'), _jsxs(TableRow, {
-          children: [_jsx(TableCell, __assign({
+        }, 'row1'), _jsxs(Row, {
+          children: [_jsx(Cell, __assign({
             "$bColor": 'grey'
           }, {
             children: _jsx(LocaleProvider, __assign({
@@ -388,7 +391,7 @@ export var Bordered = {
                 }
               })
             }))
-          }), 'row2coll1'), _jsx(TableCell, __assign({
+          }), 'row2coll1'), _jsx(Cell, __assign({
             "$bColor": 'grey'
           }, {
             children: _jsx(LocaleProvider, __assign({
@@ -402,7 +405,7 @@ export var Bordered = {
                 }
               })
             }))
-          }), 'row2coll2'), _jsx(TableCell, __assign({
+          }), 'row2coll2'), _jsx(Cell, __assign({
             "$bColor": 'warning'
           }, {
             children: _jsx(LocaleProvider, __assign({
@@ -417,8 +420,8 @@ export var Bordered = {
               })
             }))
           }), 'row2coll3')]
-        }, 'row2'), _jsxs(TableRow, {
-          children: [_jsx(TableCell, __assign({
+        }, 'row2'), _jsxs(Row, {
+          children: [_jsx(Cell, __assign({
             "$bColor": 'grey'
           }, {
             children: _jsx(LocaleProvider, __assign({
@@ -432,7 +435,7 @@ export var Bordered = {
                 }
               })
             }))
-          }), 'row3coll1'), _jsx(TableCell, __assign({
+          }), 'row3coll1'), _jsx(Cell, __assign({
             "$bColor": 'grey'
           }, {
             children: _jsx(LocaleProvider, __assign({
@@ -446,7 +449,7 @@ export var Bordered = {
                 }
               })
             }))
-          }), 'row3coll2'), _jsx(TableCell, __assign({
+          }), 'row3coll2'), _jsx(Cell, __assign({
             "$bColor": 'success'
           }, {
             children: _jsx(LocaleProvider, __assign({

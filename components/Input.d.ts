@@ -1,6 +1,7 @@
 import { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from 'react';
 import { BoxProps } from './Box';
 import { ChildElement, JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface InputProps extends HTMLAttributes<HTMLInputElement> {
     /**
      * The props for the box component
@@ -33,15 +34,23 @@ export interface InputProps extends HTMLAttributes<HTMLInputElement> {
     /**
      * The name for this element
      */
-    name?: string | 'C4tInput';
+    name?: typeof DISPLAY_NAME;
     /**
      * The pattern to apply on the input
      */
     pattern?: string;
     /**
+     * The text to be used as placeholder for the input
+     */
+    placeholder?: string;
+    /**
      * The JSX to be placed before the input
      */
     startAdornment?: ChildElement;
+    /**
+     * The type of the input
+     */
+    type?: 'text' | 'email' | 'password' | 'number';
     /**
      * The value for the input
      */

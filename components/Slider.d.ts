@@ -1,6 +1,7 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { BoxProps } from './Box';
 import { JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface SliderProps extends Omit<BoxProps, 'children' | 'jCss' | 'onChange' | 'variant'> {
     /**
      * The variant for the box element
@@ -33,7 +34,7 @@ export interface SliderProps extends Omit<BoxProps, 'children' | 'jCss' | 'onCha
     /**
      * The name for this element
      */
-    name?: string | 'C4tSlider';
+    name?: typeof DISPLAY_NAME;
     /**
      * The function to be called when the value changes, note that the scroll is being debounced
      */

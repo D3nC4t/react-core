@@ -36,6 +36,7 @@ import styled, {
 import {
   useDefaultProps
 } from '../theme';
+var DISPLAY_NAME = 'C4tPaper';
 var StyledPaper = styled(Box, {
   forwardProps: [
     '$bgColor',
@@ -58,7 +59,7 @@ var StyledPaper = styled(Box, {
 export var Paper = forwardRef(function(_a, ref) {
   var children = _a.children,
     _b = _a.name,
-    name = _b === void 0 ? 'C4tPaper' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     props = __rest(_a, ["children", "name"]);
   var withProps = useDefaultProps(props, name);
   return (_jsx(StyledPaper, __assign({
@@ -71,5 +72,5 @@ export var Paper = forwardRef(function(_a, ref) {
     children: children
   })));
 });
-Paper.displayName = 'C4tPaper';
+Paper.displayName = DISPLAY_NAME;
 export default Paper;

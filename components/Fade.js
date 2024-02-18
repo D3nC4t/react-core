@@ -33,6 +33,7 @@ import {
 } from 'react-transition-group';
 import Box from './Box';
 import styled from '../theme/styled';
+var DISPLAY_NAME = 'C4tFade';
 var StyledBox = styled(Box, {
   dontForwardProp: ['duration'],
 })(function(_a) {
@@ -65,21 +66,23 @@ export var Fade = forwardRef(function(_a, ref) {
     children = _a.children,
     _c = _a.duration,
     duration = _c === void 0 ? 3000 : _c,
-    _d = _a.in,
-    _in = _d === void 0 ? false : _d,
-    _e = _a.jCss,
-    jCss = _e === void 0 ? {} : _e,
-    _f = _a.name,
-    name = _f === void 0 ? 'C4tFade' : _f,
+    _d = _a.detachDuration,
+    detachDuration = _d === void 0 ? 1500 : _d,
+    _e = _a.in,
+    _in = _e === void 0 ? false : _e,
+    _f = _a.jCss,
+    jCss = _f === void 0 ? {} : _f,
+    _g = _a.name,
+    name = _g === void 0 ? DISPLAY_NAME : _g,
     variant = _a.variant,
-    props = __rest(_a, ["boxProps", "children", "duration", "in", "jCss", "name", "variant"]);
+    props = __rest(_a, ["boxProps", "children", "duration", "detachDuration", "in", "jCss", "name", "variant"]);
   return (_jsx(Transition, __assign({
     in: _in,
     timeout: duration
   }, props, {
     children: function(status) {
       return _jsx(StyledBox, __assign({
-        duration: duration,
+        duration: _in ? duration : detachDuration,
         jCss: __assign(__assign({}, transitionStyles[status]), jCss),
         name: name,
         ref: ref,
@@ -90,5 +93,5 @@ export var Fade = forwardRef(function(_a, ref) {
     }
   })));
 });
-Fade.displayName = 'C4tFade';
+Fade.displayName = DISPLAY_NAME;
 export default Fade;

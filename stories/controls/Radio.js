@@ -29,12 +29,13 @@ import {
   BoxExtendedControls
 } from './Box';
 import {
-  ColorControls
+  ColorControls,
+  ColorVariantControls
 } from './color';
 import {
   DefaultC4tControls
 } from './default';
-var RadioControls = __assign(__assign(__assign({
+var RadioControls = __assign(__assign(__assign(__assign({
   checkedIcon: {
     description: 'The icon to show when the Radio element is checked',
     control: {
@@ -89,12 +90,13 @@ var RadioControls = __assign(__assign(__assign({
   variant: {
     description: 'The variant for the Radio element',
     options: __spreadArray([
-      undefined
-    ], Object.keys((_a = appTheme.components.C4tRadio.variants) !== null && _a !== void 0 ? _a : {}), true),
+        undefined
+      ], Object.keys((_a = appTheme.components.C4tRadio.variants) !== null && _a !== void 0 ? _a : {}),
+      true),
     control: {
       type: 'select'
     },
   }
-}, DefaultC4tControls), ColorControls), _objectWithoutProperties(BoxExtendedControls !== null &&
-  BoxExtendedControls !== void 0 ? BoxExtendedControls : {}, ['variant']));
+}, DefaultC4tControls), ColorControls), ColorVariantControls), _objectWithoutProperties(BoxExtendedControls !==
+  null && BoxExtendedControls !== void 0 ? BoxExtendedControls : {}, ['variant']));
 export default RadioControls;

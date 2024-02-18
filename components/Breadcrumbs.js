@@ -44,10 +44,11 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tBreadcrumbs';
 export var Breadcrumbs = forwardRef(function(_a, ref) {
   var children = _a.children,
     _b = _a.name,
-    name = _b === void 0 ? 'C4tBreadcrumbs' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["children", "name"]);
   var _c = useState([]),
     $crumbs = _c[0],
@@ -102,5 +103,5 @@ export var Breadcrumbs = forwardRef(function(_a, ref) {
     children: $crumbs
   })));
 });
-Breadcrumbs.displayName = 'C4tBreadcrumbs';
+Breadcrumbs.displayName = DISPLAY_NAME;
 export default Breadcrumbs;

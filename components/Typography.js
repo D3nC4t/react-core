@@ -39,11 +39,12 @@ import {
   useDefaultProps,
   useTheme
 } from '../theme';
+var DISPLAY_NAME = 'C4tTypography';
 export var Typography = forwardRef(function(_a, ref) {
   var children = _a.children,
     fontFamily = _a.fontFamily,
     _b = _a.name,
-    name = _b === void 0 ? 'C4tTypography' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     tag = _a.tag,
     inputProps = __rest(_a, ["children", "fontFamily", "name", "tag"]);
   var withProps = useDefaultProps(inputProps, name);
@@ -98,5 +99,5 @@ export var Typography = forwardRef(function(_a, ref) {
     children: children
   })) : _jsx(_Fragment, {}));
 });
-Typography.displayName = 'C4tTypography';
+Typography.displayName = DISPLAY_NAME;
 export default Typography;

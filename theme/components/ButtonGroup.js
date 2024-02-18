@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function() {
 };
 import {
   makeBorder
-} from '../../theme/components/Button';
+} from './Button';
 var makeVariant = function(theme, color, variant) {
   var styles = {};
   switch (variant) {
@@ -33,7 +33,16 @@ var makeVariant = function(theme, color, variant) {
             },
           },
           '&:not(:last-of-type)': {
-            borderRight: makeBorder(theme, 'solid', color, 'dark'),
+            borderBottom: function(theme, props) {
+              return props.orientation === 'vertical' ?
+                makeBorder(theme, 'solid', color, 'lighter') :
+                0;
+            },
+            borderRight: function(theme, props) {
+              return props.orientation === 'horizontal' ?
+                makeBorder(theme, 'solid', color, 'lighter') :
+                0;
+            },
           },
         },
       };

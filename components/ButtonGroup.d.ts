@@ -1,6 +1,7 @@
 import { ForwardRefExoticComponent, HTMLAttributes, RefAttributes, ReactElement } from 'react';
 import Button from './Button';
 import { JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * The value to be shown as content of the div
@@ -17,7 +18,7 @@ export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * The name for this element
      */
-    name?: string | 'C4tButtonGroup';
+    name?: typeof DISPLAY_NAME;
     /**
      * The direction that the buttons should be shown
      */

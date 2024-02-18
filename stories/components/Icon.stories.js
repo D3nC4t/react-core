@@ -29,6 +29,7 @@ import {
 } from "react/jsx-runtime";
 import {
   useEffect,
+  useMemo,
   useState
 } from 'react';
 import {
@@ -41,12 +42,19 @@ import {
   fab
 } from '@fortawesome/free-brands-svg-icons';
 import Icon from '../../components/Icon';
+import Input from '../../components/Input';
 import Box from '../../components/Box';
 import Typography from '../../components/Typography';
+import {
+  useTranslations
+} from '../../translations';
 import {
   IconControls
 } from '../controls';
 Icon.displayName = 'Icon';
+Input.displayName = 'Input';
+Box.displayName = 'Box';
+Typography.displayName = 'Typography';
 var meta = {
   title: 'Core/Components/Icon',
   component: Icon,
@@ -57,15 +65,30 @@ export default meta;
 var AllIcons = function(_a) {
   var pack = _a.pack,
     props = __rest(_a, ["pack"]);
-  var _b = useState(),
-    $els = _b[0],
-    set$els = _b[1];
-  useEffect(function() {
+  var _b = useTranslations('storybook'),
+    intl = _b[0],
+    hasLoadedIntl = _b[1];
+  var _c = useState(),
+    $els = _c[0],
+    set$els = _c[1];
+  var _d = useState(''),
+    search = _d[0],
+    setSearch = _d[1];
+  var $icons = useMemo(function() {
     var $els = [];
+    var filtered = {};
     for (var _i = 0, _a = Object.entries(pack); _i < _a.length; _i++) {
       var _b = _a[_i],
         key = _b[0],
         icon = _b[1];
+      if (key.toLowerCase().includes(search)) {
+        filtered[key] = icon;
+      }
+    }
+    for (var _c = 0, _d = Object.entries(filtered); _c < _d.length; _c++) {
+      var _e = _d[_c],
+        key = _e[0],
+        icon = _e[1];
       $els.push(_jsxs(Typography, __assign({
         variant: 'p',
         jCss: {
@@ -81,14 +104,32 @@ var AllIcons = function(_a) {
         children: [_jsx(Icon, __assign({}, props, {
           icon: icon
         })), key]
-      })));
+      }), key));
     }
-    set$els(_jsx(Box, __assign({
-      variant: 'flex-row'
+    return $els;
+  }, [pack, props, search]);
+  useEffect(function() {
+    set$els(_jsxs(Box, __assign({
+      variant: 'flex-column'
     }, {
-      children: $els
+      children: [_jsx(Input, {
+        autoFocus: true,
+        onChange: function(e) {
+          return setSearch(e.target.value);
+        },
+        placeholder: hasLoadedIntl ? intl.formatMessage({
+          id: 'search.icon'
+        }) : '',
+        type: 'text',
+        value: search,
+        width: 194
+      }), _jsx(Box, __assign({
+        variant: 'flex-row'
+      }, {
+        children: $icons
+      }))]
     })));
-  });
+  }, [hasLoadedIntl, $icons, intl]);
   return $els !== null && $els !== void 0 ? $els : _jsx(_Fragment, {});
 };
 // @ts-expect-error ignore union type issue

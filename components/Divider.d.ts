@@ -1,6 +1,7 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { BoxProps } from './Box';
 import { ChildElement, ColorVariants, JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface DividerProps extends Omit<BoxProps, 'children'> {
     /**
      * The value to be shown as content of the div
@@ -21,7 +22,7 @@ export interface DividerProps extends Omit<BoxProps, 'children'> {
     /**
      * The name for this element
      */
-    name?: string | 'C4tDivider';
+    name?: typeof DISPLAY_NAME;
     /**
      * The text alignment
      */

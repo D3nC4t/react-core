@@ -27,6 +27,12 @@ import {
 } from '../../theme';
 import SelectControls from './Select';
 var AutocompleteControls = __assign({
+    searchPlaceholder: {
+      description: 'The placeholder for the search input',
+      control: {
+        type: 'text'
+      },
+    },
     selectName: {
       description: 'The name for the select element, note that is this name that fetches the theme styles',
       control: {

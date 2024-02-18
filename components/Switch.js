@@ -41,13 +41,14 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+var DISPLAY_NAME = 'C4tSwitch';
 var StyledSwitch = styled('div')({
   position: 'absolute',
 });
 export var Switch = forwardRef(function(_a, ref) {
   var _b;
   var _c = _a.name,
-    name = _c === void 0 ? 'C4tSwitch' : _c,
+    name = _c === void 0 ? DISPLAY_NAME : _c,
     inputProps = __rest(_a, ["name"]);
   var _d = useState(false),
     state = _d[0],
@@ -94,5 +95,5 @@ export var Switch = forwardRef(function(_a, ref) {
     })]
   })));
 });
-Switch.displayName = 'C4tSwitch';
+Switch.displayName = DISPLAY_NAME;
 export default Switch;

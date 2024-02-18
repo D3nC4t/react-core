@@ -18,7 +18,7 @@ import config, {
 } from './default';
 export var initialConfigContext = __assign(__assign({}, config), {
   setLocale: function(locale) {
-    return setConfig('locale', locale);
+    return setConfig('locale', locale, true);
   }
 });
 var ConfigContext = createContext(initialConfigContext);

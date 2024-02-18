@@ -25,12 +25,13 @@ import {
   appTheme
 } from '../../theme';
 import {
-  ColorControls
+  ColorControls,
+  ColorVariantControls
 } from './color';
 import {
   DefaultC4tControls
 } from './default';
-var BackdropControls = __assign(__assign(__assign({
+var BackdropControls = __assign(__assign(__assign(__assign({
   children: {
     description: 'The children for the Backdrop element',
     control: {
@@ -59,7 +60,7 @@ var BackdropControls = __assign(__assign(__assign({
       type: 'select'
     },
   }
-}, DefaultC4tControls), ColorControls), {
+}, DefaultC4tControls), ColorControls), ColorVariantControls), {
   $bottom: {
     description: 'The bottom position for the Backdrop element, should contain the unit',
     control: {

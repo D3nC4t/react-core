@@ -38,6 +38,7 @@ import styled, {
 import {
   useDefaultProps
 } from '../theme';
+var DISPLAY_NAME = 'C4tButtonGroup';
 var StyledButtonGroup = styled('div')(function(_a) {
   var theme = _a.theme,
     props = __rest(_a, ["theme"]);
@@ -67,7 +68,7 @@ var StyledButtonGroup = styled('div')(function(_a) {
 export var ButtonGroup = forwardRef(function(_a, ref) {
   var children = _a.children,
     _b = _a.name,
-    name = _b === void 0 ? 'C4tButtonGroup' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["children", "name"]);
   var withProps = useDefaultProps(inputProps, name);
   useEffect(function() {
@@ -98,5 +99,5 @@ export var ButtonGroup = forwardRef(function(_a, ref) {
     children: children
   })));
 });
-ButtonGroup.displayName = 'C4tButtonGroup';
+ButtonGroup.displayName = DISPLAY_NAME;
 export default ButtonGroup;

@@ -2,6 +2,7 @@ import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { BoxProps } from './Box';
 import { ChildElement, JCssProps, Theme } from '../types';
 import { EnterHandler, ExitHandler } from 'react-transition-group/Transition';
+declare const DISPLAY_NAME: string;
 export interface FadeProps<RefElement extends undefined | HTMLElement = undefined> {
     /**
      * The props for the box component
@@ -16,6 +17,10 @@ export interface FadeProps<RefElement extends undefined | HTMLElement = undefine
      */
     duration?: number;
     /**
+     * The duration of the detach effect in milliseconds
+     */
+    detachDuration?: number;
+    /**
      * If true will show the content, otherwise it won't
      */
     in: boolean;
@@ -26,7 +31,7 @@ export interface FadeProps<RefElement extends undefined | HTMLElement = undefine
     /**
      * The name for this element
      */
-    name?: string | 'C4tFade';
+    name?: typeof DISPLAY_NAME;
     /**
      * Callback fired before the "entering" status is applied. An extra
      * parameter `isAppearing` is supplied to indicate if the enter stage is

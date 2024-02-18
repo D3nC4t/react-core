@@ -29,32 +29,32 @@ import {
 } from './Box';
 var TableCellControls = __assign({
   children: {
-    description: 'The children for the TableCell element, it can be anything',
+    description: 'The children for the Cell element, it can be anything',
     control: {
       type: 'null'
     },
   },
   colspan: {
-    description: 'The number of columns for the TableCell element',
+    description: 'The number of columns for the Cell element',
     control: {
       type: 'number'
     },
   },
   rowspan: {
-    description: 'The number of rows for the TableCell element',
+    description: 'The number of rows for the Cell element',
     control: {
       type: 'number'
     },
   },
   tag: {
-    description: 'The tag for the TableCell element',
+    description: 'The tag for the Cell element',
     options: [undefined, 'td', 'th'],
     control: {
       type: 'radio'
     },
   },
   variant: {
-    description: 'The variant for the TableCell element',
+    description: 'The variant for the Cell element',
     options: __spreadArray([
       undefined
     ], Object.keys((_a = appTheme.components.C4tTableCell.variants) !== null && _a !== void 0 ? _a : {}), true),

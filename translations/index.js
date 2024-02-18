@@ -120,7 +120,7 @@ import {
 import {
   getConfig
 } from '../config';
-var loadAppI18nModuleData = null;
+var extraI18nModuleLoaders = [];
 var subscriptions = {};
 var modules = new Proxy({}, {
   set: function(target, module, value) {
@@ -173,10 +173,24 @@ export {
 }
 from './hook';
 export var DEFAULT_MODULE = 'core';
-export var setAppI18nModuleDataLoader = function(loadModuleData) {
-  loadAppI18nModuleData = loadModuleData;
+export var addI18nModuleLoader = function(loadModuleData, priority) {
+  if (priority === void 0) {
+    priority = 0;
+  }
+  extraI18nModuleLoaders.push({
+    loader: loadModuleData,
+    priority: priority,
+  });
+  extraI18nModuleLoaders.sort(function(a, b) {
+    if (a.priority < b.priority) {
+      return -1;
+    } else if (a.priority > b.priority) {
+      return 1;
+    }
+    return 0;
+  });
 };
-export var loadCoreI18nModuleData = function(locale, module, skipDefault) {
+export var loadI18nModuleData = function(locale, module, skipDefault) {
   if (module === void 0) {
     module = DEFAULT_MODULE;
   }
@@ -184,8 +198,8 @@ export var loadCoreI18nModuleData = function(locale, module, skipDefault) {
     skipDefault = false;
   }
   return __awaiter(void 0, void 0, void 0, function() {
-    var appData, _a, defaultLocale, defaultModule, _b, specificModule;
-    var _c, _d, _e;
+    var moduleFound, _i, extraI18nModuleLoaders_1, loader, data, defaultLocale, defaultModule, _a, specificModule;
+    var _b, _c, _d, _e;
     return __generator(this, function(_f) {
       switch (_f.label) {
         case 0:
@@ -194,31 +208,37 @@ export var loadCoreI18nModuleData = function(locale, module, skipDefault) {
           } else if (!hasModule(module)) {
             modules[module] = {};
           }
-          if (!loadAppI18nModuleData) return [3 /*break*/ , 2];
-          return [4 /*yield*/ , loadAppI18nModuleData(locale, module, skipDefault)];
+          moduleFound = false;
+          _i = 0, extraI18nModuleLoaders_1 = extraI18nModuleLoaders;
+          _f.label = 1;
         case 1:
-          _a = _f.sent();
-          return [3 /*break*/ , 3];
+          if (!(_i < extraI18nModuleLoaders_1.length)) return [3 /*break*/ , 4];
+          loader = extraI18nModuleLoaders_1[_i];
+          return [4 /*yield*/ , loader.loader(locale, module, skipDefault)];
         case 2:
-          _a = undefined;
+          data = (_b = _f.sent()) !== null && _b !== void 0 ? _b : undefined;
+          if (data) {
+            moduleFound = true;
+            registerModuleLocale(module, locale, data);
+            return [3 /*break*/ , 4];
+          }
           _f.label = 3;
         case 3:
-          appData = _a;
-          if (!appData) return [3 /*break*/ , 4];
-          registerModuleLocale(module, locale, appData);
-          return [3 /*break*/ , 9];
+          _i++;
+          return [3 /*break*/ , 1];
         case 4:
+          if (!!moduleFound) return [3 /*break*/ , 9];
           defaultLocale = (_c = getConfig('defaultLocale')) !== null && _c !== void 0 ? _c : 'en';
           if (!(locale === defaultLocale || skipDefault)) return [3 /*break*/ , 5];
-          _b = undefined;
+          _a = undefined;
           return [3 /*break*/ , 7];
         case 5:
           return [4 /*yield*/ , loadModuleIfExists("".concat(defaultLocale, "/").concat(module, ".json"))];
         case 6:
-          _b = _f.sent();
+          _a = _f.sent();
           _f.label = 7;
         case 7:
-          defaultModule = _b;
+          defaultModule = _a;
           return [4 /*yield*/ , loadModuleIfExists("".concat(locale, "/").concat(module, ".json"))];
         case 8:
           specificModule = _f.sent();

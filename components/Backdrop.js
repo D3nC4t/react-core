@@ -34,13 +34,14 @@ import Fade from './Fade';
 import {
   useDefaultProps
 } from '../theme';
+var DISPLAY_NAME = 'C4tBackdrop';
 export var Backdrop = forwardRef(function(_a, ref) {
   var _b, _c, _d, _e, _f, _g;
   var _h = _a.boxProps,
     boxProps = _h === void 0 ? {} : _h,
     children = _a.children,
     _j = _a.name,
-    name = _j === void 0 ? 'C4tBackdrop' : _j,
+    name = _j === void 0 ? DISPLAY_NAME : _j,
     inputProps = __rest(_a, ["boxProps", "children", "name"]);
   var withProps = useDefaultProps(inputProps, name);
   var _k = useState(false),
@@ -82,9 +83,10 @@ export var Backdrop = forwardRef(function(_a, ref) {
       backgroundColor: withProps.$invisible ?
         'transparent' :
         function(theme) {
-          var _a, _b;
-          return theme.get.rgba((_a = withProps.color) !== null && _a !== void 0 ? _a : '#000000', (_b =
-            withProps.$opacity) !== null && _b !== void 0 ? _b : 0.25);
+          var _a, _b, _c;
+          return theme.get.rgba(theme.get.color((_a = withProps.color) !== null && _a !== void 0 ? _a :
+            '#000000', (_b = withProps.colorVariant) !== null && _b !== void 0 ? _b : 'main'), (_c =
+            withProps.$opacity) !== null && _c !== void 0 ? _c : 0.25);
         },
       WebkitTapHighlightColor: 'transparent'
     }),
@@ -95,5 +97,5 @@ export var Backdrop = forwardRef(function(_a, ref) {
     children: children
   })));
 });
-Backdrop.displayName = 'C4tBackdrop';
+Backdrop.displayName = DISPLAY_NAME;
 export default Backdrop;

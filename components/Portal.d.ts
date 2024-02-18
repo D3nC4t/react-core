@@ -2,6 +2,7 @@ import { ForwardedRef, ForwardRefExoticComponent, RefAttributes } from 'react';
 import { BackdropProps } from './Backdrop';
 import { BoxProps } from './Box';
 import { ChildElement, JCssProps, Shadow, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface PortalProps extends Omit<BoxProps, 'variant'> {
     /**
      * The props for the box component
@@ -26,7 +27,7 @@ export interface PortalProps extends Omit<BoxProps, 'variant'> {
     /**
      * The name for this element
      */
-    name?: string | 'C4tPortal';
+    name?: typeof DISPLAY_NAME;
     /**
      * Triggered when closing the portal
      */

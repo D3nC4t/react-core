@@ -29,15 +29,16 @@ import {
 } from "react/jsx-runtime";
 import {
   forwardRef,
+  useEffect,
   useImperativeHandle,
   useRef,
   useState,
-  useLayoutEffect,
 } from 'react';
 import {
   faCircleXmark
 } from '@fortawesome/free-regular-svg-icons';
 import Avatar from './Avatar';
+import CircularLoading from './CircularLoading';
 import Icon from './Icon';
 import Typography from './Typography';
 import _objectWithoutProperties from '../utils/_objectWithoutProperties';
@@ -49,20 +50,22 @@ import {
   useVariantJCss
 } from '../theme';
 import validateChildComponent from '../utils/validateChildComponent';
+var DISPLAY_NAME = 'C4tChip';
 export var Chip = forwardRef(function(_a, ref) {
-  var _b = _a.name,
-    name = _b === void 0 ? 'C4tChip' : _b,
+  var _b;
+  var _c = _a.name,
+    name = _c === void 0 ? DISPLAY_NAME : _c,
     inputProps = __rest(_a, ["name"]);
-  var _c = useState(null),
-    $el = _c[0],
-    set$el = _c[1];
+  var _d = useState(null),
+    $el = _d[0],
+    set$el = _d[1];
   var withProps = useDefaultProps(inputProps, name);
   var innerRef = useRef(null);
   var jCss = useVariantJCss(withProps, name, withProps.variant);
   useImperativeHandle(ref, function() {
     return innerRef.current;
   }, []);
-  useLayoutEffect(function() {
+  useEffect(function() {
     var _a, _b, _c;
     var $prepend = null;
     var removeIcon = (_a = withProps.removeIcon) !== null && _a !== void 0 ? _a : faCircleXmark;
@@ -108,7 +111,9 @@ export var Chip = forwardRef(function(_a, ref) {
       })), $removeIcon]
     })));
   }, [withProps, jCss]);
-  return $el !== null && $el !== void 0 ? $el : _jsx(_Fragment, {}); // TODO: loading indicator
+  return $el !== null && $el !== void 0 ? $el : _jsx(CircularLoading, {
+    variant: (_b = withProps.loadingVariant) !== null && _b !== void 0 ? _b : 'root'
+  });
 });
-Chip.displayName = 'C4tChip';
+Chip.displayName = DISPLAY_NAME;
 export default Chip;

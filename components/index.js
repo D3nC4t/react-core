@@ -120,25 +120,9 @@ export {
 }
 from './Switch';
 export {
-  default as Table
+  default as Table, Body as TableBody, Cell as TableCell, Head as TableHead, Row as TableRow,
 }
 from './Table';
-export {
-  default as TableBody
-}
-from './TableBody';
-export {
-  default as TableCell
-}
-from './TableCell';
-export {
-  default as TableHead
-}
-from './TableHead';
-export {
-  default as TableRow
-}
-from './TableRow';
 export {
   default as TextArea
 }

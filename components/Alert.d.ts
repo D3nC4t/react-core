@@ -4,6 +4,7 @@ import Button from './Button';
 import Icon from './Icon';
 import { BoxProps } from './Box';
 import { ChildElement, ColorVariants, JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface AlertProps extends Omit<BoxProps, 'variant'> {
     /**
      * The variant for the box element
@@ -14,9 +15,21 @@ export interface AlertProps extends Omit<BoxProps, 'variant'> {
      */
     closeIcon?: IconDefinition;
     /**
+     * The color for the close icon
+     */
+    closeIconColor?: keyof Theme['color'];
+    /**
+     * The name of the color variant to apply on the close icon
+     */
+    closeIconColorVariant?: keyof ColorVariants;
+    /**
      * The color for the alert
      */
     color?: keyof Theme['color'];
+    /**
+     * The name of the color variant to apply on the html element
+     */
+    colorVariant?: keyof ColorVariants;
     /**
      * The value to be shown as content of the div
      */
@@ -30,9 +43,13 @@ export interface AlertProps extends Omit<BoxProps, 'variant'> {
      */
     icon?: ReactElement<typeof Icon>;
     /**
+     * The color for the icon
+     */
+    iconColor?: keyof Theme['color'];
+    /**
      * The name of the color variant to apply on icon elements
      */
-    iconVariant?: keyof ColorVariants;
+    iconColorVariant?: keyof ColorVariants;
     /**
      * The extra css in js
      */
@@ -40,13 +57,13 @@ export interface AlertProps extends Omit<BoxProps, 'variant'> {
     /**
      * The name for this element
      */
-    name?: string | 'C4tAlert';
+    name?: typeof DISPLAY_NAME;
     /**
      * The callback function to be called when the alert is closed
      */
     onClose?: (event: MouseEvent<HTMLButtonElement>) => void;
     /**
-     * The severity for the alert
+     * The severity for the alert, by default is info
      */
     severity?: 'error' | 'info' | 'success' | 'warning';
     /**

@@ -1,13 +1,19 @@
-import React, { ForwardRefExoticComponent, HTMLAttributes, RefAttributes, ReactElement, MouseEvent } from 'react';
+import React, { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, ReactElement, RefAttributes } from 'react';
 import Avatar from './Avatar';
 import Icon from './Icon';
+import { CircularLoadingProps } from './CircularLoading';
 import { ColorVariants, JCssProps, Theme } from '../types';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+declare const DISPLAY_NAME: string;
 export interface ChipProps<Tag extends keyof React.JSX.IntrinsicElements = 'div' | 'button' | 'a'> extends Omit<HTMLAttributes<React.JSX.IntrinsicElements[Tag]>, 'children'> {
     /**
      * The color for the chip element
      */
     color?: keyof Theme['color'] | string;
+    /**
+     * The name of the color variant to apply on the html element
+     */
+    colorVariant?: keyof ColorVariants;
     /**
      * The component to be used as root node, can be either a div, a button or a link
      */
@@ -29,9 +35,13 @@ export interface ChipProps<Tag extends keyof React.JSX.IntrinsicElements = 'div'
      */
     label: string;
     /**
+     * The name of the loading variant to apply on the CircularLoading element, by default is used the root variant
+     */
+    loadingVariant?: CircularLoadingProps['variant'];
+    /**
      * The name for this element
      */
-    name?: string | 'C4tChip';
+    name?: typeof DISPLAY_NAME;
     /**
      * The action to be triggered when the remove icon is clicked
      */

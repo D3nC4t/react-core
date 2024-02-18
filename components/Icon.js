@@ -42,9 +42,10 @@ import {
   useDefaultProps,
   useTheme
 } from '../theme';
+var DISPLAY_NAME = 'C4tIcon';
 export var Icon = forwardRef(function(_a, ref) {
   var _b = _a.name,
-    name = _b === void 0 ? 'C4tIcon' : _b,
+    name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["name"]);
   var theme = useTheme();
   var withProps = useDefaultProps(inputProps, name);
@@ -79,5 +80,5 @@ export var Icon = forwardRef(function(_a, ref) {
     ]))) :
     _jsx(_Fragment, {}));
 });
-Icon.displayName = 'C4tIcon';
+Icon.displayName = DISPLAY_NAME;
 export default Icon;

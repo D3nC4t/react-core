@@ -45,7 +45,8 @@ import {
 } from '../theme';
 import {
   PopoverAnchorType,
-} from '../types/components/Popover';
+} from '../types';
+var DISPLAY_NAME = 'C4tPopover';
 
 function getOffsetTop(rect, vertical) {
   var offset = 0;
@@ -87,7 +88,7 @@ export var Popover = forwardRef(function(_a, ref) {
   var _b, _c, _d, _e, _f, _g, _h, _j;
   var children = _a.children,
     _k = _a.name,
-    name = _k === void 0 ? 'C4tPopover' : _k,
+    name = _k === void 0 ? DISPLAY_NAME : _k,
     inputProps = __rest(_a, ["children", "name"]);
   var _l = useState(false),
     isOpen = _l[0],
@@ -331,5 +332,5 @@ export var Popover = forwardRef(function(_a, ref) {
     children: children
   })));
 });
-Popover.displayName = 'C4tPopover';
+Popover.displayName = DISPLAY_NAME;
 export default Popover;

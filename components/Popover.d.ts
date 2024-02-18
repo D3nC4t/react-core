@@ -1,7 +1,8 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { PortalProps, PortalRef } from './Portal';
 import { CSSPosition, JCssProps, Theme } from '../types';
-import { PopoverOrigin, PopoverPosition } from '../types/components/Popover';
+import { PopoverOrigin, PopoverPosition } from '../types';
+declare const DISPLAY_NAME: string;
 export interface PopoverProps extends PortalProps {
     /**
      * The extra css in js
@@ -10,7 +11,7 @@ export interface PopoverProps extends PortalProps {
     /**
      * The name for this element
      */
-    name?: string | 'C4tPopover';
+    name?: typeof DISPLAY_NAME;
     /**
      * The event triggered when the portal is opening
      * @param element

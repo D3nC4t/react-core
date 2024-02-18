@@ -3,6 +3,7 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { IconProps } from './Icon';
 import { TypographyProps } from './Typography';
 import { ChildElement, JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
     /**
      * The value to be shown as content of the div
@@ -31,7 +32,7 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
     /**
      * The name for this element
      */
-    name?: string | 'C4tButton';
+    name?: typeof DISPLAY_NAME;
     /**
      * The size for the button
      */

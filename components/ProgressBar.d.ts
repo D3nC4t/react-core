@@ -1,6 +1,7 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { BoxProps } from './Box';
 import { JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface ProgressBarProps extends Omit<BoxProps, 'children' | 'variant'> {
     /**
      * The variant for the box component
@@ -29,7 +30,7 @@ export interface ProgressBarProps extends Omit<BoxProps, 'children' | 'variant'>
     /**
      * The name for this element
      */
-    name?: string | 'C4tProgressBar';
+    name?: typeof DISPLAY_NAME;
     /**
      * The distance between steps in the progress bar
      */

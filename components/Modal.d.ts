@@ -1,6 +1,7 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { PortalProps, PortalRef } from './Portal';
 import { JCssProps, Theme } from '../types';
+declare const DISPLAY_NAME: string;
 export interface ModalProps extends PortalProps {
     /**
      * The extra css in js
@@ -9,7 +10,7 @@ export interface ModalProps extends PortalProps {
     /**
      * The name for this element
      */
-    name?: string | 'C4tModal';
+    name?: typeof DISPLAY_NAME;
     /**
      * The name of the variant to apply on the Portal
      */

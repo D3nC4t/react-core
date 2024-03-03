@@ -6,7 +6,7 @@
   "module": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:D3nC4t/react-core.git"
+    "url": "git+ssh://git@github.com/D3nC4t/react-core.git"
   },
   "keywords": [
     "code",

@@ -28,8 +28,7 @@ import {
 } from "react/jsx-runtime";
 import {
   forwardRef,
-  useEffect,
-  useState,
+  useMemo,
 } from 'react';
 import {
   FontAwesomeIcon
@@ -49,21 +48,14 @@ export var Icon = forwardRef(function(_a, ref) {
     inputProps = __rest(_a, ["name"]);
   var theme = useTheme();
   var withProps = useDefaultProps(inputProps, name);
-  var _c = useState(),
-    color = _c[0],
-    setColor = _c[1];
-  useEffect(function() {
-    var _a;
-    if (!withProps.color) {
-      setColor(undefined);
-      return;
-    }
-    var useColor = withProps.color;
-    var variant = (_a = withProps.colorVariant) !== null && _a !== void 0 ? _a : 'main';
+  var color = useMemo(function() {
+    var _a, _b;
+    var useColor = (_a = withProps.color) !== null && _a !== void 0 ? _a : 'primary';
+    var variant = (_b = withProps.colorVariant) !== null && _b !== void 0 ? _b : 'main';
     if (theme.color[useColor] && theme.color[useColor][variant]) {
       useColor = theme.color[useColor][variant];
     }
-    setColor(useColor);
+    return useColor;
   }, [withProps.color, withProps.colorVariant]);
   return (withProps.icon ?
     _jsx(FontAwesomeIcon, __assign({

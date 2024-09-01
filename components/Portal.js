@@ -148,7 +148,7 @@ export var Portal = forwardRef(function(_a, ref) {
         ref: innerRef,
         "$fadeDuration": fadeDuration
       }, {
-        children: _jsx(Box, __assign({
+        children: isOpen ? (_jsx(Box, __assign({
           className: getClassName(withProps, name, withProps.variant),
           name: name,
           onClick: function(event) {
@@ -164,6 +164,7 @@ export var Portal = forwardRef(function(_a, ref) {
         }, _objectWithoutProperties(withProps, [
           'className',
           'container',
+          'fadeOutChildren',
           'jCss',
           'onClick',
           'onClose',
@@ -171,7 +172,7 @@ export var Portal = forwardRef(function(_a, ref) {
           'updateRef',
         ]), {
           children: children
-        }))
+        }))) : withProps.fadeOutChildren
       })), (_g = withProps.container) !== null && _g !== void 0 ? _g : document.body)
   })));
 });

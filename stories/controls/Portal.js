@@ -39,6 +39,12 @@ var PortalControls = __assign({
       type: 'null'
     },
   },
+  fadeOutChildren: {
+    description: 'The content of the Portal element when it is closing',
+    control: {
+      type: 'number'
+    },
+  },
   onClose: {
     description: 'The callback fired when the component requests to be closed',
     control: {

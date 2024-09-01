@@ -268,6 +268,24 @@ export function getModuleLocale(module, locale) {
   return (_b = (_a = getModule(module)) === null || _a === void 0 ? void 0 : _a[locale]) !== null && _b !== void 0 ?
     _b : undefined;
 }
+export function getTranslation(module, key, locale) {
+  var _a, _b;
+  if (locale === void 0) {
+    locale = 'en';
+  }
+  return __awaiter(this, void 0, void 0, function() {
+    return __generator(this, function(_c) {
+      switch (_c.label) {
+        case 0:
+          return [4 /*yield*/ , loadI18nModuleData(locale, module)];
+        case 1:
+          return [2 /*return*/ , (_b = (_a = (_c.sent())) === null || _a === void 0 ? void 0 : _a[key]) !==
+            null && _b !== void 0 ? _b : ''
+          ];
+      }
+    });
+  });
+}
 export function registerModule(module, locales) {
   modules[module] = locales;
 }

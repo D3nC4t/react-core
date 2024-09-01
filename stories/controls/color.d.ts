@@ -1,5 +1,6 @@
 import { Meta } from '@storybook/react';
-import { ColorVariants, Theme } from '../../types';
+import { Colors, ColorVariants, Theme } from '../../types';
+export declare const getThemeColorNames: () => (keyof Colors)[];
 export declare const getThemeColorOptions: () => string[];
 export declare const getThemeColorVariantOptions: () => (string | undefined)[];
 export declare const ColorControls: Meta<{

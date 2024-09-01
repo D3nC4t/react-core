@@ -1,9 +1,12 @@
 import { ForwardRefExoticComponent, ReactElement, RefAttributes } from 'react';
+import Icon from './Icon';
 import Link from './Link';
 import { BoxProps } from './Box';
 import { ColorVariants, JCssProps, Theme } from '../types';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 declare const DISPLAY_NAME: string;
+export type Crumb = ReactElement<typeof Link | typeof Icon>;
+export type CrumbLink = ReactElement<typeof Link>;
 export interface BreadcrumbsProps extends BoxProps {
     /**
      * The index of the active element
@@ -12,7 +15,7 @@ export interface BreadcrumbsProps extends BoxProps {
     /**
      * The value to be shown as content of the div
      */
-    children: ReactElement<typeof Link>[];
+    children: CrumbLink[];
     /**
      * The name of the color to apply on the html element, it can be also a static color(rgb, hex, etc)
      */

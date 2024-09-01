@@ -38,8 +38,7 @@ import {
 import {
   forwardRef,
   useCallback,
-  useState,
-  useLayoutEffect,
+  useMemo,
 } from 'react';
 import Box from './Box';
 import _objectWithoutProperties from '../utils/_objectWithoutProperties';
@@ -58,11 +57,7 @@ export var CircularLoading = forwardRef(function(_a, ref) {
   var _b = _a.name,
     name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["name"]);
-  var _c = useState([]),
-    $lines = _c[0],
-    set$lines = _c[1];
   var withProps = useDefaultProps(inputProps, name);
-  var jCss = useVariantJCss(withProps, name, withProps.variant);
   var getClass = useCallback(function() {
     var _a;
     var mutations = [];
@@ -73,7 +68,7 @@ export var CircularLoading = forwardRef(function(_a, ref) {
       _a !== void 0 ? _a : 'root'
     ], mutations, false));
   }, [name, withProps, withProps.variant]);
-  useLayoutEffect(function() {
+  var $lines = useMemo(function() {
     var _a, _b, _c;
     var $lines = [];
     var nLines = withProps.nLines || 1;
@@ -88,8 +83,9 @@ export var CircularLoading = forwardRef(function(_a, ref) {
           })
         }), i)));
     }
-    set$lines($lines);
+    return $lines;
   }, [withProps.linesJCss, withProps.lines$el, withProps.nLines]);
+  var jCss = useVariantJCss(withProps, name, withProps.variant);
   return (_jsx(Box, __assign({
     className: getClass(),
     jCss: jCss,

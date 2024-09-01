@@ -23,7 +23,7 @@ var FadeControls = __assign({
   children: {
     description: 'The content of the Fade element, ideally should be a ReactElement',
     control: {
-      type: 'null'
+      type: 'function'
     },
   },
   duration: {
@@ -41,37 +41,37 @@ var FadeControls = __assign({
   onEnter: {
     description: 'Callback fired before the "entering" status is applied',
     control: {
-      type: 'null'
+      type: 'function'
     },
   },
   onEntering: {
     description: 'Callback fired after the "entering" status is applied',
     control: {
-      type: 'null'
+      type: 'function'
     },
   },
   onEntered: {
     description: 'Callback fired after the "entered" status is applied',
     control: {
-      type: 'null'
+      type: 'function'
     },
   },
   onExit: {
     description: 'Callback fired before the "exiting" status is applied',
     control: {
-      type: 'null'
+      type: 'function'
     },
   },
   onExiting: {
     description: 'Callback fired after the "exiting" status is applied',
     control: {
-      type: 'null'
+      type: 'function'
     },
   },
   onExited: {
     description: 'Callback fired after the "exited" status is applied',
     control: {
-      type: 'null'
+      type: 'function'
     },
   }
 }, DefaultC4tControls);

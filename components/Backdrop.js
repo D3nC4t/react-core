@@ -27,8 +27,7 @@ import {
 } from "react/jsx-runtime";
 import {
   forwardRef,
-  useState,
-  useEffect
+  useMemo,
 } from 'react';
 import Fade from './Fade';
 import {
@@ -44,12 +43,9 @@ export var Backdrop = forwardRef(function(_a, ref) {
     name = _j === void 0 ? DISPLAY_NAME : _j,
     inputProps = __rest(_a, ["boxProps", "children", "name"]);
   var withProps = useDefaultProps(inputProps, name);
-  var _k = useState(false),
-    _in = _k[0],
-    set_in = _k[1];
-  useEffect(function() {
+  var _in = useMemo(function() {
     var _a;
-    set_in((_a = withProps.in) !== null && _a !== void 0 ? _a : true);
+    return (_a = withProps.in) !== null && _a !== void 0 ? _a : true;
   }, [withProps.in]);
   return (_jsx(Fade, __assign({
     boxProps: boxProps,

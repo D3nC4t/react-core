@@ -32,18 +32,6 @@ var makeVariant = function(theme, color, variant) {
               color: theme.color[color].dark,
             },
           },
-          '&:not(:last-of-type)': {
-            borderBottom: function(theme, props) {
-              return props.orientation === 'vertical' ?
-                makeBorder(theme, 'solid', color, 'lighter') :
-                0;
-            },
-            borderRight: function(theme, props) {
-              return props.orientation === 'horizontal' ?
-                makeBorder(theme, 'solid', color, 'lighter') :
-                0;
-            },
-          },
         },
       };
       break;
@@ -83,14 +71,20 @@ var makeVariant = function(theme, color, variant) {
               color: theme.color[color].dark,
             },
           },
-          '&:not(:first-of-type)': {
-            borderLeft: 0,
-          },
           '&[disabled], &[disabled]:hover': {
             color: theme.color.grey.lighter,
             border: makeBorder(theme, 'dashed', 'grey', 'lighter'),
-            '&:not(:first-of-type)': {
-              borderLeft: 0,
+          },
+          '&:not(:last-of-type)': {
+            borderRightWidth: function(theme, props) {
+              return props.orientation === 'vertical' ?
+                "".concat(theme.shape.border.size).concat(theme.shape.border.unit) :
+                0;
+            },
+            borderBottomWidth: function(theme, props) {
+              return props.orientation !== 'vertical' ?
+                "".concat(theme.shape.border.size).concat(theme.shape.border.unit) :
+                0;
             },
           },
         },
@@ -108,14 +102,20 @@ var makeVariant = function(theme, color, variant) {
               color: theme.color[color].dark,
             },
           },
-          '&:not(:first-of-type)': {
-            borderLeft: 0,
-          },
           '&[disabled], &[disabled]:hover': {
             color: theme.color.grey.lighter,
             border: makeBorder(theme, 'dotted', 'grey', 'lighter'),
-            '&:not(:first-of-type)': {
-              borderLeft: 0,
+          },
+          '&:not(:last-of-type)': {
+            borderRightWidth: function(theme, props) {
+              return props.orientation === 'vertical' ?
+                "".concat(theme.shape.border.size).concat(theme.shape.border.unit) :
+                0;
+            },
+            borderBottomWidth: function(theme, props) {
+              return props.orientation !== 'vertical' ?
+                "".concat(theme.shape.border.size).concat(theme.shape.border.unit) :
+                0;
             },
           },
         },
@@ -133,14 +133,20 @@ var makeVariant = function(theme, color, variant) {
               color: theme.color[color].dark,
             },
           },
-          '&:not(:last-of-type)': {
-            borderRight: 0,
-          },
           '&[disabled], &[disabled]:hover': {
             color: theme.color.grey.lighter,
             border: makeBorder(theme, 'solid', 'grey', 'lighter'),
-            '&:not(:last-of-type)': {
-              borderRight: 0,
+          },
+          '&:not(:last-of-type)': {
+            borderRightWidth: function(theme, props) {
+              return props.orientation === 'vertical' ?
+                "".concat(theme.shape.border.size).concat(theme.shape.border.unit) :
+                0;
+            },
+            borderBottomWidth: function(theme, props) {
+              return props.orientation !== 'vertical' ?
+                "".concat(theme.shape.border.size).concat(theme.shape.border.unit) :
+                0;
             },
           },
         },
@@ -255,10 +261,28 @@ var ButtonGroup = function(theme) {
               borderRadius: 0,
               '&:first-of-type': {
                 borderTopLeftRadius: "".concat(theme.shape.border.radius).concat(theme.shape.border.unit),
-                borderBottomLeftRadius: "".concat(theme.shape.border.radius).concat(theme.shape.border.unit),
+                borderTopRightRadius: function(theme, props) {
+                  return props.orientation === 'vertical' ?
+                    "".concat(theme.shape.border.radius).concat(theme.shape.border.unit) :
+                    0;
+                },
+                borderBottomLeftRadius: function(theme, props) {
+                  return props.orientation !== 'vertical' ?
+                    "".concat(theme.shape.border.radius).concat(theme.shape.border.unit) :
+                    0;
+                },
               },
               '&:last-of-type': {
-                borderTopRightRadius: "".concat(theme.shape.border.radius).concat(theme.shape.border.unit),
+                borderTopRightRadius: function(theme, props) {
+                  return props.orientation !== 'vertical' ?
+                    "".concat(theme.shape.border.radius).concat(theme.shape.border.unit) :
+                    0;
+                },
+                borderBottomLeftRadius: function(theme, props) {
+                  return props.orientation == 'vertical' ?
+                    "".concat(theme.shape.border.radius).concat(theme.shape.border.unit) :
+                    0;
+                },
                 borderBottomRightRadius: "".concat(theme.shape.border.radius).concat(theme.shape.border.unit),
               },
               '&[disabled], &[disabled]:hover': {

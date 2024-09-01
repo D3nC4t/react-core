@@ -28,9 +28,8 @@ import {
 import {
   forwardRef,
   useImperativeHandle,
+  useMemo,
   useRef,
-  useState,
-  useEffect,
 } from 'react';
 import Box from './Box';
 import Typography from './Typography';
@@ -50,28 +49,25 @@ export var CircularProgress = forwardRef(function(_a, ref) {
     inputProps = __rest(_a, ["name"]);
   var withProps = useDefaultProps(inputProps, name);
   var innerRef = useRef(null);
-  var _e = useState(0),
-    percentage = _e[0],
-    setPercentage = _e[1];
+  var percentage = useMemo(function() {
+    var _a, _b, _c;
+    var max = (_a = withProps.max) !== null && _a !== void 0 ? _a : 100;
+    var min = (_b = withProps.min) !== null && _b !== void 0 ? _b : 0;
+    var value = (_c = withProps.value) !== null && _c !== void 0 ? _c : 0;
+    if (value < min) {
+      return 0;
+    }
+    if (value > max) {
+      return 100;
+    }
+    return Math.round((value - min) / (max - min) * 100);
+  }, [withProps.max, withProps.min, withProps.percentage, withProps.value]);
   var jCss = useVariantJCss(__assign(__assign({}, withProps), {
     percentage: percentage
   }), name, withProps.variant);
   useImperativeHandle(ref, function() {
     return innerRef.current;
   }, []);
-  useEffect(function() {
-    var _a, _b, _c;
-    var max = (_a = withProps.max) !== null && _a !== void 0 ? _a : 100;
-    var min = (_b = withProps.min) !== null && _b !== void 0 ? _b : 0;
-    var value = (_c = withProps.value) !== null && _c !== void 0 ? _c : 0;
-    if (value < min) {
-      setPercentage(0);
-    } else if (value > max) {
-      setPercentage(100);
-    } else {
-      setPercentage(Math.round((value - min) / (max - min) * 100));
-    }
-  }, [withProps.max, withProps.min, withProps.percentage, withProps.value]);
   return (_jsx(Box, __assign({
     className: getClassName(withProps, name, withProps.variant),
     jCss: jCss,

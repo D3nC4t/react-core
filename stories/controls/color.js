@@ -11,6 +11,9 @@ var __spreadArray = (this && this.__spreadArray) || function(to, from, pack) {
 import {
   appTheme
 } from '../../theme';
+export var getThemeColorNames = function() {
+  return Object.keys(appTheme.color);
+};
 export var getThemeColorOptions = function() {
   var colors = [];
   for (var _i = 0, _a = Object.values(appTheme.color); _i < _a.length; _i++) {

@@ -45,7 +45,7 @@ export interface ChipProps<Tag extends keyof React.JSX.IntrinsicElements = 'div'
     /**
      * The action to be triggered when the remove icon is clicked
      */
-    onRemove?: (event: MouseEvent<SVGSVGElement>) => void;
+    onRemove?: (event: MouseEvent<HTMLButtonElement>) => void;
     /**
      * The color for the remove icon
      */

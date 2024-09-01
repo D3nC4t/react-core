@@ -1,5 +1,8 @@
 import _extends from '../../../../utils/extends';
 import _objectWithoutProperties from '../../../../utils/_objectWithoutProperties';
+import {
+  throwError
+} from '../../../../error';
 var sortBreakpointsValues = function(values) {
   var breakpointsAsArray = Object.keys(values)
     .map(function(key) {
@@ -37,7 +40,9 @@ export default function createBreakpoints(breakpoints) {
 
   function up(key) {
     if (typeof key === 'string' && !values[key]) {
-      throw new Error("C4T: Missing breakpoint with name \"".concat(key, "\""));
+      throwError('COT-1001', {
+        name: key
+      }).then(function() {});
     }
     var value = typeof values[key] === 'number' ? values[key] : key;
     return "@media (min-width:".concat(value).concat(unit, ")");
@@ -45,7 +50,9 @@ export default function createBreakpoints(breakpoints) {
 
   function down(key) {
     if (typeof key === 'string' && !values[key]) {
-      throw new Error("C4T: Missing breakpoint with name \"".concat(key, "\""));
+      throwError('COT-1001', {
+        name: key
+      }).then(function() {});
     }
     var value = typeof values[key] === 'number' ? values[key] : key;
     return "@media (max-width:".concat(value - 0.05).concat(unit, ")");
@@ -53,10 +60,14 @@ export default function createBreakpoints(breakpoints) {
 
   function between(start, end) {
     if (typeof start === 'string' && !values[start]) {
-      throw new Error("C4T: Missing breakpoint with name \"".concat(start, "\""));
+      throwError('COT-1001', {
+        name: start
+      }).then(function() {});
     }
     if (typeof end === 'string' && !values[end]) {
-      throw new Error("C4T: Missing breakpoint with name \"".concat(end, "\""));
+      throwError('COT-1001', {
+        name: end
+      }).then(function() {});
     }
     var endIndex = keys.indexOf(end);
     var startValue = typeof values[start] === 'number' ?
@@ -71,7 +82,9 @@ export default function createBreakpoints(breakpoints) {
 
   function only(key) {
     if (!values[key]) {
-      throw new Error("C4T: Missing breakpoint with name \"".concat(key, "\""));
+      throwError('COT-1001', {
+        name: key
+      }).then(function() {});
     }
     if (keys.indexOf(key) + 1 < keys.length) {
       return between(key, keys[keys.indexOf(key) + 1]);

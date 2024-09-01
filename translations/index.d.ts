@@ -8,6 +8,7 @@ export declare function hasModule(module: string): boolean;
 export declare function getModule(module: string): Record<I18nLocale, I18nModule> | undefined;
 export declare function hasModuleLocale(module: string, locale: I18nLocale): boolean;
 export declare function getModuleLocale(module: string, locale: I18nLocale): I18nModule | undefined;
+export declare function getTranslation(module: string, key: keyof I18nModule, locale?: I18nLocale): Promise<string>;
 export declare function registerModule(module: string, locales: Record<I18nLocale, I18nModule>): void;
 export declare function registerModuleLocale(module: string, locale: I18nLocale, messages: I18nModule): void;
 export declare const watchModuleTranslations: (module: keyof I18nModules, locale: keyof I18nModuleLocales, callback: I18nModuleSubscriptionFn) => UnsubscribeI18nModuleCallback;

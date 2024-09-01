@@ -19,6 +19,14 @@ export interface TypographyProps extends HTMLAttributes<HTMLDivElement> {
      */
     fontFamily?: string;
     /**
+     * The module name for the formatted message, if provided the children must be a string
+     */
+    formattedModule?: string;
+    /**
+     * The values to be parsed to the formatted message
+     */
+    formattedValues?: Record<string, string | number>;
+    /**
      * The extra css in js
      */
     jCss?: JCssProps<Theme, TypographyProps>;

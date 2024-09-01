@@ -28,14 +28,14 @@ import {
 import {
   cloneElement,
   forwardRef,
-  useEffect,
-  useState,
+  useMemo,
 } from 'react';
 import {
   faChevronRight
 } from '@fortawesome/free-solid-svg-icons';
 import Box from './Box';
 import Icon from './Icon';
+import Link from './Link';
 import _objectWithoutProperties from '../utils/_objectWithoutProperties';
 import {
   getClassName
@@ -44,20 +44,41 @@ import {
   useDefaultProps,
   useVariantJCss
 } from '../theme';
+import {
+  validateChildComponent
+} from '../utils';
+import {
+  throwError
+} from '../error';
 var DISPLAY_NAME = 'C4tBreadcrumbs';
 export var Breadcrumbs = forwardRef(function(_a, ref) {
   var children = _a.children,
     _b = _a.name,
     name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["children", "name"]);
-  var _c = useState([]),
-    $crumbs = _c[0],
-    set$crumbs = _c[1];
   var withProps = useDefaultProps(inputProps, name);
-  var jCss = useVariantJCss(withProps, name, withProps.variant);
-  useEffect(function() {
+  var $crumbs = useMemo(function() {
     var _a;
     var index = 0;
+    if (!Array.isArray(children)) {
+      throwError('COT-2008').then(function() {});
+    }
+    var _b = children
+      .map(function(child) {
+        validateChildComponent('Breadcrumbs', child, 'Link', Link);
+        return cloneLink(child);
+      }),
+      $firstCrumb = _b[0],
+      others = _b.slice(1);
+    var delimiter = (_jsx(Icon, {
+      className: getClassName(withProps, name, withProps.variant, 'delimiter'),
+      color: withProps.color,
+      colorVariant: withProps.colorVariant,
+      icon: (_a = withProps.icon) !== null && _a !== void 0 ? _a : faChevronRight
+    }));
+    return others.reduce(function(acc, curr) {
+      return acc.concat(delimiter, curr);
+    }, [$firstCrumb]);
 
     function cloneLink(element) {
       var _a, _b, _c, _d, _e;
@@ -72,22 +93,8 @@ export var Breadcrumbs = forwardRef(function(_a, ref) {
           .colorVariant) !== null && _e !== void 0 ? _e : withProps.colorVariant,
       })));
     }
-    var _b = children
-      .map(function(child) {
-        return cloneLink(child);
-      }),
-      $firstCrumb = _b[0],
-      others = _b.slice(1);
-    var delimiter = (_jsx(Icon, {
-      className: getClassName(withProps, name, withProps.variant, 'delimiter'),
-      color: withProps.color,
-      colorVariant: withProps.colorVariant,
-      icon: (_a = withProps.icon) !== null && _a !== void 0 ? _a : faChevronRight
-    }));
-    set$crumbs(others.reduce(function(acc, curr) {
-      return acc.concat(delimiter, curr);
-    }, [$firstCrumb]));
   }, [children, name, withProps]);
+  var jCss = useVariantJCss(withProps, name, withProps.variant);
   return (_jsx(Box, __assign({
     className: getClassName(withProps, name, withProps.variant),
     jCss: jCss,

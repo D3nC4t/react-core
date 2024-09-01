@@ -12,8 +12,7 @@ var __assign = (this && this.__assign) || function() {
 };
 import {
   useDebugValue,
-  useEffect,
-  useState
+  useMemo
 } from 'react';
 import {
   merge
@@ -24,15 +23,15 @@ import {
   useTheme
 } from '../../theme';
 var defaultTheme = createTheme();
-export default function useDefaultProps(inputProps, componentName, defaultVariant, theme) {
-  if (theme === void 0) {
-    theme = defaultTheme;
+export default function useDefaultProps(inputProps, componentName, defaultVariant, forceTheme) {
+  if (forceTheme === void 0) {
+    forceTheme = defaultTheme;
   }
-  var components = useState(useTheme(theme).components || {})[0];
-  var _a = useState({}),
-    useProps = _a[0],
-    setUseProps = _a[1];
-  useEffect(function() {
+  var theme = useTheme(forceTheme);
+  var components = useMemo(function() {
+    return theme.components || {};
+  }, [theme]);
+  var useProps = useMemo(function() {
     var _a, _b, _c, _d;
     var component = components[componentName];
     if (!component) {
@@ -56,19 +55,21 @@ export default function useDefaultProps(inputProps, componentName, defaultVarian
       var prop = _e[_i];
       var value = baseProps[prop];
       if (typeof value === 'function') {
-        value = value(__assign(__assign({}, inputProps), {
+        value = value(__assign(__assign({
+          theme: theme
+        }, inputProps), {
           name: componentName,
           variant: variant
         }));
       }
       baseProps[prop] = value;
     }
-    setUseProps(merge(baseProps, inputProps, {
+    return merge(baseProps, inputProps, {
       variant: variant
-    }));
+    });
   }, [componentName, components, defaultVariant, objectCode(inputProps)]);
   if (process.env.NODE_ENV !== 'production') {
     useDebugValue(useProps);
   }
-  return useProps;
+  return useProps !== null && useProps !== void 0 ? useProps : inputProps;
 }

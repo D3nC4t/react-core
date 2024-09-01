@@ -25,6 +25,7 @@ import Box from '../../components/Box';
 import Button from '../../components/Button';
 import ButtonGroup from '../../components/ButtonGroup';
 import LocaleProvider from '../../translations/component';
+import Typography from '../../components/Typography';
 import {
   appTheme
 } from '../../theme';
@@ -35,6 +36,7 @@ BaseIcon.displayName = 'Icon';
 Box.displayName = 'Box';
 Button.displayName = 'Button';
 ButtonGroup.displayName = 'ButtonGroup';
+Typography.displayName = 'Typography';
 var meta = {
   title: 'Core/Components/ButtonGroup',
   component: ButtonGroup,
@@ -82,9 +84,18 @@ var renderThemeColors = function(props) {
   var $groups = [];
   for (var _i = 0, _a = Object.keys(appTheme.color); _i < _a.length; _i++) {
     var color = _a[_i];
-    $groups.push(renderButtonGroup(__assign({
-      color: color
-    }, props)));
+    $groups.push(_jsxs(Box, __assign({
+      variant: 'flex-column'
+    }, {
+      children: [_jsx(Typography, __assign({
+        variant: 'h5',
+        color: color
+      }, {
+        children: color
+      })), renderButtonGroup(__assign({
+        color: color
+      }, props))]
+    })));
   }
   return (_jsx(Box, __assign({
     variant: 'flex-row'

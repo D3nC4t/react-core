@@ -30,6 +30,10 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
      */
     jCss?: JCssProps<Theme, ButtonProps>;
     /**
+     * To make the button light
+     */
+    light?: boolean;
+    /**
      * The name for this element
      */
     name?: typeof DISPLAY_NAME;

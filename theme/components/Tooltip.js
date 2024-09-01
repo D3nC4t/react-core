@@ -42,7 +42,7 @@ var Tooltip = {
                 'primary', 'main');
             },
             color: function(theme, props) {
-              return theme.get.color(props.color === 'white' ? 'black' : 'white', 'text');
+              return theme.get.color(props.color === 'light' ? 'dark' : 'light', 'text');
             },
           },
           variant: 'dashed',
@@ -60,7 +60,7 @@ var Tooltip = {
                 'primary', 'main');
             },
             color: function(theme, props) {
-              return theme.get.color(props.color === 'white' ? 'black' : 'white', 'text');
+              return theme.get.color(props.color === 'light' ? 'dark' : 'light', 'text');
             },
           },
           variant: 'dotted',
@@ -78,7 +78,7 @@ var Tooltip = {
                 props.color || 'primary', 'main');
             },
             color: function(theme, props) {
-              return theme.get.color(props.color === 'white' ? 'black' : 'white', 'text');
+              return theme.get.color(props.color === 'light' ? 'dark' : 'light', 'text');
             },
           },
           variant: 'outlined',

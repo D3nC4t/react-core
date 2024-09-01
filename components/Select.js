@@ -66,6 +66,7 @@ import {
   useTheme,
   useVariantJCss
 } from '../theme';
+import ScrollBox from './ScrollBox';
 var DISPLAY_NAME = 'C4tSelect';
 var StyledBox = styled(Box)({
   position: 'relative'
@@ -84,31 +85,31 @@ var StyledIcon = styled('i')({
   position: 'relative'
 });
 export var Select = forwardRef(function(_a, ref) {
-  var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t;
+  var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u;
   var children = _a.children,
-    _u = _a.name,
-    name = _u === void 0 ? DISPLAY_NAME : _u,
-    _v = _a.value,
-    value = _v === void 0 ? [] : _v,
-    _w = _a.usePopover,
-    usePopover = _w === void 0 ? false : _w,
+    _v = _a.name,
+    name = _v === void 0 ? DISPLAY_NAME : _v,
+    _w = _a.value,
+    value = _w === void 0 ? [] : _w,
+    _x = _a.usePopover,
+    usePopover = _x === void 0 ? false : _x,
     inputProps = __rest(_a, ["children", "name", "value", "usePopover"]);
   var theme = useTheme();
-  var _x = useState([]),
-    selected = _x[0],
-    setSelected = _x[1];
-  var _y = useState(false),
-    rejectValue = _y[0],
-    setRejectValue = _y[1];
-  var _z = useState(undefined),
-    selected$el = _z[0],
-    setSelected$el = _z[1];
-  var _0 = useState(false),
-    setupRef = _0[0],
-    setSetupRef = _0[1];
+  var _y = useState([]),
+    selected = _y[0],
+    setSelected = _y[1];
+  var _z = useState(false),
+    rejectValue = _z[0],
+    setRejectValue = _z[1];
+  var _0 = useState(undefined),
+    selected$el = _0[0],
+    setSelected$el = _0[1];
   var _1 = useState(false),
-    showOptions = _1[0],
-    setShowOptions = _1[1];
+    setupRef = _1[0],
+    setSetupRef = _1[1];
+  var _2 = useState(false),
+    showOptions = _2[0],
+    setShowOptions = _2[1];
   var withProps = useDefaultProps(inputProps, name);
   var innerRef = useRef(null);
   var optionsRef = useRef(null);
@@ -210,13 +211,18 @@ export var Select = forwardRef(function(_a, ref) {
       }
     }));
   });
+  var $options$el = (_jsx(ScrollBox, __assign({
+    maxBoxSize: (_c = withProps.maxHeight) !== null && _c !== void 0 ? _c : 300
+  }, {
+    children: $options
+  })));
   return (_jsxs(StyledBox, __assign({
-    className: getClassName((_c = withProps.boxProps) !== null && _c !== void 0 ? _c : {}, name, withProps
+    className: getClassName((_d = withProps.boxProps) !== null && _d !== void 0 ? _d : {}, name, withProps
       .variant),
-    jCss: __assign(__assign({}, jCss), ((_e = (_d = withProps.boxProps) === null || _d === void 0 ? void 0 :
-      _d.jCss) !== null && _e !== void 0 ? _e : {})),
+    jCss: __assign(__assign({}, jCss), ((_f = (_e = withProps.boxProps) === null || _e === void 0 ? void 0 :
+      _e.jCss) !== null && _f !== void 0 ? _f : {})),
     ref: outerRef
-  }, _objectWithoutProperties((_f = withProps.boxProps) !== null && _f !== void 0 ? _f : {}, [
+  }, _objectWithoutProperties((_g = withProps.boxProps) !== null && _g !== void 0 ? _g : {}, [
     'className',
     'jCss',
   ]), {
@@ -244,6 +250,7 @@ export var Select = forwardRef(function(_a, ref) {
         'excludeKeys',
         'inputName',
         'jCss',
+        'maxHeight',
         'multiple',
         'onChange',
         'onClick',
@@ -263,11 +270,11 @@ export var Select = forwardRef(function(_a, ref) {
               className: 'not-selected'
             }, {
               children: _jsx(LocaleProvider, __assign({
-                module: (_g = withProps.intlModule) !== null && _g !== void 0 ?
-                  _g : 'core'
+                module: (_h = withProps.intlModule) !== null && _h !== void 0 ?
+                  _h : 'core'
               }, {
-                children: (_h = withProps.title) !== null && _h !== void 0 ?
-                  _h : (withProps.multiple ?
+                children: (_j = withProps.title) !== null && _j !== void 0 ?
+                  _j : (withProps.multiple ?
                     _jsx(FormattedMessage, {
                       id: 'select.many'
                     }) :
@@ -277,7 +284,7 @@ export var Select = forwardRef(function(_a, ref) {
               }))
             }))), selected.length > 1 && ", +".concat(selected.length - 1)]
         })), _jsx("input", {
-          name: (_j = withProps.inputName) !== null && _j !== void 0 ? _j : name,
+          name: (_k = withProps.inputName) !== null && _k !== void 0 ? _k : name,
           ref: inputRef,
           style: {
             display: 'none'
@@ -287,20 +294,20 @@ export var Select = forwardRef(function(_a, ref) {
           className: " ".concat(baseClassName, "__icon")
         }, {
           children: _jsx(Icon, {
-            color: (_k = withProps.color) !== null && _k !== void 0 ? _k : 'primary',
-            colorVariant: (_l = withProps.colorVariant) !== null && _l !== void 0 ? _l :
+            color: (_l = withProps.color) !== null && _l !== void 0 ? _l : 'primary',
+            colorVariant: (_m = withProps.colorVariant) !== null && _m !== void 0 ? _m :
               'main',
-            icon: showOptions ? ((_m = withProps.closeIcon) !== null && _m !== void 0 ?
-              _m : faAngleUp) : ((_o = withProps.openIcon) !== null && _o !== void 0 ?
-              _o : faAngleDown)
+            icon: showOptions ? ((_o = withProps.closeIcon) !== null && _o !== void 0 ?
+              _o : faAngleUp) : ((_p = withProps.openIcon) !== null && _p !== void 0 ?
+              _p : faAngleDown)
           })
         }))]
       })), usePopover ?
       (_jsx(Popover, __assign({
         "$anchorEl": outerRef.current,
         className: optionsClassName,
-        jCss: __assign(__assign({}, ((_p = jCss === null || jCss === void 0 ? void 0 : jCss["& ."
-            .concat(optionsClassName)]) !== null && _p !== void 0 ? _p : {})), withProps
+        jCss: __assign(__assign({}, ((_q = jCss === null || jCss === void 0 ? void 0 : jCss["& ."
+            .concat(optionsClassName)]) !== null && _q !== void 0 ? _q : {})), withProps
           .optionsJCss),
         onClose: function() {
           return setShowOptions(false);
@@ -309,21 +316,21 @@ export var Select = forwardRef(function(_a, ref) {
           return setShowOptions(true);
         },
         ref: popoverRef,
-        variant: (_q = withProps.paperVariant) !== null && _q !== void 0 ? _q : 'shadowed'
+        variant: (_r = withProps.paperVariant) !== null && _r !== void 0 ? _r : 'shadowed'
       }, {
-        children: $options
+        children: $options$el
       }))) :
       showOptions && (_jsx(StyledSelectOptions, __assign({
         className: optionsClassName,
         jCss: __assign(__assign({}, withProps.optionsJCss), {
-          top: (_s = (_r = outerRef.current) === null || _r === void 0 ? void 0 : _r
-            .clientHeight) !== null && _s !== void 0 ? _s : 0,
+          top: (_t = (_s = outerRef.current) === null || _s === void 0 ? void 0 : _s
+            .clientHeight) !== null && _t !== void 0 ? _t : 0,
           left: 0
         }),
         ref: optionsRef,
-        variant: (_t = withProps.paperVariant) !== null && _t !== void 0 ? _t : 'shadowed'
+        variant: (_u = withProps.paperVariant) !== null && _u !== void 0 ? _u : 'shadowed'
       }, {
-        children: $options
+        children: $options$el
       })))
     ]
   })));

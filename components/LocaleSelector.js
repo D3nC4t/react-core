@@ -27,8 +27,7 @@ import {
 } from "react/jsx-runtime";
 import {
   forwardRef,
-  useEffect,
-  useState,
+  useMemo,
 } from 'react';
 import Select from './Select';
 import _objectWithoutProperties from '../utils/_objectWithoutProperties';
@@ -51,16 +50,12 @@ export var LocaleSelector = forwardRef(function(_a, ref) {
     name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["name"]);
   var enabledLocales = useConfig().enabledLocales;
-  var _c = useState([]),
-    options = _c[0],
-    setOptions = _c[1];
   var withProps = useDefaultProps(inputProps, name);
-  var jCss = useVariantJCss(withProps, name, withProps.variant);
-  useEffect(function() {
+  var options = useMemo(function() {
     var _a;
     var options = [];
     if (!enabledLocales) {
-      return;
+      return [];
     }
     var localesList = enabledLocales === -1 ? Object.keys(I18n) : enabledLocales;
     for (var _i = 0, localesList_1 = localesList; _i < localesList_1.length; _i++) {
@@ -74,8 +69,9 @@ export var LocaleSelector = forwardRef(function(_a, ref) {
         });
       }
     }
-    setOptions(options);
+    return options;
   }, [enabledLocales]);
+  var jCss = useVariantJCss(withProps, name, withProps.variant);
   return (_jsx(Select, __assign({
     className: getClassName(withProps, name, withProps.variant),
     jCss: jCss,

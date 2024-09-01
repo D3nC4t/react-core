@@ -1,4 +1,4 @@
-import { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from 'react';
+import { ForwardRefExoticComponent, HTMLAttributes, ReactElement, RefAttributes } from 'react';
 import { ChildElement, JCssProps, Theme, BoxHTMLTags, ColorVariants, CSSUnit, CSSBorderShape, ThemeColor } from '../types';
 declare const DISPLAY_NAME: string;
 export interface BoxProps extends HTMLAttributes<HTMLDivElement> {
@@ -41,11 +41,11 @@ export interface BoxProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * The value to be shown as content of the div
      */
-    children: ChildElement;
+    children: ReactElement | ChildElement | ReactElement[] | ChildElement[] | string;
     /**
      * The extra css in js
      */
-    jCss?: JCssProps<Theme, BoxProps>;
+    jCss?: JCssProps<Theme>;
     /**
      * The name for this element
      */

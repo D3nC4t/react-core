@@ -23,17 +23,17 @@ var CircularProgress = {
             '&': {
               borderRadius: '50%',
               background: 'radial-gradient(closest-side, ' +
-                theme.get.color(props.color === 'white' ?
-                  'black' :
-                  'white', 'main') +
+                theme.get.color(props.color === 'light' ?
+                  'dark' :
+                  'light', 'main') +
                 ' 89%, transparent 90% 100%)' +
                 ', conic-gradient(' +
                 theme.get.color((_b = props.color) !== null && _b !== void 0 ? _b : 'primary', (_c = props
                   .colorVariant) !== null && _c !== void 0 ? _c : 'main') +
                 " ".concat((_d = props.percentage) !== null && _d !== void 0 ? _d : 0, "%, ") +
-                theme.get.color((_e = (props.color === 'black' ?
-                    'white' :
-                    props.color)) !== null && _e !== void 0 ? _e : 'primary', props.color === 'white' ?
+                theme.get.color((_e = (props.color === 'dark' ?
+                    'light' :
+                    props.color)) !== null && _e !== void 0 ? _e : 'primary', props.color === 'light' ?
                   'darker' :
                   'lighter') +
                 ' 0)',

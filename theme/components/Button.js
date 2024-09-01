@@ -14,11 +14,18 @@ export var makeBorder = function(theme, shape, color, colorVariant) {
   return theme.get.border(theme.shape.border.size, theme.shape.border.unit, shape, color, colorVariant !== null &&
     colorVariant !== void 0 ? colorVariant : 'main');
 };
+export var makeRgbaBorder = function(theme, shape, opacity, color, colorVariant) {
+  var rgba = theme.get.rgba(color, opacity, colorVariant !== null && colorVariant !== void 0 ? colorVariant : 'main');
+  return theme.get.border(theme.shape.border.size, theme.shape.border.unit, shape, rgba);
+};
 var makeVariant = function(theme, color, variant) {
   var styles = {};
   switch (variant) {
     case 'root':
       styles = {
+        '&.light': {
+          color: theme.get.color('dark', 'lighter'),
+        },
         '&:after': {
           background: theme.get.rgba(color, 0.3, 'lighter'),
         },
@@ -37,6 +44,11 @@ var makeVariant = function(theme, color, variant) {
         backgroundColor: theme.color[color].main,
         border: makeBorder(theme, 'solid', color),
         color: theme.color[color].text,
+        '&.light': {
+          backgroundColor: theme.get.rgba(color, 0.25, 'main'),
+          border: makeRgbaBorder(theme, 'solid', 0.25, color),
+          color: theme.get.color('dark', 'lighter'),
+        },
         '&:hover, &:focus': {
           backgroundColor: theme.color[color].dark,
           color: theme.color[color].text,
@@ -50,6 +62,9 @@ var makeVariant = function(theme, color, variant) {
       styles = {
         color: theme.color[color].main,
         border: makeBorder(theme, 'dashed', color),
+        '&.light': {
+          border: makeRgbaBorder(theme, 'dashed', 0.25, color),
+        },
         '&:hover, &:focus': {
           color: theme.color[color].dark,
           borderColor: theme.color[color].dark,
@@ -63,6 +78,9 @@ var makeVariant = function(theme, color, variant) {
       styles = {
         color: theme.color[color].main,
         border: makeBorder(theme, 'dotted', color),
+        '&.light': {
+          border: makeRgbaBorder(theme, 'dotted', 0.25, color),
+        },
         '&:hover, &:focus': {
           color: theme.color[color].dark,
           borderColor: theme.color[color].dark,
@@ -76,6 +94,9 @@ var makeVariant = function(theme, color, variant) {
       styles = {
         color: theme.color[color].main,
         border: makeBorder(theme, 'solid', color),
+        '&.light': {
+          border: makeRgbaBorder(theme, 'solid', 0.25, color),
+        },
         '&:hover, &:focus': {
           color: theme.color[color].dark,
           borderColor: theme.color[color].dark,
@@ -105,6 +126,9 @@ var makeVariant = function(theme, color, variant) {
     case 'text':
       styles = {
         color: theme.color[color].main,
+        '&.light': {
+          color: theme.get.color(color, 'lighter'),
+        },
         '&:hover, &:focus': {
           color: theme.color[color].dark,
           '& > svg': {
@@ -118,6 +142,9 @@ var makeVariant = function(theme, color, variant) {
       styles = {
         borderRadius: '100%',
         color: theme.color[color].main,
+        '&.light': {
+          color: theme.get.color(color, 'lighter'),
+        },
         '& > span': {
           display: 'flex',
           alignItems: 'center',

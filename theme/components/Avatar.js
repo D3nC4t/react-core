@@ -177,7 +177,10 @@ var Avatar = function(theme) {
             display: 'flex',
             justifyContent: 'center',
             padding: 0,
-            width: theme.get.rem(26)
+            width: theme.get.rem(26),
+            '&.has-action:hover': {
+              cursor: 'pointer',
+            }
           }, makeVariants([
             'root', 'contained', 'dashed', 'dotted', 'outlined', 'shadowed',
             'round-contained', 'round-dashed', 'round-dotted',
@@ -191,7 +194,7 @@ var Avatar = function(theme) {
               __assign({
                 alignItems: 'center',
                 borderRadius: 'inherit',
-                color: theme.get.color('white', 'text'),
+                color: theme.get.color('light', 'text'),
                 display: 'flex',
                 fontFamily: theme.typography.fontFamily,
                 justifyContent: 'center',

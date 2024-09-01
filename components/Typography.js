@@ -28,13 +28,19 @@ import {
 } from "react/jsx-runtime";
 import {
   forwardRef,
-  useState,
-  useEffect
+  useMemo,
 } from 'react';
+import {
+  FormattedMessage
+} from 'react-intl';
+import LocaleProvider from '../translations/component';
 import _objectWithoutProperties from '../utils/_objectWithoutProperties';
 import styled, {
   getClassName
 } from '../theme/styled';
+import {
+  throwError
+} from '../error';
 import {
   useDefaultProps,
   useTheme
@@ -49,28 +55,16 @@ export var Typography = forwardRef(function(_a, ref) {
     inputProps = __rest(_a, ["children", "fontFamily", "name", "tag"]);
   var withProps = useDefaultProps(inputProps, name);
   var theme = useTheme();
-  var _c = useState(),
-    $el = _c[0],
-    set$el = _c[1];
-  var _d = useState(),
-    themeVariant = _d[0],
-    setThemeVariant = _d[1];
-  var _e = useState(),
-    htmlTag = _e[0],
-    setHtmlTag = _e[1];
-  useEffect(function() {
-    setThemeVariant(theme.typography.variants[withProps.variant]);
+  var themeVariant = useMemo(function() {
+    return theme.typography.variants[withProps.variant];
   }, [withProps.variant]);
-  useEffect(function() {
+  var htmlTag = useMemo(function() {
     var _a;
-    setHtmlTag((_a = tag !== null && tag !== void 0 ? tag : themeVariant === null || themeVariant === void 0 ?
-      void 0 : themeVariant.defaultTag) !== null && _a !== void 0 ? _a : 'p');
+    return (_a = tag !== null && tag !== void 0 ? tag : themeVariant === null || themeVariant === void 0 ?
+      void 0 : themeVariant.defaultTag) !== null && _a !== void 0 ? _a : 'p';
   }, [tag, themeVariant]);
-  useEffect(function() {
-    if (!htmlTag) {
-      return;
-    }
-    var StyledTypography = styled(htmlTag, {
+  var $el = useMemo(function() {
+    return styled(htmlTag, {
       dontForwardProp: [
         'tag',
         'variant',
@@ -87,8 +81,23 @@ export var Typography = forwardRef(function(_a, ref) {
           void 0 ? _b : 'main'),
       })), themeVariant === null || themeVariant === void 0 ? void 0 : themeVariant.defaultStyles));
     });
-    set$el(StyledTypography);
   }, [fontFamily, htmlTag, themeVariant, withProps.color, withProps.colorVariant]);
+  var text = useMemo(function() {
+    if (withProps.formattedModule) {
+      if (typeof children !== 'string') {
+        throwError('COT-2011');
+      }
+      return (_jsx(LocaleProvider, __assign({
+        module: withProps.formattedModule
+      }, {
+        children: _jsx(FormattedMessage, {
+          id: children,
+          values: withProps.formattedValues || {}
+        })
+      })));
+    }
+    return children;
+  }, [children, withProps.formattedModule, withProps.formattedValues]);
   return ($el ? _jsx($el, __assign({
     className: getClassName(withProps, name, withProps.variant),
     name: name,
@@ -96,7 +105,7 @@ export var Typography = forwardRef(function(_a, ref) {
   }, _objectWithoutProperties(withProps, [
     'className',
   ]), {
-    children: children
+    children: text
   })) : _jsx(_Fragment, {}));
 });
 Typography.displayName = DISPLAY_NAME;

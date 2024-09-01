@@ -75,7 +75,6 @@ var Chip = {
               }
               return theme.get.color((_b = props.color) !== null && _b !== void 0 ? _b : 'primary', variant);
             },
-            cursor: 'pointer',
           }
         }, makeVariants(['root'], function(variant) {
           var _a;

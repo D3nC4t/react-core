@@ -70,13 +70,15 @@ export var Button = forwardRef(function(_a, ref) {
     props = __rest(_a, ["children", "name"]);
   var withProps = useDefaultProps(props, name);
   return (_jsxs(StyledButton, __assign({
-    className: getClassName(withProps, name, withProps.variant),
+    className: getClassName(withProps, name, withProps.variant) +
+      (withProps.light ? ' light' : ''),
     name: name,
     ref: ref
   }, _objectWithoutProperties(withProps, [
     'className',
     'endIcon',
     'endIconProps',
+    'light',
     'startIcon',
     'startIconProps',
     'typographyProps',

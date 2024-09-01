@@ -28,9 +28,7 @@ import {
 } from "react/jsx-runtime";
 import {
   forwardRef,
-  useEffect,
-  useLayoutEffect,
-  useState,
+  useMemo,
 } from 'react';
 import _objectWithoutProperties from '../utils/_objectWithoutProperties';
 import styled, {
@@ -42,20 +40,14 @@ export var Box = forwardRef(function(_a, ref) {
   var children = _a.children,
     _b = _a.name,
     name = _b === void 0 ? DISPLAY_NAME : _b,
-    tag = _a.tag,
-    inputProps = __rest(_a, ["children", "name", "tag"]);
+    inputProps = __rest(_a, ["children", "name"]);
   var withProps = useDefaultProps(inputProps, name);
-  var _c = useState('div'),
-    htmlTag = _c[0],
-    setHtmlTag = _c[1];
-  var _d = useState(),
-    $el = _d[0],
-    set$el = _d[1];
-  useLayoutEffect(function() {
-    setHtmlTag(tag !== null && tag !== void 0 ? tag : 'div');
-  }, [tag]);
-  useEffect(function() {
-    var StyledBox = styled(htmlTag, {
+  var htmlTag = useMemo(function() {
+    var _a;
+    return (_a = withProps.tag) !== null && _a !== void 0 ? _a : 'div';
+  }, [withProps.tag]);
+  var $el = useMemo(function() {
+    return styled(htmlTag, {
       dontForwardProp: ['tag'],
     })(function(_a) {
       var theme = _a.theme,
@@ -73,7 +65,6 @@ export var Box = forwardRef(function(_a, ref) {
         gap: props.$gap
       })));
     });
-    set$el(StyledBox);
   }, [htmlTag]);
   return ($el ? _jsx($el, __assign({
     className: getClassName(withProps, name, withProps.variant),

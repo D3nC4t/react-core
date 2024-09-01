@@ -1,6 +1,9 @@
 import {
   isValidElement
 } from 'react';
+import {
+  throwError
+} from '../error';
 export default function validateChildComponent(name, node, expectedName, expected, preventError) {
   if (preventError === void 0) {
     preventError = false;
@@ -9,7 +12,10 @@ export default function validateChildComponent(name, node, expectedName, expecte
       (node.type && 'render' in node.type && node.type.render === expected.render) ||
       (node.type.prototype && node.type.prototype instanceof expected))) {
     if (process.env.NODE_ENV !== 'production' && !preventError) {
-      throw new Error("C4t: \"".concat(name, "\" only accepts \"").concat(expectedName, "\" as child nodes"));
+      throwError('COT-1002', {
+        name: name,
+        expectedName: expectedName
+      }).then(function() {});
     }
     return false;
   }

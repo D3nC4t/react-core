@@ -44,7 +44,7 @@ var Badge = {
                   'primary', 'main'),
                 borderRadius: theme.get.rem(theme.shape.border.radius, theme.shape.border.unit),
                 bottom: "calc(100% - ".concat(theme.get.rem(8, 'px'), ")"),
-                color: theme.get.color(props.color === 'black' ? 'black' : 'white', 'text'),
+                color: theme.get.color(props.color === 'dark' ? 'dark' : 'light', 'text'),
                 display: 'flex',
                 fontSize: theme.get.rem(12, 'px'),
                 fontWeight: 500,

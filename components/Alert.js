@@ -71,7 +71,7 @@ export var Alert = forwardRef(function(_a, ref) {
   var withProps = useDefaultProps(inputProps, name);
   var jCss = useVariantJCss(withProps, name, withProps.variant);
   var severityColor = severityColors[(_b = withProps.severity) !== null && _b !== void 0 ? _b : 'info'];
-  var defaultVariant = withProps.color === 'black' ? 'text' : 'main';
+  var defaultVariant = withProps.color === 'dark' ? 'text' : 'main';
   useLayoutEffect(function() {
     withProps.icon && validateChildComponent('Alert', withProps.icon, 'Icon', Icon);
   }, [withProps.icon]);

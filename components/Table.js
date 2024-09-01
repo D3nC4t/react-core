@@ -27,7 +27,7 @@ import {
 } from "react/jsx-runtime";
 import {
   forwardRef,
-  useEffect,
+  useLayoutEffect,
 } from 'react';
 import Box from './Box';
 import Body from './Table/Body';
@@ -44,6 +44,9 @@ import {
 import {
   validateChildComponentByTypes
 } from '../utils';
+import {
+  throwError
+} from '../error';
 export {
   default as Body
 }
@@ -69,14 +72,14 @@ export var Table = forwardRef(function(_a, ref) {
     inputProps = __rest(_a, ["children", "name"]);
   var withProps = useDefaultProps(inputProps, name);
   var jCss = useVariantJCss(withProps, name, withProps.variant);
-  useEffect(function() {
+  useLayoutEffect(function() {
     if (!Array.isArray(children)) {
       if (!validateChildComponentByTypes('Table', children, {
           TableBody: Body,
           TableHead: Head,
           TableRow: Row,
         }, true) && process.env.NODE_ENV !== 'production') {
-        throw new Error('C4t: Table must have only Row, Head or Body as children');
+        throwError('COT-2001').then(function() {});
       }
       return;
     }
@@ -92,7 +95,7 @@ export var Table = forwardRef(function(_a, ref) {
           TableHead: Head,
           TableRow: Row,
         }, true) && process.env.NODE_ENV !== 'production') {
-        throw new Error('C4t: Table must have only Row, Head or Body as children');
+        throwError('COT-2001').then(function() {});
       }
     }
   }, [children]);

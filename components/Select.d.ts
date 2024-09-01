@@ -71,6 +71,10 @@ export interface SelectProps extends Omit<HTMLAttributes<HTMLElement>, 'onChange
      */
     paperVariant?: PaperProps['variant'];
     /**
+     * The max height in pixels for the select options box
+     */
+    maxHeight?: number;
+    /**
      * The name for this element
      */
     name?: typeof DISPLAY_NAME;

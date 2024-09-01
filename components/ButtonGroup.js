@@ -27,8 +27,7 @@ import {
 } from "react/jsx-runtime";
 import {
   forwardRef,
-  isValidElement,
-  useEffect,
+  useLayoutEffect,
 } from 'react';
 import Button from './Button';
 import _objectWithoutProperties from '../utils/_objectWithoutProperties';
@@ -38,6 +37,9 @@ import styled, {
 import {
   useDefaultProps
 } from '../theme';
+import {
+  validateChildComponent
+} from '../utils';
 var DISPLAY_NAME = 'C4tButtonGroup';
 var StyledButtonGroup = styled('div')(function(_a) {
   var theme = _a.theme,
@@ -71,22 +73,14 @@ export var ButtonGroup = forwardRef(function(_a, ref) {
     name = _b === void 0 ? DISPLAY_NAME : _b,
     inputProps = __rest(_a, ["children", "name"]);
   var withProps = useDefaultProps(inputProps, name);
-  useEffect(function() {
-    var validateNode = function(node) {
-      if (!isValidElement(node) || !(node.type === Button ||
-          node.type.prototype instanceof Button)) {
-        if (process.env.NODE_ENV !== 'production') {
-          throw new Error('C4t: ButtonGroup only accepts "Button" as child nodes');
-        }
-      }
-    };
+  useLayoutEffect(function() {
     if (Array.isArray(children)) {
       for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
         var node = children_1[_i];
-        validateNode(node);
+        validateChildComponent('ButtonGroup', node, 'Button', Button);
       }
     } else {
-      validateNode(children);
+      validateChildComponent('ButtonGroup', children, 'Button', Button);
     }
   }, [children]);
   return (_jsx(StyledButtonGroup, __assign({

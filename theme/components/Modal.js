@@ -19,7 +19,7 @@ var Modal = function(theme) {
     C4tModal: {
       defaultProps: {
         variant: 'rounded',
-        $bgColor: 'white',
+        $bgColor: 'light',
         $bgColorVariant: 'main',
       },
       variants: {

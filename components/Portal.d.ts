@@ -1,4 +1,4 @@
-import { ForwardedRef, ForwardRefExoticComponent, RefAttributes } from 'react';
+import React, { ForwardedRef, ForwardRefExoticComponent, RefAttributes } from 'react';
 import { BackdropProps } from './Backdrop';
 import { BoxProps } from './Box';
 import { ChildElement, JCssProps, Shadow, Theme } from '../types';
@@ -20,6 +20,10 @@ export interface PortalProps extends Omit<BoxProps, 'variant'> {
      * The container for the portal
      */
     container?: HTMLElement;
+    /**
+     * The content of the Portal element when it is closing
+     */
+    fadeOutChildren?: React.JSX.Element;
     /**
      * The extra css in js
      */

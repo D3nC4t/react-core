@@ -39,10 +39,9 @@ import {
 import React, {
   cloneElement,
   forwardRef,
-  useLayoutEffect,
   useImperativeHandle,
+  useMemo,
   useRef,
-  useState,
 } from 'react';
 import Avatar from './Avatar';
 import Box from './Box';
@@ -55,6 +54,9 @@ import {
   useVariantJCss
 } from '../theme';
 import validateChildComponent from '../utils/validateChildComponent';
+import {
+  throwError
+} from '../error';
 var DISPLAY_NAME = 'C4tAvatarGroup';
 var StyledBox = styled(Box)({}); // Using styled to don't forward the '$' variables
 export var AvatarGroup = forwardRef(function(_a, ref) {
@@ -63,24 +65,15 @@ export var AvatarGroup = forwardRef(function(_a, ref) {
     _c = _a.name,
     name = _c === void 0 ? DISPLAY_NAME : _c,
     inputProps = __rest(_a, ["children", "name"]);
-  var _d = useState([]),
-    $avatars = _d[0],
-    set$avatars = _d[1];
   var withProps = useDefaultProps(inputProps, name);
-  var innerRef = useRef(null);
-  var jCss = useVariantJCss(withProps, name, withProps.variant);
-  useImperativeHandle(ref, function() {
-    return innerRef.current;
-  }, []);
-  useLayoutEffect(function() {
+  var $avatars = useMemo(function() {
     var _a, _b, _c, _d, _e, _f, _g;
-    if (Array.isArray(children)) {
-      for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
-        var node = children_1[_i];
-        validateChildComponent('AvatarGroup', node, 'Avatar', Avatar);
-      }
-    } else {
-      throw new Error('C4t: AvatarGroup only accepts a list of Avatar components as children');
+    if (!Array.isArray(children)) {
+      throwError('COT-2003').then(function() {});
+    }
+    for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
+      var node = children_1[_i];
+      validateChildComponent('AvatarGroup', node, 'Avatar', Avatar);
     }
     var $elCount = children.length;
     var max = (_a = withProps.max) !== null && _a !== void 0 ? _a : $elCount;
@@ -89,16 +82,6 @@ export var AvatarGroup = forwardRef(function(_a, ref) {
     var remaining = total - max + 1 - diff;
     var customSurplus = (_d = (_c = withProps.renderSurplus) === null || _c === void 0 ? void 0 : _c.call(
       withProps, remaining)) !== null && _d !== void 0 ? _d : null;
-    if (customSurplus && process.env.NODE_ENV !== 'production') {
-      if (!React.isValidElement(customSurplus)) {
-        throw new Error('C4t: AvatarGroup renderSurplus prop must return a valid ReactElement');
-      }
-      try {
-        validateChildComponent('AvatarGroup', customSurplus, 'Avatar', Avatar);
-      } catch (e) {
-        throw new Error('C4t: AvatarGroup renderSurplus prop must return a Avatar Element');
-      }
-    }
     var $avatars = [];
     var $elements = __spreadArray(__spreadArray([], children.slice(0, $elCount > max ? max - 1 : max), true), (
       $elCount > max || withProps.total ? (customSurplus ? [customSurplus] : [
@@ -111,6 +94,16 @@ export var AvatarGroup = forwardRef(function(_a, ref) {
           children: ["+", remaining]
         }), 'fixed-plus-count')
       ]) : []), true);
+    if (customSurplus && process.env.NODE_ENV !== 'production') {
+      if (!React.isValidElement(customSurplus)) {
+        throwError('COT-2004').then(function() {});
+      }
+      try {
+        validateChildComponent('AvatarGroup', customSurplus, 'Avatar', Avatar);
+      } catch (e) {
+        throwError('COT-2005').then(function() {});
+      }
+    }
     for (var _h = 0, $elements_1 = $elements; _h < $elements_1.length; _h++) {
       var child = $elements_1[_h];
       var boxProps = child.key === 'plus-count' ? ((_e = child.props.boxProps) !== null && _e !== void 0 ? _e :
@@ -136,7 +129,7 @@ export var AvatarGroup = forwardRef(function(_a, ref) {
       }));
       withProps.flipContent ? $avatars.unshift(newAvatar) : $avatars.push(newAvatar);
     }
-    set$avatars($avatars);
+    return $avatars;
   }, [
     children,
     withProps.flipContent,
@@ -151,6 +144,11 @@ export var AvatarGroup = forwardRef(function(_a, ref) {
     withProps.$bgColor,
     withProps.$bgColorVariant,
   ]);
+  var innerRef = useRef(null);
+  var jCss = useVariantJCss(withProps, name, withProps.variant);
+  useImperativeHandle(ref, function() {
+    return innerRef.current;
+  }, []);
   return (_jsx(StyledBox, __assign({
     className: getClassName(withProps, name, withProps.variant),
     jCss: jCss,

@@ -24,15 +24,15 @@ export type ColorVariants = {
     text: Color;
 };
 export type Colors = Record<string, ColorVariants> & {
-    black: ColorVariants;
+    dark: ColorVariants;
     error: ColorVariants;
     grey: ColorVariants;
     info: ColorVariants;
+    light: ColorVariants;
     primary: ColorVariants;
     secondary: ColorVariants;
     success: ColorVariants;
     warning: ColorVariants;
-    white: ColorVariants;
 };
 export interface Component {
     defaultProps?: Record<string, any>;

@@ -220,7 +220,7 @@ var Select = {
                 minWidth: theme.get.rem(((_k = props.width) !== null && _k !== void 0 ? _k : 128) - (theme.spacing
                   .s + theme.spacing.xs * 2), 'px'),
                 '&.selected': {
-                  backgroundColor: theme.get.color('white', 'main'),
+                  backgroundColor: theme.get.color('light', 'main'),
                   border: theme.get.border(theme.shape.border.size, theme.shape.border.unit, 'dashed', (_l = props
                       .color) !== null && _l !== void 0 ? _l : 'primary', (_m = props.colorVariant) !== null &&
                     _m !== void 0 ? _m : 'dark'),
@@ -267,7 +267,7 @@ var Select = {
                 minWidth: theme.get.rem(((_k = props.width) !== null && _k !== void 0 ? _k : 128) - (theme.spacing
                   .s + theme.spacing.xs * 2), 'px'),
                 '&.selected': {
-                  backgroundColor: theme.get.color('white', 'main'),
+                  backgroundColor: theme.get.color('light', 'main'),
                   border: theme.get.border(theme.shape.border.size, theme.shape.border.unit, 'dotted', (_l = props
                       .color) !== null && _l !== void 0 ? _l : 'primary', (_m = props.colorVariant) !== null &&
                     _m !== void 0 ? _m : 'dark'),
@@ -396,7 +396,7 @@ var Select = {
                 minWidth: theme.get.rem(((_h = props.width) !== null && _h !== void 0 ? _h : 128) - (theme.spacing
                   .s + theme.spacing.xs * 2), 'px'),
                 '&.selected': {
-                  backgroundColor: theme.get.color('white', 'main'),
+                  backgroundColor: theme.get.color('light', 'main'),
                   border: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border
                     .shape, (_j = props.color) !== null && _j !== void 0 ? _j : 'primary', (_k = props
                       .colorVariant) !== null && _k !== void 0 ? _k : 'dark'),
@@ -441,7 +441,7 @@ var Select = {
                 minWidth: theme.get.rem(((_h = props.width) !== null && _h !== void 0 ? _h : 128) - (theme.spacing
                   .s + theme.spacing.xs * 2), 'px'),
                 '&.selected': {
-                  backgroundColor: theme.get.color('white', 'main'),
+                  backgroundColor: theme.get.color('light', 'main'),
                   border: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border
                     .shape, (_j = props.color) !== null && _j !== void 0 ? _j : 'primary', (_k = props
                       .colorVariant) !== null && _k !== void 0 ? _k : 'dark'),
@@ -497,7 +497,7 @@ var Select = {
                   borderBottomRightRadius: 0,
                 },
                 '&.selected': {
-                  backgroundColor: theme.get.color('white', 'main'),
+                  backgroundColor: theme.get.color('light', 'main'),
                   border: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape.border
                     .shape, (_j = props.color) !== null && _j !== void 0 ? _j : 'primary', (_k = props
                       .colorVariant) !== null && _k !== void 0 ? _k : 'dark'),
@@ -583,7 +583,7 @@ var Select = {
                     'main')
                 })),
                 '&.selected': {
-                  backgroundColor: theme.get.color('white', 'main'),
+                  backgroundColor: theme.get.color('light', 'main'),
                   boxShadow: theme.get.shadow(__assign(__assign({}, theme.shadow.bottom), {
                     color: theme.get.rgba((_g = props.color) !== null && _g !== void 0 ? _g : 'primary', 0.4,
                       'dark')

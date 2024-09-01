@@ -160,9 +160,9 @@ var Input = {
             },
             '&:invalid, .invalid &': {
               borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape
-                .border.shape, props.color === 'error' ? 'black' : 'error', 'main'),
+                .border.shape, props.color === 'error' ? 'dark' : 'error', 'main'),
               color: function(theme, props) {
-                return theme.get.color(props.color === 'error' ? 'black' : 'error', 'main');
+                return theme.get.color(props.color === 'error' ? 'dark' : 'error', 'main');
               },
             },
             '&:disabled, &:disabled:hover': {
@@ -278,9 +278,9 @@ var Input = {
             },
             '&:invalid, .invalid &': {
               borderBottom: theme.get.border(theme.shape.border.size, theme.shape.border.unit, theme.shape
-                .border.shape, props.color === 'error' ? 'black' : 'error', 'main'),
+                .border.shape, props.color === 'error' ? 'dark' : 'error', 'main'),
               color: function(theme, props) {
-                return theme.get.color(props.color === 'error' ? 'black' : 'error', 'main');
+                return theme.get.color(props.color === 'error' ? 'dark' : 'error', 'main');
               },
             },
             '&:disabled, &:disabled:hover': {

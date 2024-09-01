@@ -81,7 +81,7 @@ export var Input = forwardRef(function(_a, ref) {
   var debouncedOnChange = useDebouncedCallback(function(event) {
     var _a;
     (_a = withProps.onChange) === null || _a === void 0 ? void 0 : _a.call(withProps, event);
-  }, [withProps.onChange], 300);
+  }, [withProps.onChange], 1000);
   var baseClassName = "".concat(name, "-").concat((_b = withProps.variant) !== null && _b !== void 0 ? _b : 'root');
   var jCss = useVariantJCss(withProps, name, withProps.variant);
   useImperativeHandle(ref, function() {

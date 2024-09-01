@@ -29,15 +29,15 @@ import {
 } from "react/jsx-runtime";
 import {
   forwardRef,
-  useEffect,
   useImperativeHandle,
+  useMemo,
   useRef,
-  useState,
 } from 'react';
 import {
   faCircleXmark
 } from '@fortawesome/free-regular-svg-icons';
 import Avatar from './Avatar';
+import Button from './Button';
 import CircularLoading from './CircularLoading';
 import Icon from './Icon';
 import Typography from './Typography';
@@ -50,22 +50,19 @@ import {
   useVariantJCss
 } from '../theme';
 import validateChildComponent from '../utils/validateChildComponent';
+import {
+  throwError
+} from '../error';
 var DISPLAY_NAME = 'C4tChip';
 export var Chip = forwardRef(function(_a, ref) {
   var _b;
   var _c = _a.name,
     name = _c === void 0 ? DISPLAY_NAME : _c,
     inputProps = __rest(_a, ["name"]);
-  var _d = useState(null),
-    $el = _d[0],
-    set$el = _d[1];
   var withProps = useDefaultProps(inputProps, name);
   var innerRef = useRef(null);
   var jCss = useVariantJCss(withProps, name, withProps.variant);
-  useImperativeHandle(ref, function() {
-    return innerRef.current;
-  }, []);
-  useEffect(function() {
+  var $el = useMemo(function() {
     var _a, _b, _c;
     var $prepend = null;
     var removeIcon = (_a = withProps.removeIcon) !== null && _a !== void 0 ? _a : faCircleXmark;
@@ -76,20 +73,25 @@ export var Chip = forwardRef(function(_a, ref) {
         validateChildComponent('Chip', withProps.prepend, 'Icon', Icon, true)) {
         $prepend = withProps.prepend;
       } else if (process.env.NODE_ENV !== 'production') {
-        throw new Error("C4t: \"Chip\" only accepts \"Avatar\" or \"Icon\" on \"prepend\" prop");
+        throwError('COT-2002').then(function() {});
       }
     }
-    var $removeIcon = withProps.onRemove ? (_jsx(Icon, {
-      className: getClassName(withProps, name, withProps.variant, 'remove-icon'),
-      color: (_b = withProps.removeColor) !== null && _b !== void 0 ? _b : 'primary',
-      colorVariant: (_c = withProps.removeColorVariant) !== null && _c !== void 0 ? _c : 'dark',
-      icon: removeIcon,
+    var $removeIcon = withProps.onRemove ? (_jsx(Button, __assign({
+      variant: 'icon',
       onClick: function(event) {
         var _a;
-        return (_a = withProps.onRemove) === null || _a === void 0 ? void 0 : _a.call(withProps, event);
+        return (_a = withProps.onRemove) === null || _a === void 0 ? void 0 : _a.call(withProps,
+          event);
       }
-    })) : _jsx(_Fragment, {});
-    set$el(_jsxs(StyledTag, __assign({
+    }, {
+      children: _jsx(Icon, {
+        className: getClassName(withProps, name, withProps.variant, 'remove-icon'),
+        color: (_b = withProps.removeColor) !== null && _b !== void 0 ? _b : 'primary',
+        colorVariant: (_c = withProps.removeColorVariant) !== null && _c !== void 0 ? _c : 'dark',
+        icon: removeIcon
+      })
+    }))) : _jsx(_Fragment, {});
+    return (_jsxs(StyledTag, __assign({
       className: getClassName(withProps, name, withProps.variant),
       jCss: jCss,
       name: name
@@ -111,6 +113,9 @@ export var Chip = forwardRef(function(_a, ref) {
       })), $removeIcon]
     })));
   }, [withProps, jCss]);
+  useImperativeHandle(ref, function() {
+    return innerRef.current;
+  }, []);
   return $el !== null && $el !== void 0 ? $el : _jsx(CircularLoading, {
     variant: (_b = withProps.loadingVariant) !== null && _b !== void 0 ? _b : 'root'
   });
